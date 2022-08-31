@@ -2,6 +2,16 @@
 import os
 import re
 
+regex_dict = {
+    "legal_start": r"1\.\s[1-hN][1-3acfg]3?\s[a-hN][6-5acfh]6?\s",
+    "to_long": r"[1-9]?[4-9]\d\.\s",
+    "white_wins": r"(\s1-0)$",
+    "black_wins": r"(\s0-1)$",
+    "white_mates": r"(#\s1-0)$",
+    "black_mates": r"(#\s0-1)$",
+    "kibitz": r"\s[(|{]",
+}
+
 
 def check_path_format(path):
     """Checks the format of the passed path string.
