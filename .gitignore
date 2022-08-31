@@ -1,5 +1,7 @@
 # Author additions
 *.json
+*.txt
+*.pgn
 .vscode/
 vscode/
 
