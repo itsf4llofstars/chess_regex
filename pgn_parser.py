@@ -22,6 +22,18 @@ def check_path_format(path):
 
 
 def check_path_filename(path, filename):
+    """Checks that the path exists and if it
+    does joins the path to the filename. Checks
+    if the path and file exists and returns
+    the path and filename.
+
+    Args:
+        path (str): Path to the pgn file
+        filename (str): pgn filename
+
+    Returns:
+        str: Full path joined to the filename
+    """
     path_filename: str = None
 
     if os.path.isdir(path):
