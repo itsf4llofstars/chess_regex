@@ -4,6 +4,18 @@ import re
 
 
 def check_path_format(path):
+    """Checks the format of the passed path string.
+    If The path does not start with a forward slash
+    as forward slash is added to the beginning of the
+    path. A Trailing slash is not required but can be
+    passed
+
+    Args:
+        path (str): Path to the pgn file
+
+    Returns:
+        str: Path to the string
+    """
     if not path.startswith('/'):
         path = '/' + path
     return path
@@ -21,7 +33,6 @@ def check_path_filename(path, filename):
     return None
 
 
-
 if __name__ == "__main__":
     file_path = "home/bumper/python/chess_regex"
     filename = "test-chess.pgn"
@@ -29,4 +40,3 @@ if __name__ == "__main__":
 
     full_path = check_path_filename(file_path, filename)
     print(full_path)
-
