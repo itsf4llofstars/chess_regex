@@ -84,6 +84,17 @@ def read_pgn_file(full_path):
     return None
 
 
+def get_only_games(chess_list):
+    only_games = []
+    for line in chess_list:
+        if re.search(regex_dict["legal_start" ], line):
+            only_games.append(line)
+
+    if len(only_games):
+        return only_games
+    return None
+
+
 if __name__ == "__main__":
     file_path = "home/bumper/python/chess_regex"
     filename = "test-chess.pgn"
@@ -91,5 +102,6 @@ if __name__ == "__main__":
     file_path = check_path_format(file_path)
     path_file = check_path_filename(file_path, filename)
     chess_pgn = read_pgn_file(path_file)
+    chess_games = get_only_games(chess_pgn)
 
-    [print(line) for line in chess_pgn]
+    [print(game) for game in chess_games]
