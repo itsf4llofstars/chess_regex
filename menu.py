@@ -19,7 +19,16 @@ def display_options():
     return int(input())
 
 
+def max_moves():
+    os.system("clear")
+
+    print("Enter the maximum number of games moves in ten's [4 returns games 39-moves and less]\n")
+    return int(input("What is the maximum amount of moves you would like for your games: "))
+
+
 if __name__ == "__main__":
     user_choice = display_options()
     print(user_choice)
+    move_max = max_moves()
+    print(move_max)
 
