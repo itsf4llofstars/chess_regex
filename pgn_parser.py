@@ -46,6 +46,16 @@ def check_path_filename(path, filename):
 
 
 def read_pgn_file(full_path):
+    """Reads in the pgn file and returns a list
+    of lines stripped of their last char, which
+    is a newline char.
+
+    Args:
+        full_path (str): Full path with filename
+
+    Returns:
+        List[str]: A list of line from the pgn file.
+    """
     lines_stripped = []
 
     try:
