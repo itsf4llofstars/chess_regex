@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.9
 """menu.py file for selecting pgn file actions"""
-import os
+from os import system
 
 
 def display_options():
@@ -13,14 +13,14 @@ def display_options():
         "4) White Checkmates\n"
         "5) Black Checkmates\n"
     )
-    os.system("clear")
+    system("clear")
 
     print(options)
     return int(input())
 
 
 def max_moves():
-    os.system("clear")
+    system("clear")
 
     print("Enter the maximum number of games moves in ten's [4 returns games 39-moves and less]\n")
     return int(input("What is the maximum amount of moves you would like for your games: "))
