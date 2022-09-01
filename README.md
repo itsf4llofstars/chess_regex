@@ -20,10 +20,10 @@ The Functions will be able to parse chess games based on certain criteria.<br>
 As of now, the pgn file is required to be in a specific configuration.<br>
 
 ```
-[Chess Game Meta Data]<br>
-[Chess Game Meta Data]<br>
-[Chess Game Meta Data]<br>
-[Chess Game Meta Data]<br>
+[Chess Game Meta Data]
+[Chess Game Meta Data]
+[Chess Game Meta Data]
+[Chess Game Meta Data]
 
 1. e4 e5 2. Nf3 Nc6 3. Bb4 a6 4. ... 25. Rxd8# 1-0
 ```
