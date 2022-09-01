@@ -13,11 +13,10 @@ regex_dict = {
 
 
 def check_path_format(path):
-    """Checks the format of the passed path string.
-    If The path does not start with a forward slash
-    as forward slash is added to the beginning of the
-    path. A Trailing slash is not required but can be
-    passed
+    """Checks the format of the passed path string. If The path
+    does not start with a forward slash as forward slash is
+    added to the beginning of the path. A Trailing slash is
+    not required but can be passed
 
     Args:
         path (str): Path to the pgn file
@@ -31,10 +30,9 @@ def check_path_format(path):
 
 
 def check_path_filename(path, filename):
-    """Checks that the path exists and if it
-    does joins the path to the filename. Checks
-    if the path and file exists and returns
-    the path and filename.
+    """Checks that the path exists and if it does joins the path
+    to the filename. Checks if the path and file exists and
+    returns the path and filename.
 
     Args:
         path (str): Path to the pgn file
@@ -55,9 +53,8 @@ def check_path_filename(path, filename):
 
 
 def read_pgn_file(full_path):
-    """Reads in the pgn file and returns a list
-    of lines stripped of their last char, which
-    is a newline char.
+    """Reads in the pgn file and returns a list of lines stripped
+    of their last char, which is a newline char.
 
     Args:
         full_path (str): Full path with filename
@@ -84,9 +81,8 @@ def read_pgn_file(full_path):
 
 
 def get_only_games(chess_list):
-    """Adds only those lines from a pgn that begin a
-    chess games with a legal first move. Returns those
-    games as a list.
+    """Adds only those lines from a pgn that begin a chess games
+    with a legal first move. Returns those games as a list.
 
     Args:
         chess_list (List[str]): List of lines from a pgn file
@@ -96,7 +92,7 @@ def get_only_games(chess_list):
     """
     only_games = []
     for line in chess_list:
-        if re.search(regex_dict["legal_start" ], line):
+        if re.search(regex_dict["legal_start"], line):
             only_games.append(line)
 
     if len(only_games):
@@ -105,10 +101,9 @@ def get_only_games(chess_list):
 
 
 def no_long_games(chess_list):
-    """Selects only those games that do not match the
-    regex pattern to_long, appends them to a list. Returns
-    a list of strings of games that are shorter than the
-    to_long regex.
+    """Selects only those games that do not match the regex
+    pattern to_long, appends them to a list. Returns a list of
+    strings of games that are shorter than the to_long regex.
 
     Args:
         chess_list (List[str]): String list of games
@@ -178,6 +173,8 @@ if __name__ == "__main__":
     winners = get_winner(shorter_games, "black", False)
 
     [print(game) for game in winners]
+
+    print(help(get_winner))
 
     """_summary_
 
