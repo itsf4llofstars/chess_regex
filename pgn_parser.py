@@ -7,8 +7,7 @@ regex_dict = {
     "to_long": re.compile(r"[1-9]?[4-9]\d\.\s"),
     "white_wins": re.compile(r"(\s1-0)$"),
     "black_wins": re.compile(r"(\s0-1)$"),
-    "white_mates": re.compile(r"(#\s1-0)$"),
-    "black_mates": re.compile(r"(#\s0-1)$"),
+    "checkmate": re.compile(r"#"),
     "kibitz": re.compile(r"\s[(|{]"),
 }
 
@@ -128,6 +127,40 @@ def no_long_games(chess_list):
     return None
 
 
+def get_winner(chess_games, color, mate):
+    """Appends to a winner list only those game whose winning
+    color matches the wanted win color, and if mate is true
+    appends those games what where won by checkmate
+
+    Args:
+        chess_list (List[str]: List of chess games
+
+    Returns:
+        List[str]: String list of winning color and mate
+                   if wanted
+    """
+    winner = []
+    for game in chess_games:
+        if color.lower() == "white":
+            if re.search(regex_dict["white_wins"], game):
+                if mate:
+                    if re.search(regex_dict["checkmate"], game):
+                        winner.append(game)
+                elif not mate:
+                    winner.append(game)
+        elif color.lower() == "black":
+            if re.search(regex_dict["black_wins"], game):
+                if mate:
+                    if re.search(regex_dict["checkmate"], game):
+                        winner.append(game)
+                elif not mate:
+                    winner.append(game)
+
+    if len(winner):
+        return winner
+    return None
+
+
 if __name__ == "__main__":
     os.system("clear")
 
@@ -139,8 +172,12 @@ if __name__ == "__main__":
     chess_pgn = read_pgn_file(path_file)
     chess_games = get_only_games(chess_pgn)
     shorter_games = no_long_games(chess_games)
+    # winners = get_winner(shorter_games, "white", True)
+    # winners = get_winner(shorter_games, "white", False)
+    # winners = get_winner(shorter_games, "black", True)
+    winners = get_winner(shorter_games, "black", False)
 
-    [print(game) for game in shorter_games]
+    [print(game) for game in winners]
 
     """_summary_
 
