@@ -2,6 +2,7 @@
 *.json
 *.txt
 *.pgn
+!chess-test.pgn
 .vscode/
 vscode/
 
