@@ -106,6 +106,17 @@ def get_only_games(chess_list):
 
 
 def no_long_games(chess_list):
+    """Selects only those games that do not match the
+    regex pattern to_long, appends them to a list. Returns
+    a list of strings of games that are shorter than the
+    to_long regex.
+
+    Args:
+        chess_list (List[str]): String list of games
+
+    Returns:
+        List[str]: String list of shorter games
+    """
     short_games = []
     for game in chess_list:
         if not re.search(regex_dict["to_long"], game):
