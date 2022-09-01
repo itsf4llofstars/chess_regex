@@ -129,6 +129,8 @@ def get_winner(chess_games, color, mate):
 
     Args:
         chess_list (List[str]: List of chess games
+        color (str): The winning color to search for
+        mate (bool): Append only those games with a hash in them
 
     Returns:
         List[str]: String list of winning color and mate
