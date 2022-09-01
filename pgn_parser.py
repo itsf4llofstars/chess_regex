@@ -85,6 +85,16 @@ def read_pgn_file(full_path):
 
 
 def get_only_games(chess_list):
+    """Adds only those lines from a pgn that begin a
+    chess games with a legal first move. Returns those
+    games as a list.
+
+    Args:
+        chess_list (List[str]): List of lines from a pgn file
+
+    Returns:
+        List[str]: String list of only chess games
+    """
     only_games = []
     for line in chess_list:
         if re.search(regex_dict["legal_start" ], line):
@@ -108,6 +118,8 @@ def no_long_games(chess_list):
 
 
 if __name__ == "__main__":
+    os.system("clear")
+
     file_path = "home/bumper/python/chess_regex"
     filename = "test-chess.pgn"
 
@@ -118,4 +130,13 @@ if __name__ == "__main__":
     shorter_games = no_long_games(chess_games)
 
     [print(game) for game in shorter_games]
+
+    """_summary_
+
+    Args:
+        chess_list (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
 
