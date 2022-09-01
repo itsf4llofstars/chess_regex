@@ -95,6 +95,18 @@ def get_only_games(chess_list):
     return None
 
 
+def no_long_games(chess_list):
+    short_games = []
+    for game in chess_list:
+        if not re.search(regex_dict["to_long"], game):
+            short_games.append(game)
+
+    if len(short_games):
+        return short_games
+
+    return None
+
+
 if __name__ == "__main__":
     file_path = "home/bumper/python/chess_regex"
     filename = "test-chess.pgn"
@@ -103,5 +115,7 @@ if __name__ == "__main__":
     path_file = check_path_filename(file_path, filename)
     chess_pgn = read_pgn_file(path_file)
     chess_games = get_only_games(chess_pgn)
+    shorter_games = no_long_games(chess_games)
 
-    [print(game) for game in chess_games]
+    [print(game) for game in shorter_games]
+
