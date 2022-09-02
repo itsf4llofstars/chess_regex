@@ -2,6 +2,6 @@
 import menu as m
 
 users_choice = m.display_options()
-print(users_choice)
-
+user_max_moves = m.max_moves()
+print(users_choice, user_max_moves)
 
