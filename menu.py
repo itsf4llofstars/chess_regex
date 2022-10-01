@@ -22,7 +22,7 @@ def display_options():
 def max_moves():
     system("clear")
 
-    print("Enter the maximum number of games moves in ten's [4 returns games 39-moves and less]\n")
+    print("Enter the maximum number of game moves in ten's [4 returns games with 39-moves and less]\n")
     return int(input("What is the maximum amount of moves you would like for your games: "))
 
 

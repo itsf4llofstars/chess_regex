@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import menu as m
 
-if __name__ == "__main__":
-    pass
+users_choice = m.display_options()
+user_max_moves = m.max_moves()
+

@@ -176,8 +176,6 @@ if __name__ == "__main__":
 
     [print(game) for game in winners]
 
-    print(help(get_winner))
-
     """_summary_
 
     Args:
