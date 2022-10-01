@@ -16,7 +16,7 @@ chess_pgn = [
     "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 Rxf3# 0-1\n",
 ]
 
-regex = re.compile(r'#\s1-0')
+regex = re.compile(r'#\s0-1')
 ans = []
 [ans.append(line.strip()) for line in chess_pgn if re.search(regex, line)]
 [print(line) for line in ans]
