@@ -8,7 +8,7 @@ chess_pgn = [
     "[meta data]\n",
     "[meta data]\n",
     "\n",
-    "1. e4 e5 2. Nf3 Nc6 3. Bb5 { bacon butter } 3... a6 4. Ba4 Nf6 65. O-O Be7 6. Re1# 1-0\n",
+    "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 65. O-O Be7 6. Re1# 1-0\n",
     "\n",
     "[meta data]\n",
     "[meta data]\n",
@@ -16,7 +16,7 @@ chess_pgn = [
     "1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 Nf6 5. O-O Be7 6. Re1 Rxf3# 0-1\n",
 ]
 
-regex = re.compile(r'{')
+regex = re.compile(r'1\.\s[a-hN]')
 ans = []
-[ans.append(line.strip()) for line in chess_pgn if not re.search(regex, line)]
+[ans.append(line.strip()) for line in chess_pgn if re.search(regex, line)]
 [print(line) for line in ans]
