@@ -1,5 +1,9 @@
 # Chess Regex Functions
 
+**Please Note:** Although not much is going on with this project it is currently for use<br>
+with the Linux operating system. I have not yet begun to understand how to make this cross<br>
+platform for Windows or Mac. I do apologize.
+
 ## Synopsis
 
 This repository is for the Python3 files used to parse chess *.pgn files. It is a set<br>
