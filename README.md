@@ -29,5 +29,4 @@ As of now, the pgn file is required to be in a specific configuration.<br>
 ```
 
 This is data for a single game. Note that the games moves are on one non-wrapped<br>
-line and that the moves are a single space from the each other and from the move
-number.<br>
+line and the move numbers are a single space from the piece move nomenclature.<br>
