@@ -22,7 +22,6 @@ good_file = False
 
 while not good_file:
     pgn_file_name = m.get_pgn_file()
-    print(pgn_file_name)
 
     if not m.check_file_exists(pgn_directory, pgn_file_name):
         os.system('clear')
@@ -32,4 +31,6 @@ while not good_file:
 
 del good_file
 
-m.display_options()
+user_option: int = int(m.display_options())
+if isinstance(user_option, int):
+    print(user_option)
