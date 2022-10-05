@@ -3,6 +3,10 @@
 import menu as m
 import os
 
+# Needed for F5 run of python scipt in Vim
+os.system('clear')
+os.system('clear')
+
 pgn_directory = ''  # chess
 good_dir: bool = False
 
@@ -31,6 +35,6 @@ while not good_file:
 
 del good_file
 
-user_option: int = int(m.display_options())
+user_option: int = m.display_options()
 if isinstance(user_option, int):
     print(user_option)

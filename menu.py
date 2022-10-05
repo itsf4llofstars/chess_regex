@@ -30,19 +30,23 @@ def check_file_exists(directory: str, pgn_file: str) -> bool:
 
 def display_options():
     # TODO: Error check 1 < input < 6
-    # TODO: check isinstance int
-    os.system('clear')
-    options = (
-        '\n\tEnter the number for the option you would like to perform:\n\n'
-        '\tReturn Games:\n'
-        '\t1) ending in a draw\n'
-        '\t2) White wins\n'
-        '\t3) Black wins\n'
-        '\t4) White Checkmates\n'
-        '\t5) Black Checkmates\n'
-    )
-    print(options)
-    return int(input())
+    while True:
+        os.system('clear')
+        options = (
+            '\n\tEnter the number for the option you would like to perform:\n\n'
+            '\tReturn Games:\n'
+            '\t1) ending in a draw\n'
+            '\t2) White wins\n'
+            '\t3) Black wins\n'
+            '\t4) White Checkmates\n'
+            '\t5) Black Checkmates\n'
+        )
+        print(options)
+        user_choice = input()
+        if not isinstance(user_choice, int):
+            return int(user_choice)
+        print('Please enter an integer between 1 and 5\n')
+        continue
 
 
 def max_moves():
