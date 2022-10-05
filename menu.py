@@ -29,16 +29,17 @@ def check_file_exists(directory: str, pgn_file: str) -> bool:
 
 
 def display_options():
+    os.system('clear')
     options = (
-        "Enter the number for the option you would like to perform:\n\n"
-        "Return Games:\n"
-        "1) ending in a draw\n"
-        "2) White wins\n"
-        "3) Black wins\n"
-        "4) White Checkmates\n"
-        "5) Black Checkmates\n"
+        'Enter the number for the option you would like to perform:\n\n'
+        'Return Games:\n'
+        '1) ending in a draw\n'
+        '2) White wins\n'
+        '3) Black wins\n'
+        '4) White Checkmates\n'
+        '5) Black Checkmates\n'
     )
-    os.system("clear")
+    os.system('clear')
 
     print(options)
     return int(input())

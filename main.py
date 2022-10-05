@@ -3,7 +3,7 @@
 import menu as m
 import os
 
-pgn_directory = ''
+pgn_directory = ''  # chess
 good_dir: bool = False
 
 while not good_dir:
@@ -17,7 +17,7 @@ while not good_dir:
 
 del good_dir
 
-pgn_file_name: str = ''
+pgn_file_name: str = ''  # pgn-one.pgn
 good_file = False
 
 while not good_file:
@@ -31,3 +31,5 @@ while not good_file:
     good_file = True
 
 del good_file
+
+m.display_options()
