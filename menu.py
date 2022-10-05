@@ -13,6 +13,21 @@ def check_dir(directory: str) -> bool:
     return os.path.isdir(os.path.expanduser(os.path.join('~', directory)))
 
 
+def get_pgn_file() -> str:
+    print("Enter the name of the chess pgn file. .pgn is not required:")
+    print("Example: chess-games[.pgn]\n")
+    file_name: str = str(input())
+
+    if not file_name.endswith('.pgn'):
+        file_name += '.pgn'
+
+    return file_name
+
+
+def check_file_exists(directory: str, pgn_file: str) -> bool:
+    return os.path.isfile(os.path.expanduser(os.path.join('~', directory, pgn_file)))
+
+
 def display_options():
     options = (
         "Enter the number for the option you would like to perform:\n\n"
