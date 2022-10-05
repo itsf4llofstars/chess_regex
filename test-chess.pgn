@@ -1,0 +1,72 @@
+[Chess Game Meta Data]
+[Chess Game Meta Data]
+[Seed Chess Game]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb4 a6
+
+[Chess Game Meta Data]
+[Chess Game Meta Data]
+[White Wins]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb4 a6 33. Nf7 1-0
+
+[Chess Game Meta Data]
+[Chess Game Meta Data]
+[White mates]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb4 a6 37. Bc6# 1-0
+
+[Chess Game Meta Data]
+[Chess Game Meta Data]
+[Black wins]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb4 a6 33. Rxd4 Nf7 0-1
+
+[Chess Game Meta Data]
+[Chess Game Meta Data]
+[Black mates]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb4 a6 37. Rxd4 Bc6# 0-1
+
+[Chess Game Meta Data]
+[Chess Game Meta Data]
+[Illegal 1st Move White]
+
+1. Bd4 e5 2. Nf3 Nc6 3. Bb4 a6 37. Rxd4 Bc6# 0-1
+
+[Chess Game Meta Data]
+[Chess Game Meta Data]
+[Illegal 1st Move Black]
+
+1. e4 Rg2 2. Nf3 Nc6 3. Bb4 a6 37. Rxd4 Bc6# 0-1
+
+[Chess Game Meta Data]
+[Chess Game Meta Data]
+[47 Move Game]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb4 a6 47. Rxd4 Bc6# 0-1
+
+[Chess Game Meta Data]
+[Chess Game Meta Data]
+[Black Draw]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb4 a6 47. Rxd4 Bc6 1/2-1/2
+
+[Chess Game Meta Data]
+[Chess Game Meta Data]
+[White Draw]
+
+1. e4 e5 2. Nf3 Nc6 3. Bb4 a6 47. Rxd4 1/2-1/2
+
+[Chess Game Meta Data]
+[Chess Game Meta Data]
+[Side line]
+
+1. e4 e5 2. Nf3 ( 2. Nc3 d5 ) 2... Nc6 3. Bb4 a6 47. Rxd4# 1-0
+
+[Chess Game Meta Data]
+[Chess Game Meta Data]
+[Annotation]
+
+1. e4 e5 2. Nf3 { Annotation } 2... Nc6 3. Bb4 a6 47. Rxd4# 1-0
+
