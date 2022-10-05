@@ -1,6 +1,16 @@
 #!/usr/bin/env python3.9
 """menu.py file for selecting pgn file actions"""
-from os import system
+import os
+
+
+def get_pgn_dir():
+    print("Enter the directory of your chess pgn file:")
+    print("Example: chess/pgn_files\n")
+    return str(input())
+
+
+def check_dir(directory: str) -> bool:
+    return os.path.isdir(os.path.expanduser(os.path.join('~', directory)))
 
 
 def display_options():
@@ -13,14 +23,14 @@ def display_options():
         "4) White Checkmates\n"
         "5) Black Checkmates\n"
     )
-    system("clear")
+    os.system("clear")
 
     print(options)
     return int(input())
 
 
 def max_moves():
-    system("clear")
+    os.system("clear")
 
     print("Enter the maximum number of game moves in ten's [4 returns games with 39-moves and less]\n")
     return int(input("What is the maximum amount of moves you would like for your games: "))
@@ -31,4 +41,3 @@ if __name__ == "__main__":
     print(user_choice)
     move_max = max_moves()
     print(move_max)
-
