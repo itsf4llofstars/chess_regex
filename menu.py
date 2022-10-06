@@ -30,23 +30,34 @@ def check_file_exists(directory: str, pgn_file: str) -> bool:
 
 def display_options():
     # TODO: Error check 1 < input < 6
+    options = (
+        '\n\tEnter the number for the option you would like to perform:\n\n'
+        '\tReturn Games:\n'
+        '\t1) ending in a draw\n'
+        '\t2) White wins\n'
+        '\t3) Black wins\n'
+        '\t4) White Checkmates\n'
+        '\t5) Black Checkmates\n'
+    )
     while True:
+        # TODO: Fix repeating code
         os.system('clear')
-        options = (
-            '\n\tEnter the number for the option you would like to perform:\n\n'
-            '\tReturn Games:\n'
-            '\t1) ending in a draw\n'
-            '\t2) White wins\n'
-            '\t3) Black wins\n'
-            '\t4) White Checkmates\n'
-            '\t5) Black Checkmates\n'
-        )
         print(options)
-        user_choice = input()
-        if not isinstance(user_choice, int):
-            return int(user_choice)
-        print('Please enter an integer between 1 and 5\n')
-        continue
+        try:
+            user_choice = int(input())
+        except Exception as e:
+            os.system('clear')
+            print('\n\tPlease enter a number between 1 and 5.')
+            input('\tContinue... ')
+        else:
+            if 1 <= user_choice < 6:
+                return user_choice
+                break
+            else:
+                os.system('clear')
+                print('\n\tPlease enter a number between 1 and 5.')
+                input('\tContinue... ')
+                continue
 
 
 def max_moves():
@@ -59,5 +70,5 @@ def max_moves():
 if __name__ == '__main__':
     user_choice = display_options()
     print(user_choice)
-    move_max = max_moves()
-    print(move_max)
+#     move_max = max_moves()
+#     print(move_max)
