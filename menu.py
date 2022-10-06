@@ -40,7 +40,7 @@ def display_options():
         '\t5) Black Checkmates\n'
     )
     while True:
-        # TODO: Fix repeating code
+        ## TODO: Fix repeating code
         os.system('clear')
         print(options)
         try:
@@ -52,7 +52,6 @@ def display_options():
         else:
             if 1 <= user_choice < 6:
                 return user_choice
-                break
             else:
                 os.system('clear')
                 print('\n\tPlease enter a number between 1 and 5.')
