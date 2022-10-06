@@ -4,8 +4,8 @@ import os
 
 
 def get_pgn_dir():
-    print("Enter the directory of your chess pgn file:")
-    print("Example: chess/pgn_files\n")
+    print('Enter the directory of your chess pgn file:')
+    print("If you directory is in '/home/$USER/chess/pgn_files', Enter: chess/pgn_files\n")
     return str(input())
 
 
@@ -14,8 +14,8 @@ def check_dir(directory: str) -> bool:
 
 
 def get_pgn_file() -> str:
-    print("Enter the name of the chess pgn file. .pgn is not required:")
-    print("Example: chess-games[.pgn]\n")
+    print('Enter the name of the chess pgn file. .pgn is not required:')
+    print('Example: chess-games[.pgn]\n')
     file_name: str = str(input())
 
     if not file_name.endswith('.pgn'):
@@ -50,13 +50,13 @@ def display_options():
 
 
 def max_moves():
-    os.system("clear")
+    os.system('clear')
 
     print("Enter the maximum number of game moves in ten's [4 returns games with 39-moves and less]\n")
-    return int(input("What is the maximum amount of moves you would like for your games: "))
+    return int(input('What is the maximum amount of moves you would like for your games: '))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     user_choice = display_options()
     print(user_choice)
     move_max = max_moves()
