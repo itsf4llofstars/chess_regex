@@ -32,31 +32,32 @@ def display_options():
     # TODO: Error check 1 < input < 6
     options = (
         '\n\tEnter the number for the option you would like to perform:\n\n'
-        '\tReturn Games:\n'
-        '\t1) ending in a draw\n'
+        '\tReturn Games that:\n'
+        '\t1) end in a draw\n'
         '\t2) White wins\n'
         '\t3) Black wins\n'
         '\t4) White Checkmates\n'
         '\t5) Black Checkmates\n'
     )
     while True:
-        ## TODO: Fix repeating code
+        ## TODO: Error checking needed
         os.system('clear')
         print(options)
-        try:
-            user_choice = int(input())
-        except Exception as e:
-            os.system('clear')
-            print('\n\tPlease enter a number between 1 and 5.')
-            input('\tContinue... ')
-        else:
-            if 1 <= user_choice < 6:
-                return user_choice
-            else:
-                os.system('clear')
-                print('\n\tPlease enter a number between 1 and 5.')
-                input('\tContinue... ')
-                continue
+        return int(input())
+#         try:
+#             user_choice: int = input()
+#         except TypeError as te:
+#             os.system('clear')
+#             print('\n\tPlease enter a number between 1 and 5.')
+#             input('\tContinue... ')
+#         finally:
+#             if isinstance(user_choice, int):
+#                 if 1 <= user_choice < 6:
+#                     return user_choice
+#                     break
+#             os.system('clear')
+#             print('\n\tPlease enter a number between 1 and 5.')
+#             input('\tContinue... ')
 
 
 def max_moves():
