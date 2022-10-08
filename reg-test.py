@@ -16,3 +16,9 @@ if __name__ == '__main__':
     for line in pgn_file:
         if re.search(white_win, line):
             print(line)
+
+    black_win = r'(\s0-1)$'
+    for line in pgn_file:
+        if re.search(black_win, line):
+            print(line)
+
