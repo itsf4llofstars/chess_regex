@@ -46,8 +46,12 @@ if __name__ == '__main__':
 #             continue
 #         print(line)
 
-    no_sides_kibz_meta =r'[\[|{|(]'
-    for line in pgn_file:
-        if not re.search(no_sides_kibz_meta, line):
-            print(line)
+#     no_sides_kibz_meta =r'[\[|{|(]'
+#     for line in pgn_file:
+#         if not re.search(no_sides_kibz_meta, line):
+#             print(line)
 
+    draws = r'(\s1/2-1/2)$'
+    for line in pgn_file:
+        if re.search(draws, line):
+            print(line)
