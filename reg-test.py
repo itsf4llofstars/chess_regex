@@ -39,10 +39,15 @@ if __name__ == '__main__':
 #         # if re.search(white_illeagal_move, line):
 #             print(line)
 
-    no_forty = r'\s[4-9]\d\.\s'
-    no_hundreds = r'\s\d{3}\.\s'
+#     no_forty = r'\s[4-9]\d\.\s'
+#     no_hundreds = r'\s\d{3}\.\s'
+#     for line in pgn_file:
+#         if re.search(no_forty, line) or re.search(no_hundreds, line):
+#             continue
+#         print(line)
+
+    no_sides_kibz_meta =r'[\[|{|(]'
     for line in pgn_file:
-        if re.search(no_forty, line) or re.search(no_hundreds, line):
-            continue
-        print(line)
+        if not re.search(no_sides_kibz_meta, line):
+            print(line)
 
