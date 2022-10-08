@@ -22,3 +22,8 @@ if __name__ == '__main__':
         if re.search(black_win, line):
             print(line)
 
+    white_mates = r'(#\s1-0)$'
+    for line in pgn_file:
+        if re.search(black_win, line):
+            print(line)
+
