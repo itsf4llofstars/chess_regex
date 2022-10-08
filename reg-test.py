@@ -32,9 +32,17 @@ if __name__ == '__main__':
 #         if re.search(black_mates, line):
 #             print(line)
 
-    white_illeagal_move = r'^(1\.\s[a-hN][3-4acfh]3?)'
-    black_illeagal_move = r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'
+#     white_illeagal_move = r'^(1\.\s[a-hN][3-4acfh]3?)'
+#     black_illeagal_move = r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'
+#     for line in pgn_file:
+#         if re.search(black_illeagal_move, line):
+#         # if re.search(white_illeagal_move, line):
+#             print(line)
+
+    no_forty = r'\s[4-9]\d\.\s'
+    no_hundreds = r'\s\d{3}\.\s'
     for line in pgn_file:
-        if re.search(black_illeagal_move, line):
-        # if re.search(white_illeagal_move, line):
-            print(line)
+        if re.search(no_forty, line) or re.search(no_hundreds, line):
+            continue
+        print(line)
+
