@@ -51,7 +51,12 @@ if __name__ == '__main__':
 #         if not re.search(no_sides_kibz_meta, line):
 #             print(line)
 
-    draws = r'(\s1/2-1/2)$'
+#     draws = r'(\s1/2-1/2)$'
+#     for line in pgn_file:
+#         if re.search(draws, line):
+#             print(line)
+
+    all_mates = r'(#\s[0-1]-[0-1]$)'
     for line in pgn_file:
-        if re.search(draws, line):
+        if re.search(all_mates, line):
             print(line)
