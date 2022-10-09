@@ -22,6 +22,10 @@ if __name__ == '__main__':
 
     with open('/home/bumper/python/chess_regex/regex_test.pgn', 'r') as f:
         for line in f:
-            if not re.search(no_sides_kibz_meta, line) and not re.search(no_hundreds, line) and not re.search(no_forty, line):
-                if re.search(black_illeagal_move, line) and re.search(white_win, line):
+            if not re.search(no_sides_kibz_meta, line) \
+                    and not re.search(no_hundreds, line) \
+                    and not re.search(no_forty, line):
+                if re.search(black_illeagal_move, line) \
+                        and re.search(white_win, line):
                     print(line)
+
