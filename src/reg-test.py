@@ -20,7 +20,7 @@ if __name__ == '__main__':
     draws = r'(\s1/2-1/2)$'
     all_mates = r'(#\s[0-1]-[0-1]$)'
 
-    with open('/home/bumper/python/chess_regex/regex_test.pgn', 'r') as f:
+    with open('/docs/regex_test.pgn', 'r') as f:
         for line in f:
             if not re.search(no_sides_kibz_meta, line) \
                     and not re.search(no_hundreds, line) \

@@ -162,7 +162,7 @@ if __name__ == '__main__':
     os.system('clear')
 
     file_path = 'home/bumper/python/chess_regex'
-    filename = 'test-chess.pgn'
+    filename = '../docs/test-chess.pgn'
 
     file_path = check_path_format(file_path)
     path_file = check_path_filename(file_path, filename)

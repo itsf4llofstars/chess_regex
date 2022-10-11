@@ -2,8 +2,8 @@
 *.json
 *.txt
 *.pgn
-!test-chess.pgn
-!regex_test.pgn
+!docs/test-chess.pgn
+!docs/regex_test.pgn
 .vscode/
 vscode/
 .idea/
