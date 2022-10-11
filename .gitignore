@@ -3,6 +3,7 @@
 *.txt
 *.pgn
 !test-chess.pgn
+!regex_test.pgn
 .vscode/
 vscode/
 .idea/

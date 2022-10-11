@@ -2,6 +2,8 @@
 """menu.py file for selecting pgn file actions"""
 import os
 
+choice = ''
+
 
 def get_pgn_dir():
     print('Enter the directory of your chess pgn file:')
@@ -29,6 +31,8 @@ def check_file_exists(directory: str, pgn_file: str) -> bool:
 
 
 def display_options():
+    global choice
+
     options = (
         '\n\tEnter the number for the option you would like to perform:\n\n'
         '\tReturn Games that:\n'
@@ -65,3 +69,4 @@ def max_moves():
 if __name__ == '__main__':
     user_choice = display_options()
     print(user_choice)
+
