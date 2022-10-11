@@ -160,28 +160,6 @@ def get_winner(chess_games, color, mate):
 
 if __name__ == '__main__':
     os.system('clear')
-
-    file_path = 'home/bumper/python/chess_regex'
-    filename = '../docs/test-chess.pgn'
-
-    file_path = check_path_format(file_path)
-    path_file = check_path_filename(file_path, filename)
-    chess_pgn = read_pgn_file(path_file)
-    chess_games = get_only_games(chess_pgn)
-    shorter_games = no_long_games(chess_games)
-    # winners = get_winner(shorter_games, 'white', True)
-    # winners = get_winner(shorter_games, 'white', False)
-    # winners = get_winner(shorter_games, 'black', True)
-    winners = get_winner(shorter_games, 'black', False)
-
-    [print(game) for game in winners]
-
-    """_summary_
-
-    Args:
-        chess_list (_type_): _description_
-
-    Returns:
-        _type_: _description_
-    """
-
+    path_to_pgn = '/home/bumper/python/chess_regex/docs/pgn_test.pgn'
+    pgn_file = read_pgn_file(path_to_pgn)
+    print(pgn_file)
