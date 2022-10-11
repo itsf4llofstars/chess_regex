@@ -3,8 +3,9 @@ import os
 import re
 
 regex_dict = {
-    'legal_start': re.compile(r'1\.\s[a-hN][3-4acfh]3?\s[1-hN][5-6acfh]6?\s\d\.\s'),
-    'to_long': re.compile(r'[1-9]?[4-9]\d\.\s'),
+    'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
+    'no_forty': re.compile(r'\s[4-9]\d\.\s'),
+    'no_hundred': re.compile(r'\s\d{3}\.\s'),
     'white_wins': re.compile(r'(\s1-0)$'),
     'black_wins': re.compile(r'(\s0-1)$'),
     'checkmate': re.compile(r'#'),
@@ -113,7 +114,7 @@ def no_long_games(chess_list):
     """
     short_games = []
     for game in chess_list:
-        if not re.search(regex_dict['to_long'], game):
+        if not re.search(regex_dict['no_forty'], game) and not re.search(regex_dict['no_hundred'], game):
             short_games.append(game)
 
     if len(short_games):
@@ -122,13 +123,13 @@ def no_long_games(chess_list):
     return None
 
 
-def get_winner(chess_games, color, mate):
+def get_winner(chess_games_list, color, mate):
     """Appends to a winner list only those game whose winning
     color matches the wanted win color, and if mate is true
     appends those games what where won by checkmate
 
     Args:
-        chess_list (List[str]: List of chess games
+        chess_games_list (List[str]: List of chess games
         color (str): The winning color to search for
         mate (bool): Append only those games with a hash in them
 
@@ -137,7 +138,7 @@ def get_winner(chess_games, color, mate):
                    if wanted
     """
     winner = []
-    for game in chess_games:
+    for game in chess_games_list:
         if color.lower() == 'white':
             if re.search(regex_dict['white_wins'], game):
                 if mate:
@@ -160,28 +161,11 @@ def get_winner(chess_games, color, mate):
 
 if __name__ == '__main__':
     os.system('clear')
-
-    file_path = 'home/bumper/python/chess_regex'
-    filename = '../docs/test-chess.pgn'
-
-    file_path = check_path_format(file_path)
-    path_file = check_path_filename(file_path, filename)
-    chess_pgn = read_pgn_file(path_file)
-    chess_games = get_only_games(chess_pgn)
-    shorter_games = no_long_games(chess_games)
-    # winners = get_winner(shorter_games, 'white', True)
-    # winners = get_winner(shorter_games, 'white', False)
-    # winners = get_winner(shorter_games, 'black', True)
-    winners = get_winner(shorter_games, 'black', False)
-
-    [print(game) for game in winners]
-
-    """_summary_
-
-    Args:
-        chess_list (_type_): _description_
-
-    Returns:
-        _type_: _description_
-    """
-
+    path_to_pgn = '/home/bumper/python/chess_regex/docs/pgn_test.pgn'
+    pgn_file_lines = read_pgn_file(path_to_pgn)
+    only_chess_games = get_only_games(pgn_file_lines)
+    short_chess_games = no_long_games(only_chess_games)
+    white_wins = get_winner(short_chess_games, 'white', False)
+    black_wins = get_winner(short_chess_games, 'black', False)
+    print(white_wins)
+    print(black_wins)
