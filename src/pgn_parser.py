@@ -123,13 +123,13 @@ def no_long_games(chess_list):
     return None
 
 
-def get_winner(chess_games, color, mate):
+def get_winner(chess_games_list, color, mate):
     """Appends to a winner list only those game whose winning
     color matches the wanted win color, and if mate is true
     appends those games what where won by checkmate
 
     Args:
-        chess_list (List[str]: List of chess games
+        chess_games_list (List[str]: List of chess games
         color (str): The winning color to search for
         mate (bool): Append only those games with a hash in them
 
@@ -138,7 +138,7 @@ def get_winner(chess_games, color, mate):
                    if wanted
     """
     winner = []
-    for game in chess_games:
+    for game in chess_games_list:
         if color.lower() == 'white':
             if re.search(regex_dict['white_wins'], game):
                 if mate:
@@ -165,11 +165,7 @@ if __name__ == '__main__':
     pgn_file_lines = read_pgn_file(path_to_pgn)
     only_chess_games = get_only_games(pgn_file_lines)
     short_chess_games = no_long_games(only_chess_games)
-    print(short_chess_games)
-    print(len(short_chess_games))
-
-"""
-r'\s[4-9]\d\.\s'
-r'\s\d{3}\.\s'
-r'[1-9]?[4-9]\d\.\s'
-"""
+    white_wins = get_winner(short_chess_games, 'white', False)
+    black_wins = get_winner(short_chess_games, 'black', False)
+    print(white_wins)
+    print(black_wins)
