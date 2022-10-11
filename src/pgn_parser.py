@@ -114,7 +114,7 @@ def no_long_games(chess_list):
     """
     short_games = []
     for game in chess_list:
-        if not re.search(regex_dict['to_long'], game):
+        if not re.search(regex_dict['no_forty'], game) and not re.search(regex_dict['no_hundred'], game):
             short_games.append(game)
 
     if len(short_games):
@@ -164,9 +164,9 @@ if __name__ == '__main__':
     path_to_pgn = '/home/bumper/python/chess_regex/docs/pgn_test.pgn'
     pgn_file_lines = read_pgn_file(path_to_pgn)
     only_chess_games = get_only_games(pgn_file_lines)
-    short_games = no_long_games(only_chess_games)
-    print(short_games)
-    print(len(short_games))
+    short_chess_games = no_long_games(only_chess_games)
+    print(short_chess_games)
+    print(len(short_chess_games))
 
 """
 r'\s[4-9]\d\.\s'
