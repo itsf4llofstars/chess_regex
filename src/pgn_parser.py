@@ -4,7 +4,8 @@ import re
 
 regex_dict = {
     'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
-    'to_long': re.compile(r'[1-9]?[4-9]\d\.\s'),
+    'no_forty': re.compile(r'\s[4-9]\d\.\s'),
+    'no_hundred': re.compile(r'\s\d{3}\.\s'),
     'white_wins': re.compile(r'(\s1-0)$'),
     'black_wins': re.compile(r'(\s0-1)$'),
     'checkmate': re.compile(r'#'),
@@ -162,5 +163,13 @@ if __name__ == '__main__':
     os.system('clear')
     path_to_pgn = '/home/bumper/python/chess_regex/docs/pgn_test.pgn'
     pgn_file_lines = read_pgn_file(path_to_pgn)
-    print(pgn_file_lines)
+    only_chess_games = get_only_games(pgn_file_lines)
+    short_games = no_long_games(only_chess_games)
+    print(short_games)
+    print(len(short_games))
 
+"""
+r'\s[4-9]\d\.\s'
+r'\s\d{3}\.\s'
+r'[1-9]?[4-9]\d\.\s'
+"""
