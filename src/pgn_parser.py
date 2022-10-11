@@ -3,7 +3,7 @@ import os
 import re
 
 regex_dict = {
-    'legal_start': re.compile(r'1\.\s[a-hN][3-4acfh]3?\s[1-hN][5-6acfh]6?\s\d\.\s'),
+    'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
     'to_long': re.compile(r'[1-9]?[4-9]\d\.\s'),
     'white_wins': re.compile(r'(\s1-0)$'),
     'black_wins': re.compile(r'(\s0-1)$'),
@@ -161,5 +161,6 @@ def get_winner(chess_games, color, mate):
 if __name__ == '__main__':
     os.system('clear')
     path_to_pgn = '/home/bumper/python/chess_regex/docs/pgn_test.pgn'
-    pgn_file = read_pgn_file(path_to_pgn)
-    print(pgn_file)
+    pgn_file_lines = read_pgn_file(path_to_pgn)
+    print(pgn_file_lines)
+
