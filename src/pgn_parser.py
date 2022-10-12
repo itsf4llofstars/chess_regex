@@ -42,7 +42,7 @@ def check_path_filename(path, filename):
     Returns:
         str: Full path joined to the filename
     """
-    path_filename: str = None
+    path_filename: str = ''
 
     if os.path.isdir(path):
         path_filename = os.path.join(path, filename)
