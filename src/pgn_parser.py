@@ -42,7 +42,7 @@ def check_path_filename(path, filename):
     Returns:
         str: Full path joined to the filename
     """
-    path_filename: str = None
+    path_filename: str = ''
 
     if os.path.isdir(path):
         path_filename = os.path.join(path, filename)
@@ -79,6 +79,11 @@ def read_pgn_file(full_path):
         if len(lines_stripped):
             return lines_stripped
     return None
+
+
+"""
+Not the best but above is good to publish
+"""
 
 
 def get_only_games(chess_list):
@@ -161,11 +166,15 @@ def get_winner(chess_games_list, color, mate):
 
 if __name__ == '__main__':
     os.system('clear')
-    path_to_pgn = '/home/bumper/python/chess_regex/docs/pgn_test.pgn'
-    pgn_file_lines = read_pgn_file(path_to_pgn)
-    only_chess_games = get_only_games(pgn_file_lines)
-    short_chess_games = no_long_games(only_chess_games)
-    white_wins = get_winner(short_chess_games, 'white', False)
-    black_wins = get_winner(short_chess_games, 'black', False)
-    print(white_wins)
-    print(black_wins)
+
+    pgn_path = 'home/bumper/chess'
+    pgn_path = check_path_format(pgn_path)
+    file_path = check_path_filename(pgn_path, 'bumper.pgn')
+    pgn_file_text = read_pgn_file(file_path)
+    chess_games = get_only_games(pgn_file_text)
+    short_games = no_long_games(chess_games)
+    white_mates = get_winner(short_games, 'white', True)
+    [print(line) for line in white_mates]
+
+    number_of_games = len(white_mates)
+    print(f'Number of games: {number_of_games}')

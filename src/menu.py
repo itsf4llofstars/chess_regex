@@ -47,7 +47,7 @@ def display_options():
         print(options)
         try:
             choice = int(input('\n\tChoice: '))
-        except ValueError as ve:
+        except ValueError:
             os.system('clear')
             print('\n\tPlease enter a number between 1 and 5.')
         else:
@@ -69,4 +69,3 @@ def max_moves():
 if __name__ == '__main__':
     user_choice = display_options()
     print(user_choice)
-
