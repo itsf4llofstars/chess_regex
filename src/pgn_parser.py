@@ -85,6 +85,7 @@ def read_pgn_file(full_path):
 Not the best but above is good to publish
 """
 
+
 def get_only_games(chess_list):
     """Adds only those lines from a pgn that begin a chess games
     with a legal first move. Returns those games as a list.
@@ -177,4 +178,3 @@ if __name__ == '__main__':
 
     number_of_games = len(white_mates)
     print(f'Number of games: {number_of_games}')
-
