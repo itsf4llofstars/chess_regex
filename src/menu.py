@@ -69,4 +69,3 @@ def max_moves():
 if __name__ == '__main__':
     user_choice = display_options()
     print(user_choice)
-
