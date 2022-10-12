@@ -47,7 +47,7 @@ def display_options():
         print(options)
         try:
             choice = int(input('\n\tChoice: '))
-        except ValueError as ve:
+        except ValueError:
             os.system('clear')
             print('\n\tPlease enter a number between 1 and 5.')
         else:
