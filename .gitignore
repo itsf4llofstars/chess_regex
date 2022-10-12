@@ -7,7 +7,7 @@
 .vscode/
 vscode/
 .idea/
-reg-test.py
+./src/reg-test.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
