@@ -3,6 +3,11 @@ from src.pgn_parser import get_only_games
 from src.pgn_parser import no_long_games
 from src.pgn_parser import get_winner
 
+# TODO: Test check_path_format
+# TODO: Test check_path_filename
+# TODO: Test no_side_lines
+# TODO: Test no_kibitz
+
 only_games_test_list = [
     "['Opera House Test']",
     "['Paul Morphy']",
