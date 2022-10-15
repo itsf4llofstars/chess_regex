@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Chess Regex Project main Python3 file"""
 import menu as m
-import os
 
-## Needed for F5 run of python scipt in Vim
+# Needed for F5 run of python script in Vim
 # os.system('clear')
 # os.system('clear')
 #
