@@ -42,13 +42,13 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(test_no_long_games, ["1. e4 e5 2. Nf3 d6 12. d4"])
 
     def test_get_winner_ww(self):
-        """"""
+        """Test to see if only games ending in ( 1-0) are returned"""
         white_wins = get_winner(winner_test_list, 'white', False)
         self.assertEqual(white_wins, ["1. e4 e5 2. Nf3 d6 12. d4 1-0", "1. e4 e5 2. Nf3 d6 12. d4  Bg4 1-0",
                                       "1. e4 e5 2. Nf3 d6 12. d4# 1-0"])
 
     def test_get_winner_wm(self):
-        """"""
+        """Test to see if only games ending in (# 1-0) are returned"""
         white_mates = get_winner(winner_test_list, 'white', True)
         self.assertEqual(white_mates, ["1. e4 e5 2. Nf3 d6 12. d4# 1-0"])
 
