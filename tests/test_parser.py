@@ -35,7 +35,7 @@ winner_test_list = [
 ]
 
 
-class MyTestCase(unittest.TestCase):
+class TestGamesList(unittest.TestCase):
     def test_get_only_games(self):
         """Test if only the game string is return and not the bracketed meta-data"""
         test_only_games = get_only_games(only_games_test_list)

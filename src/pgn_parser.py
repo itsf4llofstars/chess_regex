@@ -128,7 +128,7 @@ def no_long_games(chess_list):
 
     return None
 
-
+# TODO: Re-write for individual win conditions
 def get_winner(chess_games_list, color, mate):
     """Appends to a winner list only those game whose winning
     color matches the wanted win color, and if mate is true
