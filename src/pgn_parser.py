@@ -31,7 +31,7 @@ def check_path_format(path):
 
 
 def check_path_filename(path, filename):
-    """Checks that the path exists and if it does joins the path
+    """Checks that the path exists and if it does join the path
     to the filename. Checks if the path and file exists and
     returns the path and filename.
 
@@ -42,7 +42,7 @@ def check_path_filename(path, filename):
     Returns:
         str: Full path joined to the filename
     """
-    path_filename: str = None
+    path_filename: str = ''
 
     if os.path.isdir(path):
         path_filename = os.path.join(path, filename)
@@ -65,6 +65,7 @@ def read_pgn_file(full_path):
     """
     lines_stripped = []
 
+    # noinspection SpellCheckingInspection
     try:
         with open(full_path, 'r') as fo:
             pgn_file = fo.readlines()
