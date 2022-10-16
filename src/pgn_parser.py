@@ -195,8 +195,7 @@ if __name__ == '__main__':
     # white_mates = get_winner(short_games, 'white', True)
     white_wins = color_wins(short_games, 'white')
     black_wins = color_wins(short_games, 'black')
-    [print(line) for line in white_wins]
-    [print(line) for line in black_wins]
 
-    number_of_games = len(white_wins)
-    print(f'Number of games: {number_of_games}')
+    [print(game) for game in white_wins]
+    [print(game) for game in black_wins]
+
