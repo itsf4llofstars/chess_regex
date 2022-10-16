@@ -9,7 +9,8 @@ regex_dict = {
     'no_hundred': re.compile(r'\s\d{3}\.\s'),
     'white_wins': re.compile(r'(\s1-0)$'),
     'black_wins': re.compile(r'(\s0-1)$'),
-    'checkmate': re.compile(r'#'),
+    'white_mates': re.compile(r'(#\s1-0)$'),
+    'black_mates': re.compile(r'(#\s0-1)$'),
     'kibitz': re.compile(r'\s[(|{]'),
 }
 
@@ -179,8 +180,17 @@ def color_wins(chess_games, color):
     return None
 
 
-def color_mates():
-    pass
+def color_mates(chess_games, color):
+    winner = []
+    for game in chess_games:
+        if color == 'white' and re.search(regex_dict['white_mates'], game):
+            winner.append(game)
+        elif color == 'black' and re.search(regex_dict['black_mates'], game):
+            winner.append(game)
+
+    if len(winner):
+        return winner
+    return None
 
 
 if __name__ == '__main__':
@@ -196,6 +206,9 @@ if __name__ == '__main__':
     white_wins = color_wins(short_games, 'white')
     black_wins = color_wins(short_games, 'black')
 
-    [print(game) for game in white_wins]
-    [print(game) for game in black_wins]
+    white_mates = color_mates(short_games, 'white')
+    black_mates = color_mates(short_games, 'black')
+
+    [print(game) for game in white_mates]
+    [print(game) for game in black_mates]
 
