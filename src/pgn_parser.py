@@ -165,6 +165,21 @@ def get_winner(chess_games_list, color, mate):
     return None
 
 
+def color_wins(chess_games, color):
+    # 'white_wins': re.compile(r'(\s1-0)$'),
+    winner = []
+    for game in chess_games:
+        if re.search(regex_dict['white_wins'], line):
+            winner.append(line)
+    if len(winner):
+        return winner
+    return None
+
+
+def color_mates():
+    pass
+
+
 if __name__ == '__main__':
     os.system('clear')
 
