@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
 import re
+import sys
 
 regex_dict = {
     'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
@@ -166,11 +167,13 @@ def get_winner(chess_games_list, color, mate):
 
 
 def color_wins(chess_games, color):
-    # 'white_wins': re.compile(r'(\s1-0)$'),
     winner = []
     for game in chess_games:
-        if re.search(regex_dict['white_wins'], line):
-            winner.append(line)
+        if color == 'white' and re.search(regex_dict['white_wins'], game):
+            winner.append(game)
+        elif color == 'black' and re.search(regex_dict['black_wins'], game):
+            winner.append(game)
+
     if len(winner):
         return winner
     return None
@@ -185,12 +188,15 @@ if __name__ == '__main__':
 
     pgn_path = 'home/bumper/chess'
     pgn_path = check_path_format(pgn_path)
-    file_path = check_path_filename(pgn_path, 'bumper.pgn')
+    file_path = check_path_filename(pgn_path, 'pgn-one.pgn')
     pgn_file_text = read_pgn_file(file_path)
     chess_games = get_only_games(pgn_file_text)
     short_games = no_long_games(chess_games)
-    white_mates = get_winner(short_games, 'white', True)
-    [print(line) for line in white_mates]
+    # white_mates = get_winner(short_games, 'white', True)
+    white_wins = color_wins(short_games, 'white')
+    black_wins = color_wins(short_games, 'black')
+    [print(line) for line in white_wins]
+    [print(line) for line in black_wins]
 
-    number_of_games = len(white_mates)
+    number_of_games = len(white_wins)
     print(f'Number of games: {number_of_games}')
