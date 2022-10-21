@@ -14,15 +14,15 @@ if __name__ == '__main__':
 
     os.system('clear')
 
-    # mu.print_menu()
-    # users_choice: int = mu.get_user_choice()
-    # mu.check_choice(users_choice)
+    mu.print_menu()
+    users_choice: int = mu.get_user_choice()
+    mu.check_choice(users_choice)
 
-    # pgn_path: str = pgn.get_path()
-    # full_path: str = pgn.expand_path(pgn_path)
+    pgn_path: str = pgn.get_path()
+    full_path: str = pgn.expand_path(pgn_path)
 
-    # full_path_file: str = os.path.join(full_path, pgn.get_pgn_file())
-    full_path_file: str = os.path.join('/home/bumper/chess', 'bumper.pgn')
+    full_path_file: str = os.path.join(full_path, pgn.get_pgn_file())
+    # full_path_file: str = os.path.join('/home/bumper/chess', 'bumper.pgn')
     pgn.check_path_file(full_path_file)
 
     pgn.get_only_games(opera)
