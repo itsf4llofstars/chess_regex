@@ -32,6 +32,12 @@ def get_pgn_file():
     return file_name + '.pgn'
 
 
+def check_path_file(path_to_file):
+    if not os.path.isfile(path_to_file):
+        print('The file does no exist.')
+        exit()
+
+
 if __name__ == '__main__':
     pass
 
