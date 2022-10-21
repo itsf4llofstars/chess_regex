@@ -15,12 +15,21 @@ def get_path():
     return str(input('\tEnter the path to the pgn file: '))
 
 
-def check_path(path_pgn: str) -> str:
+def expand_path(path_pgn: str) -> str:
     if not os.path.isdir(os.path.expanduser(os.path.join('~', path_pgn))):
         print('The path could not be found.')
         exit()
 
     return os.path.expanduser(os.path.join('~', path_pgn))
+
+
+def get_pgn_file():
+    os.system('clear')
+    print('\n\n\tEnter you pgn file name, extension pgn not needed: ', end='')
+    file_name: str = str(input())
+    if file_name.endswith('.pgn'):
+        return file_name
+    return file_name + '.pgn'
 
 
 if __name__ == '__main__':
