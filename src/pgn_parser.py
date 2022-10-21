@@ -4,6 +4,7 @@ bacon is NOT to be merged with main or any other branch
 DO NOT MERGE
 """
 import os
+import re
 from sys import exit
 
 
@@ -36,6 +37,17 @@ def check_path_file(path_to_file):
     if not os.path.isfile(path_to_file):
         print('The file does no exist.')
         exit()
+
+
+def get_only_games(chess_games):
+    """Returns only games that have a legal start to Whites
+    first piece character on Whites 2nd move
+    """
+    only_game_re = r'^(1\.\s[a-hN][3-6afch]3?\s[a-hN][5-6afch]6?\s2\.\s[BNKQRa-h])'
+    # only_game_re = r'^(1\.\s)'
+    for game in chess_games:
+        if re.search(only_game_re, game):
+            print(game)
 
 
 if __name__ == '__main__':
