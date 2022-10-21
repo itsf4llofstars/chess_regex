@@ -40,6 +40,9 @@ def check_path_file(path_to_file):
 
 
 def get_only_games(chess_games):
+    """Returns only games that have a legal start to Whites
+    first piece character on Whites 2nd move
+    """
     only_game_re = r'^(1\.\s[a-hN][3-6afch]3?\s[a-hN][5-6afch]6?\s2\.\s[BNKQRa-h])'
     # only_game_re = r'^(1\.\s)'
     for game in chess_games:
