@@ -30,7 +30,7 @@ def write_file(path_file: str, chess_games_write):
 
 
 if __name__ == '__main__':
-    # read_file('/home/bumper/chess/pgn-one.pgn')
     chess_games = read_file('/home/bumper/chess/games1.pgn')
     write_file('/home/bumper/python/chess_regex/src/test_games.pgn', chess_games)
+    del chess_games
 
