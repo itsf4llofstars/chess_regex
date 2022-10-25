@@ -11,6 +11,7 @@ def read_file(path_file: str):
         with open(path_file, 'r') as fo:
             pgn_lines = fo.readlines()
     except FileNotFoundError as fnfe:
+        # TODO: Build logging structure
         print(fnfe)
     else:
         for line in pgn_lines:
