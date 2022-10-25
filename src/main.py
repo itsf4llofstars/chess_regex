@@ -6,6 +6,7 @@ DO NOT MERGE
 """
 import menu as mu
 import pgn_parser as pgn
+import file_ops as ops
 import os
 
 
@@ -25,7 +26,11 @@ if __name__ == '__main__':
     # full_path_file: str = os.path.join('/home/bumper/chess', 'bumper.pgn')
     pgn.check_path_file(full_path_file)
 
-    pgn.get_only_games(opera)
+    # pgn.get_only_games(opera)
+    chess_games = ops.read_file(full_path_file)
+    ops.write_file('/home/bumper/python/chess_regex/src/test_games.pgn', chess_games)
+    only_games = ops.read_file('/home/bumper/python/chess_regex/src/test_games.pgn')
+    [print(game) for game in only_games]
 
     print('\n\n\tfin')
 
