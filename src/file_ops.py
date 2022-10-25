@@ -25,7 +25,7 @@ def read_file(path_file: str):
 
 def write_file(path_file: str, chess_games_write):
     with open(path_file, 'w') as fo:
-        for line in chess_games:
+        for line in chess_games_write:
             fo.write(line)
             fo.write('\n')
 
