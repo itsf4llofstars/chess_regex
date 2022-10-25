@@ -28,9 +28,9 @@ if __name__ == '__main__':
 
     # pgn.get_only_games(opera)
     chess_games = ops.read_file(full_path_file)
-    ops.write_file('/home/bumper/python/chess_regex/src/test_games.pgn', chess_games)
-    only_games = ops.read_file('/home/bumper/python/chess_regex/src/test_games.pgn')
-    [print(game) for game in only_games]
+    # ops.write_file('/home/bumper/python/chess_regex/src/test_games.pgn', chess_games)
+    # only_games = ops.read_file('/home/bumper/python/chess_regex/src/test_games.pgn')
+    [print(game) for game in chess_games]
 
     print('\n\n\tfin')
 
