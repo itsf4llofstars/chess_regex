@@ -62,7 +62,7 @@ def get_white_wins(chess_games, winner):
     is found in the game.
 
     Args:
-        chess_games: list[str] List of chess games to be parsed
+        chess_games: list[str] List of chess games to be searched
         winner: list[str]: List to be populated with white's wins
     """
     for game in chess_games:
