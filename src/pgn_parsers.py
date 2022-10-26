@@ -98,8 +98,18 @@ def get_black_wins(chess_games, winner):
             winner.append(game)
 
 
-def black_mates(chess_games, color):
-    return None
+def get_black_mates(chess_games, winner):
+    """Accepts a list of chess games and searches for the
+    black_mates regex. Appends the game if the regex black_mates
+    is found in the game.
+
+    Args:
+        chess_games: list[str] List of chess games to be searched
+        winner: list[str]: List to be populated with black's wins
+    """
+    for game in chess_games:
+        if re.search(regex_dict['black_mates'], game):
+            winner.append(game)
 
 
 if __name__ == '__main__':
@@ -126,5 +136,9 @@ if __name__ == '__main__':
     white_mates = []
     get_white_mates(short_games, white_mates)
 
-    [print(game) for game in white_mates]
+    # Black mates function
+    black_mates = []
+    get_black_mates(short_games, black_mates)
+
+    [print(game) for game in black_mates]
 
