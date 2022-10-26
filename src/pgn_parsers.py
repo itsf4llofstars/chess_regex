@@ -56,12 +56,10 @@ def no_long_games(chess_list):
 
     return None
 
-def get_white_wins(chess_games):
-    winner = []
+def get_white_wins(chess_games, winner):
     for game in chess_games:
         if re.search(regex_dict['white_wins'], game):
             winner.append(game)
-    return winner
 
 
 def white_mates(chess_games, color):
@@ -89,7 +87,8 @@ if __name__ == '__main__':
     short_games = no_long_games(raw_games)
 
     # White wins function
-    white_wins = get_white_wins(short_games)
+    white_won = []
+    get_white_wins(short_games, white_won)
 
-    [print(game) for game in white_wins]
+    [print(game) for game in white_won]
 
