@@ -66,6 +66,15 @@ def max_moves():
     return int(input('What is the maximum amount of moves you would like for your games: '))
 
 
+def set_max_move(number):
+    if 2 >= number or number >= 9:
+        print('Your max number of moves is to low or high\n'
+              'Enter a number between 2 and 9 that represents\n'
+              'the tens of moves.')
+        return
+    return number * 10
+
+
 if __name__ == '__main__':
     user_choice = display_options()
     print(user_choice)
