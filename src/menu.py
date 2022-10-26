@@ -6,10 +6,20 @@ choice = ''
 
 
 def get_pgn_dir():
-    print('\tEnter the directory of your chess pgn file:')
-    print("\tIf your directory is '/home/$USER/chess/pgn_files', Enter: chess/pgn_files\n")
-    return str(input('\t'))
+    while True:
+        print('\tEnter the directory of your chess pgn file:')
+        print("\tIf your directory is '/home/$USER/chess/pgn_files', Enter: chess/pgn_files\n")
+        directory = str(input('\t'))
 
+        if not os.path.isdir(os.path.expanduser(os.path.join('~', directory))):
+            print(f'\tThe directory {directory} could not be found')
+            input('\tEnter to retry... ')
+            os.system('clear')
+            continue
+        else:
+            break
+
+    return os.path.isdir(os.path.expanduser(os.path.join('~', directory)))
 
 def check_dir(directory: str) -> bool:
     return os.path.isdir(os.path.expanduser(os.path.join('~', directory)))
