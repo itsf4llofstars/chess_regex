@@ -69,3 +69,15 @@ def max_moves():
 if __name__ == '__main__':
     user_choice = display_options()
     print(user_choice)
+
+    max_move = max_moves()
+    print(max_move)
+
+    pgn_directory = get_pgn_dir()
+    print(pgn_directory)
+
+    pgn_file = get_pgn_file()
+    print(pgn_file)
+
+    if check_file_exists(pgn_directory, pgn_file):
+        print('File exists')
