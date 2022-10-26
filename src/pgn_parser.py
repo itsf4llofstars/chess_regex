@@ -4,17 +4,18 @@ import re
 import sys
 
 regex_dict = {
-    'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
-    'no_forty': re.compile(r'\s[4-9]\d\.\s'),
-    'no_hundred': re.compile(r'\s\d{3}\.\s'),
-    'white_wins': re.compile(r'(\s1-0)$'),
-    'black_wins': re.compile(r'(\s0-1)$'),
-    'white_mates': re.compile(r'(#\s1-0)$'),
-    'black_mates': re.compile(r'(#\s0-1)$'),
-    'kibitz': re.compile(r'\s[(|{]'),
-}
+        'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
+        'no_forty': re.compile(r'\s[4-9]\d\.\s'),
+        'no_hundred': re.compile(r'\s\d{3}\.\s'),
+        'white_wins': re.compile(r'(\s1-0)$'),
+        'black_wins': re.compile(r'(\s0-1)$'),
+        'white_mates': re.compile(r'(#\s1-0)$'),
+        'black_mates': re.compile(r'(#\s0-1)$'),
+        'kibitz': re.compile(r'\s[(|{]'),
+        }
 
 
+# TODO: Move to file_ops.py
 def check_path_format(path):
     """Checks the format of the passed path string. If The path
     does not start with a forward slash as forward slash is
@@ -32,6 +33,7 @@ def check_path_format(path):
     return path
 
 
+# TODO: Move to file_ops.py
 def check_path_filename(path, filename):
     """Checks that the path exists and if it does join the path
     to the filename. Checks if the path and file exists and
@@ -55,6 +57,7 @@ def check_path_filename(path, filename):
     return None
 
 
+# TODO: Move to file_ops.py
 def read_pgn_file(full_path):
     """Reads in the pgn file and returns a list of lines stripped
     of their last char, which is a newline char.
