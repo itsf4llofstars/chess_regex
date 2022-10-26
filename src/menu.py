@@ -7,7 +7,7 @@ choice = ''
 
 def get_pgn_dir():
     print('Enter the directory of your chess pgn file:')
-    print("If you directory is in '/home/$USER/chess/pgn_files', Enter: chess/pgn_files\n")
+    print("If your directory is '/home/$USER/chess/pgn_files', Enter: chess/pgn_files\n")
     return str(input())
 
 
@@ -16,7 +16,7 @@ def check_dir(directory: str) -> bool:
 
 
 def get_pgn_file() -> str:
-    print('Enter the name of the chess pgn file. .pgn is not required:')
+    print('Enter the name of the chess pgn file. .pgn is optional:')
     print('Example: chess-games[.pgn]\n')
     file_name: str = str(input())
 
@@ -69,3 +69,15 @@ def max_moves():
 if __name__ == '__main__':
     user_choice = display_options()
     print(user_choice)
+
+    max_move = max_moves()
+    print(max_move)
+
+    pgn_directory = get_pgn_dir()
+    print(pgn_directory)
+
+    pgn_file = get_pgn_file()
+    print(pgn_file)
+
+    if check_file_exists(pgn_directory, pgn_file):
+        print('File exists')
