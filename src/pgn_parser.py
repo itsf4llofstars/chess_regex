@@ -4,15 +4,15 @@ import re
 import sys
 
 regex_dict = {
-        'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
-        'no_forty': re.compile(r'\s[4-9]\d\.\s'),
-        'no_hundred': re.compile(r'\s\d{3}\.\s'),
-        'white_wins': re.compile(r'(\s1-0)$'),
-        'black_wins': re.compile(r'(\s0-1)$'),
-        'white_mates': re.compile(r'(#\s1-0)$'),
-        'black_mates': re.compile(r'(#\s0-1)$'),
-        'kibitz': re.compile(r'\s[(|{]'),
-        }
+    'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
+    'no_forty': re.compile(r'\s[4-9]\d\.\s'),
+    'no_hundred': re.compile(r'\s\d{3}\.\s'),
+    'white_wins': re.compile(r'(\s1-0)$'),
+    'black_wins': re.compile(r'(\s0-1)$'),
+    'white_mates': re.compile(r'(#\s1-0)$'),
+    'black_mates': re.compile(r'(#\s0-1)$'),
+    'kibitz': re.compile(r'\s[(|{]'),
+}
 
 
 # TODO: Move to file_ops.py
@@ -85,11 +85,6 @@ def read_pgn_file(full_path):
         if len(lines_stripped):
             return lines_stripped
     return None
-
-
-"""
-Not the best but above is good to publish
-"""
 
 
 def get_only_games(chess_list):
