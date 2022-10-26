@@ -6,9 +6,9 @@ choice = ''
 
 
 def get_pgn_dir():
-    print('Enter the directory of your chess pgn file:')
-    print("If your directory is '/home/$USER/chess/pgn_files', Enter: chess/pgn_files\n")
-    return str(input())
+    print('\tEnter the directory of your chess pgn file:')
+    print("\tIf your directory is '/home/$USER/chess/pgn_files', Enter: chess/pgn_files\n")
+    return str(input('\t'))
 
 
 def check_dir(directory: str) -> bool:

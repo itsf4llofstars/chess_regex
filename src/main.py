@@ -16,6 +16,11 @@ if m.check_file_exists(pgn_file_path, pgn_file_name):
 else:
     print('No file')
 
-max_num_moves = m.max_moves()
-max_num_moves = m.set_max_move(max_num_moves)
-print(max_num_moves)
+while True:
+    max_num_moves = m.max_moves()
+    max_num_moves = m.set_max_move(max_num_moves)
+    print(max_num_moves)
+    if max_num_moves is not None:
+        break
+
+print('fin')
