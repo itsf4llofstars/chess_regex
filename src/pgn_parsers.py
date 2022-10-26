@@ -57,6 +57,14 @@ def no_long_games(chess_list):
     return None
 
 def get_white_wins(chess_games, winner):
+    """Accepts a list of chess games and searches for the
+    white_wins regex. Appends the game if the regex white_wins
+    is found in the game.
+
+    Args:
+        chess_games: list[str] List of chess games to be parsed
+        winner: list[str]: List to be populated with white's wins
+    """
     for game in chess_games:
         if re.search(regex_dict['white_wins'], game):
             winner.append(game)
