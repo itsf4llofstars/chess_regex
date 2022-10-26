@@ -56,8 +56,10 @@ def no_long_games(chess_list):
 
     return None
 
-def white_wins():
-    return None
+def get_white_wins(chess_games, winner):
+    for game in chess_games:
+        if re.search(white_wins, game):
+            winner.append(game)
 
 
 def white_mates(chess_games, color):
@@ -73,5 +75,18 @@ def black_mates(chess_games, color):
 
 
 if __name__ == '__main__':
-    pass
+    games = []
+    with open('/home/bumper/chess/games1.pgn', 'r') as fo:
+        games = fo.readlines()
+
+    strip_games = []
+    for game in games:
+        strip_games.append(game.strip())
+
+    raw_games = get_only_games(strip_games)
+    short_games = no_long_games(raw_games)
+
+    # White wins function
+    white_wins = get_white_wins(short_games)
+    [print(game) for game in short_games]
 
