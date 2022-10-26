@@ -16,7 +16,7 @@ def check_dir(directory: str) -> bool:
 
 
 def get_pgn_file() -> str:
-    print('Enter the name of the chess pgn file. .pgn is not required:')
+    print('Enter the name of the chess pgn file. .pgn is optional:')
     print('Example: chess-games[.pgn]\n')
     file_name: str = str(input())
 
