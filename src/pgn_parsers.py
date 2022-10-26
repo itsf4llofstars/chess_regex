@@ -56,6 +56,7 @@ def no_long_games(chess_list):
 
     return None
 
+
 def get_white_wins(chess_games, winner):
     """Accepts a list of chess games and searches for the
     white_wins regex. Appends the game if the regex white_wins
