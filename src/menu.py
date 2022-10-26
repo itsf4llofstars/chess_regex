@@ -76,8 +76,8 @@ if __name__ == '__main__':
     pgn_directory = get_pgn_dir()
     print(pgn_directory)
 
-    pgn_file = get_pgn_file()
-    print(pgn_file)
+    pgn_file_name = get_pgn_file()
+    print(pgn_file_name)
 
-    if check_file_exists(pgn_directory, pgn_file):
+    if check_file_exists(pgn_directory, pgn_file_name):
         print('File exists')
