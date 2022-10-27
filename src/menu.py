@@ -22,7 +22,7 @@ def display_options():
         try:
             choice = int(input('\n\tChoice: '))
         except ValueError:
-            print('\n\tPlease enter a number between 1 and 5.')
+            print('\n\tPlease enter a number between 1 and 6.')
             input('\tContinue... ')
         else:
             if 0 < choice < 7:
@@ -30,7 +30,7 @@ def display_options():
                     exit()
                 return choice
             else:
-                print('\n\tPlease enter a number between 1 and 5.')
+                print('\n\tPlease enter a number between 1 and 6.')
                 input('\tContinue... ')
                 continue
 
