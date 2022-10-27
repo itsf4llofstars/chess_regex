@@ -19,8 +19,8 @@ def get_pgn_dir():
         else:
             break
 
-    path = os.path.expanduser(os.path.join('~', directory)) 
-    return path
+    return os.path.expanduser(os.path.join('~', directory)) 
+    # return path
 
 def check_dir(directory: str) -> bool:
     return os.path.isdir(os.path.expanduser(os.path.join('~', directory)))
