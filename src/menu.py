@@ -32,24 +32,45 @@ def display_options():
 
 
 def get_pgn_dir():
-    print('\tEnter the directory of your chess pgn file:')
-    print("\tIf your directory is '/home/$USER/chess/pgn_files', Enter: chess/pgn_files\n")
-    return str(input('\t'))
+    while True:
+        print('\tEnter the directory of your chess pgn file:')
+        print("\tIf your directory is '/home/$USER/chess/pgn_files', Enter: chess/pgn_files\n")
+        directory = str(input('\t'))
 
+        if not os.path.isdir(os.path.expanduser(os.path.join('~', directory))):
+            print(f'\tThe directory {directory} could not be found')
+            input('\tEnter to retry... ')
+            os.system('clear')
+            continue
+        else:
+            break
+
+    return os.path.expanduser(os.path.join('~', directory)) 
+    # return path
 
 def check_dir(directory: str) -> bool:
     return os.path.isdir(os.path.expanduser(os.path.join('~', directory)))
 
 
-def get_pgn_file() -> str:
-    print('Enter the name of the chess pgn file. .pgn is optional:')
-    print('Example: chess-games[.pgn]\n')
-    file_name: str = str(input())
+def get_pgn_file(directory: str) -> str:
+    while True:
+        print('\tEnter the name of the chess pgn file. .pgn is optional:')
+        print('\tExample: chess-games[.pgn]\n')
+        file_name: str = str(input('\t'))
 
-    if not file_name.endswith('.pgn'):
-        file_name += '.pgn'
+        if not file_name.endswith('.pgn'):
+            file_name += '.pgn'
 
-    return file_name
+        if not os.path.isfile(os.path.join(directory, file_name)):
+            print(f'\tThe file {file_name} could not be found')
+            input('\tEnter to retry... ')
+            os.system('clear')
+            continue
+        else:
+            break
+
+    path_file = os.path.expanduser(os.path.join('~', directory, file_name))
+    return path_file
 
 
 def check_file_exists(directory: str, pgn_file: str) -> bool:
