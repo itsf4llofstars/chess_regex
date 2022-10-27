@@ -2,21 +2,21 @@
 """menu.py file for selecting pgn file actions"""
 import os
 
+OPTIONS = (
+    '\n\tEnter the number for the option you would like to perform:\n\n'
+    '\tReturn Games that:\n'
+    '\t1) end in a draw\n'
+    '\t2) White wins\n'
+    '\t3) Black wins\n'
+    '\t4) White Checkmates\n'
+    '\t5) Black Checkmates'
+)
+
 
 def display_options():
-    options = (
-        '\n\tEnter the number for the option you would like to perform:\n\n'
-        '\tReturn Games that:\n'
-        '\t1) end in a draw\n'
-        '\t2) White wins\n'
-        '\t3) Black wins\n'
-        '\t4) White Checkmates\n'
-        '\t5) Black Checkmates'
-    )
-
     while True:
         os.system('clear')
-        print(options)
+        print(OPTIONS)
         try:
             choice = int(input('\n\tChoice: '))
         except ValueError:
