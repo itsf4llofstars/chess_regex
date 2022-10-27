@@ -20,3 +20,10 @@ def read_pgn_file(path_file):
             return pgn_games
     return
 
+
+def write_file(path_file):
+    with open(path_file, 'w') as fo:
+        for line in chess_games_write:
+            fo.write(line + '\n')
+            # fo.write('\n')
+
