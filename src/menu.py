@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.9
 """menu.py file for selecting pgn file actions"""
 import os
+from sys import exit
 
 OPTIONS = (
     '\n\tEnter the number for the option you would like to perform:\n\n'
@@ -10,6 +11,7 @@ OPTIONS = (
     '\t3) Black wins\n'
     '\t4) White Checkmates\n'
     '\t5) Black Checkmates'
+    '\t6) Quit'
 )
 
 
@@ -23,7 +25,9 @@ def display_options():
             print('\n\tPlease enter a number between 1 and 5.')
             input('\tContinue... ')
         else:
-            if 0 < choice < 6:
+            if 0 < choice < 7:
+                if choice == 6:
+                    exit()
                 return choice
             else:
                 print('\n\tPlease enter a number between 1 and 5.')
