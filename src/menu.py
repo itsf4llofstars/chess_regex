@@ -56,10 +56,11 @@ def get_pgn_dir():
 
 def check_dir(directory: str) -> bool:
     # return os.path.isdir(os.path.expanduser(os.path.join('~', directory)))
-    return os.path.isdir(directory);
+    return os.path.isdir(directory)
 
 
 def get_pgn_file(directory: str) -> str:
+    file_name =''
     while True:
         print('\tEnter the name of the chess pgn file. .pgn is optional:')
         print('\tExample: chess-games[.pgn]\n')
