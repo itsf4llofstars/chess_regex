@@ -2,7 +2,33 @@
 """menu.py file for selecting pgn file actions"""
 import os
 
-choice = ''
+
+def display_options():
+    options = (
+        '\n\tEnter the number for the option you would like to perform:\n\n'
+        '\tReturn Games that:\n'
+        '\t1) end in a draw\n'
+        '\t2) White wins\n'
+        '\t3) Black wins\n'
+        '\t4) White Checkmates\n'
+        '\t5) Black Checkmates'
+    )
+
+    while True:
+        os.system('clear')
+        print(options)
+        try:
+            choice = int(input('\n\tChoice: '))
+        except ValueError:
+            print('\n\tPlease enter a number between 1 and 5.')
+            input('\tContinue... ')
+        else:
+            if 1 <= choice < 6:
+                return choice
+            else:
+                os.system('clear')
+                print('\n\tPlease enter a number between 1 and 5.')
+                continue
 
 
 def get_pgn_dir():
@@ -30,33 +56,7 @@ def check_file_exists(directory: str, pgn_file: str) -> bool:
     return os.path.isfile(os.path.expanduser(os.path.join('~', directory, pgn_file)))
 
 
-def display_options():
-    global choice
 
-    options = (
-        '\n\tEnter the number for the option you would like to perform:\n\n'
-        '\tReturn Games that:\n'
-        '\t1) end in a draw\n'
-        '\t2) White wins\n'
-        '\t3) Black wins\n'
-        '\t4) White Checkmates\n'
-        '\t5) Black Checkmates'
-    )
-    os.system('clear')
-    while True:
-        print(options)
-        try:
-            choice = int(input('\n\tChoice: '))
-        except ValueError:
-            os.system('clear')
-            print('\n\tPlease enter a number between 1 and 5.')
-        else:
-            if 1 <= choice < 6:
-                return choice
-            else:
-                os.system('clear')
-                print('\n\tPlease enter a number between 1 and 5.')
-                continue
 
 
 def max_moves():
