@@ -2,37 +2,26 @@
 """Chess Regex Project main Python3 file"""
 import menu as m
 
-# Needed for F5 run of python script in Vim
-# os.system('clear')
-# os.system('clear')
-#
-# pgn_directory = ''  # chess
-# good_dir: bool = False
-#
-# while not good_dir:
-#     pgn_directory = m.get_pgn_dir()
-#
-#     if not m.check_dir(pgn_directory):
-#         os.system('clear')
-#         print('Unable to find that path.\n')
-#         continue
-#     good_dir = True
-#
-# del good_dir
-#
-# pgn_file_name: str = ''  # pgn-one.pgn
-# good_file = False
-#
-# while not good_file:
-#     pgn_file_name = m.get_pgn_file()
-#
-#     if not m.check_file_exists(pgn_directory, pgn_file_name):
-#         os.system('clear')
-#         print('Unable to find that file.\n')
-#         continue
-#     good_file = True
-#
-# del good_file
-#
-user_option = m.display_options()
-print(f'You Picked: {user_option}')
+users_choice = m.display_options()
+
+pgn_file_path = m.get_pgn_dir()
+pgn_file_name = ''
+
+if m.check_dir(pgn_file_path):
+    pgn_file_name = m.get_pgn_file(pgn_file_path)
+else:
+    print('No directory')
+
+if m.check_file_exists(pgn_file_path, pgn_file_name):
+    print('YES')
+else:
+    print('No file')
+
+while True:
+    max_num_moves = m.max_moves()
+    max_num_moves = m.set_max_move(max_num_moves)
+    print(max_num_moves)
+    if max_num_moves is not None:
+        break
+
+print('fin')
