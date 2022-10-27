@@ -76,7 +76,7 @@ def get_pgn_file(directory: str) -> str:
         else:
             break
 
-    return os.path.join('~', directory, file_name)
+    return os.path.join(directory, file_name)
 
 
 def check_file_exists(directory: str, pgn_file: str) -> bool:
