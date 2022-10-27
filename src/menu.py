@@ -37,6 +37,7 @@ def display_options():
 
 
 def get_pgn_dir():
+    directory = ''
     while True:
         print('\tEnter the directory of your chess pgn file:')
         print("\tIf your directory is '/home/$USER/chess/pgn_files', Enter: chess/pgn_files\n")
