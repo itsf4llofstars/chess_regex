@@ -33,6 +33,7 @@ def display_options():
                 print('\n\tPlease enter a number between 1 and 6.')
                 input('\tContinue... ')
                 continue
+    return
 
 
 def get_pgn_dir():
