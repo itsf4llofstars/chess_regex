@@ -26,8 +26,8 @@ def display_options():
             if 1 <= choice < 6:
                 return choice
             else:
-                os.system('clear')
                 print('\n\tPlease enter a number between 1 and 5.')
+                input('\tContinue... ')
                 continue
 
 
