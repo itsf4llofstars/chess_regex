@@ -10,7 +10,7 @@ OPTIONS = (
     '\t2) White wins\n'
     '\t3) Black wins\n'
     '\t4) White Checkmates\n'
-    '\t5) Black Checkmates'
+    '\t5) Black Checkmates\n'
     '\t6) Quit'
 )
 
