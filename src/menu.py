@@ -1,37 +1,43 @@
 #!/usr/bin/env python3.9
 """menu.py file for selecting pgn file actions"""
 import os
+from sys import exit
+
+OPTIONS = (
+    '\n\tEnter the number for the option you would like to perform:\n\n'
+    '\tReturn Games that:\n'
+    '\t1) end in a draw\n'
+    '\t2) White wins\n'
+    '\t3) Black wins\n'
+    '\t4) White Checkmates\n'
+    '\t5) Black Checkmates\n'
+    '\t6) Quit'
+)
 
 
 def display_options():
-    options = (
-        '\n\tEnter the number for the option you would like to perform:\n\n'
-        '\tReturn Games that:\n'
-        '\t1) end in a draw\n'
-        '\t2) White wins\n'
-        '\t3) Black wins\n'
-        '\t4) White Checkmates\n'
-        '\t5) Black Checkmates'
-    )
-
     while True:
         os.system('clear')
-        print(options)
+        print(OPTIONS)
         try:
             choice = int(input('\n\tChoice: '))
         except ValueError:
-            print('\n\tPlease enter a number between 1 and 5.')
+            print('\n\tPlease enter a number between 1 and 6.')
             input('\tContinue... ')
         else:
-            if 1 <= choice < 6:
+            if 0 < choice < 7:
+                if choice == 6:
+                    exit()
                 return choice
             else:
-                print('\n\tPlease enter a number between 1 and 5.')
+                print('\n\tPlease enter a number between 1 and 6.')
                 input('\tContinue... ')
                 continue
+    return
 
 
 def get_pgn_dir():
+    directory = ''
     while True:
         print('\tEnter the directory of your chess pgn file:')
         print("\tIf your directory is '/home/$USER/chess/pgn_files', Enter: chess/pgn_files\n")
@@ -49,10 +55,12 @@ def get_pgn_dir():
 
 
 def check_dir(directory: str) -> bool:
-    return os.path.isdir(os.path.expanduser(os.path.join('~', directory)))
+    # return os.path.isdir(os.path.expanduser(os.path.join('~', directory)))
+    return os.path.isdir(directory)
 
 
 def get_pgn_file(directory: str) -> str:
+    file_name =''
     while True:
         print('\tEnter the name of the chess pgn file. .pgn is optional:')
         print('\tExample: chess-games[.pgn]\n')
@@ -69,8 +77,7 @@ def get_pgn_file(directory: str) -> str:
         else:
             break
 
-    path_file = os.path.expanduser(os.path.join('~', directory, file_name))
-    return path_file
+    return os.path.join(directory, file_name)
 
 
 def check_file_exists(directory: str, pgn_file: str) -> bool:
