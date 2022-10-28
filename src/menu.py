@@ -79,8 +79,8 @@ def get_pgn_file(directory: str) -> str:
     return os.path.join(directory, file_name)
 
 
-def check_file_exists(directory: str, pgn_file: str) -> bool:
-    return os.path.isfile(os.path.expanduser(os.path.join('~', directory, pgn_file)))
+def check_file_exists(directory: str, file_name: str):
+    return os.path.join(directory, file_name)
 
 
 def max_moves():
