@@ -7,4 +7,3 @@ pgn_path = menu.get_pgn_dir()
 pgn_path_file = menu.get_pgn_file(pgn_path)
 
 print('fin')
-
