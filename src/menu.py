@@ -51,7 +51,7 @@ def get_pgn_dir():
         else:
             break
 
-    return os.path.expanduser(os.path.join('~', directory)) 
+    return os.path.expanduser(os.path.join('~', directory))
 
 
 def check_dir(directory: str) -> bool:
@@ -60,7 +60,7 @@ def check_dir(directory: str) -> bool:
 
 
 def get_pgn_file(directory: str) -> str:
-    file_name =''
+    file_name = ''
     while True:
         print('\tEnter the name of the chess pgn file. .pgn is optional:')
         print('\tExample: chess-games[.pgn]\n')
@@ -84,23 +84,19 @@ def check_file_exists(directory: str, pgn_file: str) -> bool:
     return os.path.isfile(os.path.expanduser(os.path.join('~', directory, pgn_file)))
 
 
-
-
-
 def max_moves():
     os.system('clear')
-
     print("Enter the maximum number of game moves in ten's [4 returns games with 39-moves and less]\n")
     return int(input('What is the maximum amount of moves you would like for your games: '))
 
 
 def set_max_move(number):
-    if 2 >= number or number >= 9:
-        print('Your max number of moves is to low or high\n'
+    while number < 2 or number > 9:
+        print('\nYour max number of moves is to low or high\n'
               'Enter a number between 2 and 9 that represents\n'
               'the tens of moves.')
-        return
-    return number * 10
+        number = int(input('\nWhat is the maximum amount of moves you would like for your games: '))
+    return str(number)
 
 
 if __name__ == '__main__':
