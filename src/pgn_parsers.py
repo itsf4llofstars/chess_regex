@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-import os
 import re
-import sys
 
 regex_dict = {
     'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
@@ -115,7 +113,7 @@ def get_black_mates(chess_games, winner):
 
 if __name__ == '__main__':
     games = []
-    with open('/home/bumper/chess/games1.pgn', 'r') as fo:
+    with open('/home/bumper/chess/mates.pgn', 'r') as fo:
         games = fo.readlines()
 
     strip_games = []
@@ -142,4 +140,3 @@ if __name__ == '__main__':
     get_black_mates(short_games, black_mates)
 
     [print(game) for game in black_mates]
-
