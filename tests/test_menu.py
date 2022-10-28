@@ -8,8 +8,8 @@ class TestMenu(unittest.TestCase):
         """Test if True is returned on a known
         directory
         """
-        test_directory = check_dir('python/chess_regex')
-        self.assertEqual(test_directory, True)
+        test_directory = check_dir('chess_games_dir')
+        self.assertEqual(test_directory, '/home/bumper/chess_games_dir')
 
     def test_check_file_exists(self):
         """Checks if True is return on the existance of
