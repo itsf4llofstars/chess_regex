@@ -54,7 +54,7 @@ def no_long_games(chess_list):
     if len(short_games):
         return short_games
 
-    return None
+    return
 
 
 def get_white_wins(chess_games, winner):
