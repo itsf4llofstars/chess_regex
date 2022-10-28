@@ -91,12 +91,12 @@ def max_moves():
 
 
 def set_max_move(number):
-    if 2 >= number or number >= 9:
-        print('Your max number of moves is to low or high\n'
+    while number < 2 or number > 9:
+        print('\nYour max number of moves is to low or high\n'
               'Enter a number between 2 and 9 that represents\n'
               'the tens of moves.')
-        return
-    return number * 10
+        number = int(input('\nWhat is the maximum amount of moves you would like for your games: '))
+    return str(number)
 
 
 if __name__ == '__main__':

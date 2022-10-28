@@ -2,8 +2,9 @@
 """Chess Regex Project main Python3 file"""
 import menu
 
-users_choice = menu.display_options()
-pgn_path = menu.get_pgn_dir()
-pgn_path_file = menu.get_pgn_file(pgn_path)
-
-print('fin')
+# users_choice = menu.display_options()
+# pgn_path = menu.get_pgn_dir()
+# pgn_path_file = menu.get_pgn_file(pgn_path)
+maximum_moves = menu.max_moves()
+maximum_moves = menu.set_max_move(maximum_moves)
+print(maximum_moves)
