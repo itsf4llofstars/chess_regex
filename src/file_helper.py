@@ -26,4 +26,3 @@ def write_file(path_file, chess_games_write):
         for line in chess_games_write:
             fo.write(line + '\n')
             # fo.write('\n')
-
