@@ -9,5 +9,5 @@ class TestMenu(unittest.TestCase):
         self.assertEqual(test_directory, '/home/bumper/chess_games_dir')
 
     def test_check_file_exists(self):
-        test_file = check_file_exists('python/chess_regex', 'README.md')
+        test_file = check_file_exists('/home/bumper/python/chess_regex', 'README.md')
         self.assertEqual(test_file, '/home/bumper/python/chess_regex/README.md')
