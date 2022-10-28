@@ -55,8 +55,7 @@ def get_pgn_dir():
 
 
 def check_dir(directory: str) -> bool:
-    # return os.path.isdir(os.path.expanduser(os.path.join('~', directory)))
-    return os.path.isdir(directory)
+    return os.path.expanduser(os.path.join('~', directory))
 
 
 def get_pgn_file(directory: str) -> str:
