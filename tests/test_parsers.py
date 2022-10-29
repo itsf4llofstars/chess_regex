@@ -2,6 +2,7 @@ import unittest
 from src.pgn_parsers import get_only_games
 from src.pgn_parsers import no_long_games
 from src.pgn_parsers import get_white_wins
+from src.pgn_parsers import get_white_mates
 
 only_games_test_list = [
     "['Opera House Test']",
@@ -47,13 +48,18 @@ class TestGamesList(unittest.TestCase):
         self.assertEqual(test_no_long_games, ["1. e4 e5 2. Nf3 d6 12. d4"])
 
     def test_get_white_wins(self):
-        test_winner = []
-        get_white_wins(winner_test_list, test_winner)
-        self.assertEqual(test_winner, [
+        test_white_wins = []
+        get_white_wins(white_wins_test_list, test_white_wins)
+        self.assertEqual(test_white_wins, [
             "1. e4 e5 2. Nf3 d6 12. d4 1-0",
             "1. e4 e5 2. Nf3 d6 12. d4  Bg4 1-0",
             "1. e4 e5 2. Nf3 d6 12. d4# 1-0"
         ])
+
+    def test_get_white_mates(self):
+        test_white_mates = []
+        get_white_mates(winner_test_list, test_white_mates)
+        self.assertEqual(test_white_mates, ["1. e4 e5 2. Nf3 d6 12. d4# 1-0"])
                                      
 
     def test_get_winner_wm(self):
