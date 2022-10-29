@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""pgn_parsers.py"""
 import re
 
 regex_dict = {

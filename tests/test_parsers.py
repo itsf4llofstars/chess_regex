@@ -1,6 +1,7 @@
 import unittest
 from src.pgn_parsers import get_only_games
 from src.pgn_parsers import no_long_games
+from src.pgn_parsers import get_white_wins
 
 only_games_test_list = [
     "['Opera House Test']",
@@ -18,7 +19,6 @@ long_games_test_list = [
 ]
 
 winner_test_list = [
-    "1. e4 e5, 2. Nf3 d6 31. d4# 1/2-1/2",
     "1. e4 e5 2. Nf3 d6 12. d4 1-0",
     "1. e4 e5 2. Nf3 d6 12. d4  Bg4 1-0",
     "1. e4 e5 2. Nf3 d6 12. d4# 1-0",
@@ -26,6 +26,12 @@ winner_test_list = [
     "1. e4 e5 2. Nf3 d6 12. d4  Bg4 0-1",
     "1. e4 e5 2. Nf3 d6 12. d4 Bg4# 0-1",
     "1. e4 e5, 2. Nf3 d6 2. d4"
+    "1. e4 e5, 2. Nf3 d6 31. d4# 1/2-1/2",
+]
+
+winner_test_list1 = [
+    "1. c4 e5 2. Nf3 d6 12. d4 1-0",
+    "1. e4 e5, 2. Nf3 d6 2. d4 0-1"
 ]
 
 
@@ -40,11 +46,15 @@ class TestGamesList(unittest.TestCase):
         test_no_long_games = no_long_games(long_games_test_list)
         self.assertEqual(test_no_long_games, ["1. e4 e5 2. Nf3 d6 12. d4"])
 
-    def test_get_winner_ww(self):
-        """Test to see if only games ending in ( 1-0) are returned"""
-        white_wins = get_winner(winner_test_list, 'white', False)
-        self.assertEqual(white_wins, ["1. e4 e5 2. Nf3 d6 12. d4 1-0", "1. e4 e5 2. Nf3 d6 12. d4  Bg4 1-0",
-                                      "1. e4 e5 2. Nf3 d6 12. d4# 1-0"])
+    def test_get_white_wins(self):
+        test_winner = []
+        get_white_wins(winner_test_list, test_winner)
+        self.assertEqual(test_winner, [
+            "1. e4 e5 2. Nf3 d6 12. d4 1-0",
+            "1. e4 e5 2. Nf3 d6 12. d4  Bg4 1-0",
+            "1. e4 e5 2. Nf3 d6 12. d4# 1-0"
+        ])
+                                     
 
     def test_get_winner_wm(self):
         """Test to see if only games ending in (# 1-0) are returned"""
