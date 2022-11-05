@@ -54,8 +54,9 @@ def get_pgn_dir():
     return os.path.expanduser(os.path.join('~', directory))
 
 
-def check_dir(directory: str) -> bool:
-    return os.path.expanduser(os.path.join('~', directory))
+# def check_dir(directory: str) -> bool:
+#     """Deprecated: 2022-11-04"""
+#     return os.path.expanduser(os.path.join('~', directory))
 
 
 def get_pgn_file(directory: str) -> str:
