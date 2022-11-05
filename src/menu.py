@@ -13,7 +13,7 @@ OPTIONS = (
     '\t5) Black Checkmates\n'
     "\t6) Strip White's Checkmate\n"
     "\t7) Strip Black's Checkmate\n"
-    '\t6) Quit'
+    '\t8) Quit'
 )
 
 
@@ -24,7 +24,7 @@ def display_options():
         try:
             choice = int(input('\n\tChoice: '))
         except ValueError:
-            print('\n\tPlease enter a number between 1 and 6.')
+            print('\n\tPlease enter a number between 1 and 8.')
             input('\tContinue... ')
         else:
             if 0 < choice < 9:
@@ -32,7 +32,7 @@ def display_options():
                     exit()
                 return choice
             else:
-                print('\n\tPlease enter a number between 1 and 6.')
+                print('\n\tPlease enter a number between 1 and 8.')
                 input('\tContinue... ')
                 continue
     return
