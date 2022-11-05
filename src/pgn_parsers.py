@@ -45,13 +45,13 @@ def no_long_games(chess_list):
     Returns:
         List[str]: String list of shorter games
     """
-    short_games = []
+    shorts = []
     for game in chess_list:
         if not re.search(regex_dict['no_forty'], game) and not re.search(regex_dict['no_hundred'], game):
-            short_games.append(game)
+            shorts.append(game)
 
-    if len(short_games):
-        return short_games
+    if len(shorts):
+        return shorts
 
     return
 
@@ -140,4 +140,8 @@ if __name__ == '__main__':
     black_mates = []
     get_black_mates(short_games, black_mates)
 
-    [print(game) for game in black_mates]
+    print(white_won[-1])
+    print(black_won[-1])
+    print(white_mates[-1])
+    print(black_mates[-1])
+    # [print(game) for game in black_mates]
