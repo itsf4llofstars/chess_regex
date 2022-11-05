@@ -12,7 +12,7 @@ regex_dict = {
     'black_mates': re.compile(r'(#\s0-1)$'),
     'kibitz': re.compile(r'\s[(|{]'),
     'strip_white_mate': re.compile(r'\s\d{1,2}\.\s\w+=?[B-R]?#\s1-0'),
-    'strip_black_mate': re.compile(r'\s\w+#\s0-1'),
+    'strip_black_mate': re.compile(r'\s\w+=?[B-R]?#\s0-1'),
 }
 
 
@@ -165,6 +165,11 @@ if __name__ == '__main__':
     strip_white_mates(short_games, no_white_mates)
     [print(game) for game in short_games]
     [print(wins) for wins in no_white_mates]
+
+    no_black_mates = []
+    strip_black_mates(short_games, no_black_mates)
+    [print(game) for game in short_games]
+    [print(wins) for wins in no_black_mates]
 
     # print(white_won[-1])
     # print(black_won[-1])
