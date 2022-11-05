@@ -113,8 +113,8 @@ def get_black_mates(chess_games, winner):
 
 
 if __name__ == '__main__':
-    games = []
-    with open('/home/bumper/chess/mates.pgn', 'r') as fo:
+    # games = []
+    with open('/home/bumper/chess/Morphy.pgn', 'r') as fo:
         games = fo.readlines()
 
     strip_games = []
