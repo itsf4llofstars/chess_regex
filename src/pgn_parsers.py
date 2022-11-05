@@ -46,9 +46,9 @@ def no_long_games(chess_list):
         List[str]: String list of shorter games
     """
     shorts = []
-    for game in chess_list:
-        if not re.search(regex_dict['no_forty'], game) and not re.search(regex_dict['no_hundred'], game):
-            shorts.append(game)
+    for a_game in chess_list:
+        if not re.search(regex_dict['no_forty'], a_game) and not re.search(regex_dict['no_hundred'], a_game):
+            shorts.append(a_game)
 
     if len(shorts):
         return shorts
@@ -65,9 +65,9 @@ def get_white_wins(chess_games, winner):
         chess_games: list[str] List of chess games to be searched
         winner: list[str]: List to be populated with white's wins
     """
-    for game in chess_games:
-        if re.search(regex_dict['white_wins'], game):
-            winner.append(game)
+    for a_game in chess_games:
+        if re.search(regex_dict['white_wins'], a_game):
+            winner.append(a_game)
 
 
 def get_white_mates(chess_games, winner):
@@ -79,9 +79,9 @@ def get_white_mates(chess_games, winner):
         chess_games: list[str] List of chess games to be searched
         winner: list[str]: List to be populated with white's wins
     """
-    for game in chess_games:
-        if re.search(regex_dict['white_mates'], game):
-            winner.append(game)
+    for a_game in chess_games:
+        if re.search(regex_dict['white_mates'], a_game):
+            winner.append(a_game)
 
 
 def get_black_wins(chess_games, winner):
@@ -93,9 +93,9 @@ def get_black_wins(chess_games, winner):
         chess_games: list[str] List of chess games to be searched
         winner: list[str]: List to be populated with black's wins
     """
-    for game in chess_games:
-        if re.search(regex_dict['black_wins'], game):
-            winner.append(game)
+    for a_game in chess_games:
+        if re.search(regex_dict['black_wins'], a_game):
+            winner.append(a_game)
 
 
 def get_black_mates(chess_games, winner):
@@ -107,9 +107,9 @@ def get_black_mates(chess_games, winner):
         chess_games: list[str] List of chess games to be searched
         winner: list[str]: List to be populated with black's wins
     """
-    for game in chess_games:
-        if re.search(regex_dict['black_mates'], game):
-            winner.append(game)
+    for a_game in chess_games:
+        if re.search(regex_dict['black_mates'], a_game):
+            winner.append(a_game)
 
 
 if __name__ == '__main__':
