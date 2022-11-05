@@ -45,7 +45,8 @@ white_mates_test_list = [
     "1. e4 e5 2. Nf3 d6 12. Nxd4# 1-0",
     "1. e4 e5 2. Nf3 d6 12. fxd8=B# 1-0",
     "1. e4 e5 2. Nf3 d6 12. d4 Bg4# 0-1",
-    "1. e4 e5, 2. Nf3 d6 2. d4",
+    "1. e4 e5, 2. Nf3 d6 2. d4 f8=R# 0-1",
+    "1. e4 e5, 2. Nf3 d6 2. d4 N3g5# 0-1",
     "1. e4 e5, 2. Nf3 d6 31. d4# 1/2-1/2"
 ]
 
