@@ -123,6 +123,15 @@ def strip_white_mates(chess_games, no_mates):
             no_mates.append(no_mate_str)
 
 
+def strip_black_mates(chess_games, no_mates):
+    """DOC
+    """
+    for a_game in chess_games:
+        if re.search(regex_dict['black_mates'], a_game):
+            no_mate_str = re.sub(regex_dict['strip_black_mate'], '', a_game)
+            no_mates.append(no_mate_str)
+
+
 if __name__ == '__main__':
     # games = []
     with open('/home/bumper/chess/regex_test.pgn', 'r') as fo:
@@ -156,7 +165,6 @@ if __name__ == '__main__':
     strip_white_mates(short_games, no_white_mates)
     [print(game) for game in short_games]
     [print(wins) for wins in no_white_mates]
-
 
     # print(white_won[-1])
     # print(black_won[-1])
