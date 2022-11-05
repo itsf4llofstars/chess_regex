@@ -114,7 +114,7 @@ def get_black_mates(chess_games, winner):
             winner.append(a_game)
 
 
-def strip_white_mates(chess_games):
+def strip_white_mates(chess_games, no_mates):
     """DOC
     """
     for game in chess_games:
@@ -122,14 +122,10 @@ def strip_white_mates(chess_games):
             no_mate_str = re.sub(regex_dict['strip_white_mate'], '', game)
             no_mates.append(no_mate_str)
 
-    if len(no_mates):
-        return no_mates
-    return
-
 
 if __name__ == '__main__':
     # games = []
-    with open('/home/bumper/chess/games1.pgn', 'r') as fo:
+    with open('/home/bumper/chess/regex_test.pgn', 'r') as fo:
         games = fo.readlines()
 
     strip_games = []
@@ -139,29 +135,31 @@ if __name__ == '__main__':
     raw_games = get_only_games(strip_games)
     short_games = no_long_games(raw_games)
 
-    # White wins function
-    white_won = []
-    get_white_wins(short_games, white_won)
+    # # White wins function
+    # white_won = []
+    # get_white_wins(short_games, white_won)
 
-    # Black wins function
-    black_won = []
-    get_black_wins(short_games, black_won)
+    # # Black wins function
+    # black_won = []
+    # get_black_wins(short_games, black_won)
 
-    # White mates function
-    white_mates = []
-    get_white_mates(short_games, white_mates)
+    # # White mates function
+    # white_mates = []
+    # get_white_mates(short_games, white_mates)
 
-    # Black mates function
-    black_mates = []
-    get_black_mates(short_games, black_mates)
+    # # Black mates function
+    # black_mates = []
+    # get_black_mates(short_games, black_mates)
 
     # No White Mates
     no_white_mates = []
     strip_white_mates(short_games, no_white_mates)
+    [print(game) for game in short_games]
+    [print(wins) for wins in no_white_mates]
 
 
-    print(white_won[-1])
-    print(black_won[-1])
-    print(white_mates[-1])
-    print(black_mates[-1])
+    # print(white_won[-1])
+    # print(black_won[-1])
+    # print(white_mates[-1])
+    # print(black_mates[-1])
     # [print(game) for game in black_mates]
