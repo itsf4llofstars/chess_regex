@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""The pgn_parser.py file has been deprecated and
+replaced by the pgn_parsers.p file.
+"""
 import os
 import re
 import sys
