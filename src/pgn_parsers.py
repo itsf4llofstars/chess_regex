@@ -11,6 +11,8 @@ regex_dict = {
     'white_mates': re.compile(r'(#\s1-0)$'),
     'black_mates': re.compile(r'(#\s0-1)$'),
     'kibitz': re.compile(r'\s[(|{]'),
+    'strip_white_mate': re.compile(r'\s\d{1,2}\.\s\w+#\s1-0'),
+    'strip_black_mate': re.compile(r'\s\w+#\s0-1'),
 }
 
 
