@@ -5,6 +5,7 @@ from src.pgn_parsers import get_white_wins
 from src.pgn_parsers import get_white_mates
 from src.pgn_parsers import get_black_wins
 from src.pgn_parsers import get_black_mates
+from src.pgn_parsers import strip_white_mates
 
 only_games_test_list = [
     "['Opera House Test']",
@@ -28,13 +29,24 @@ winner_test_list = [
     "1. e4 e5 2. Nf3 d6 12. d4 0-1",
     "1. e4 e5 2. Nf3 d6 12. d4 Bg4 0-1",
     "1. e4 e5 2. Nf3 d6 12. d4 Bg4# 0-1",
-    "1. e4 e5, 2. Nf3 d6 2. d4"
-    "1. e4 e5, 2. Nf3 d6 31. d4# 1/2-1/2",
+    "1. e4 e5, 2. Nf3 d6 2. d4",
+    "1. e4 e5, 2. Nf3 d6 31. d4# 1/2-1/2"
 ]
 
 winner_test_list1 = [
     "1. c4 e5 2. Nf3 d6 12. d4 1-0",
     "1. e4 e5, 2. Nf3 d6 2. d4 0-1"
+]
+
+white_mates_test_list = [
+    "1. e4 e5 2. Nf3 d6 12. d4 1-0",
+    "1. e4 e5 2. Nf3 d6 12. cxd8=Q 1-0",
+    "1. e4 e5 2. Nf3 d6 12. d4# 1-0",
+    "1. e4 e5 2. Nf3 d6 12. Nxd4# 1-0",
+    "1. e4 e5 2. Nf3 d6 12. fxd8=B# 1-0",
+    "1. e4 e5 2. Nf3 d6 12. d4 Bg4# 0-1",
+    "1. e4 e5, 2. Nf3 d6 2. d4",
+    "1. e4 e5, 2. Nf3 d6 31. d4# 1/2-1/2"
 ]
 
 # NOTE: These test are note exhaustive
@@ -81,7 +93,17 @@ class TestGamesList(unittest.TestCase):
         test_black_mates = []
         get_black_mates(winner_test_list, test_black_mates)
         self.assertEqual(test_black_mates, ["1. e4 e5 2. Nf3 d6 12. d4 Bg4# 0-1"])
-                                     
+
+    def test_strip_white_mates(self):
+        test_strip_white_mates = []
+        strip_white_mates(white_mates_test_list, test_strip_white_mates)
+        self.assertEqual(test_strip_white_mates,
+                         [
+                             "1. e4 e5 2. Nf3 d6",
+                             "1. e4 e5 2. Nf3 d6",
+                             "1. e4 e5 2. Nf3 d6",
+                         ])
+
 
 if __name__ == '__main__':
     unittest.main()
