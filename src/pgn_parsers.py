@@ -112,6 +112,9 @@ def get_black_mates(chess_games, winner):
             winner.append(a_game)
 
 
+def strip_white_mate(chess_games):
+    pass
+
 if __name__ == '__main__':
     # games = []
     with open('/home/bumper/chess/games1.pgn', 'r') as fo:
