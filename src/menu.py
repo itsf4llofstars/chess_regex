@@ -53,7 +53,7 @@ def get_pgn_dir():
     return os.path.expanduser(os.path.join('~', directory))
 
 
-def check_dir(directory: str) -> bool:
+def check_dir(directory: str):
     """Deprecated: 2022-11-04
     check_dir is still activly being tested under
     tests
