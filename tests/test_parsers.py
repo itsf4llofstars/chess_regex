@@ -97,7 +97,7 @@ class TestGamesList(unittest.TestCase):
 
     def test_strip_white_mates(self):
         test_strip_white_mates = []
-        strip_white_mates(white_mates_test_list, test_strip_white_mates)
+        strip_white_mates(strip_mates_test_list, test_strip_white_mates)
         self.assertEqual(test_strip_white_mates,
                          [
                              "1. e4 e5 2. Nf3 d6",
