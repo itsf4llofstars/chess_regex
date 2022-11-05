@@ -114,7 +114,7 @@ def get_black_mates(chess_games, winner):
             winner.append(a_game)
 
 
-def strip_white_mate(chess_games):
+def strip_white_mates(chess_games):
     """DOC
     """
     for game in chess_games:
@@ -154,6 +154,11 @@ if __name__ == '__main__':
     # Black mates function
     black_mates = []
     get_black_mates(short_games, black_mates)
+
+    # No White Mates
+    no_white_mates = []
+    strip_white_mates(short_games, no_white_mates)
+
 
     print(white_won[-1])
     print(black_won[-1])
