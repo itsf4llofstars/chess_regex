@@ -115,7 +115,17 @@ def get_black_mates(chess_games, winner):
 
 
 def strip_white_mate(chess_games):
-    pass
+    """DOC
+    """
+    for game in chess_games:
+        if re.search(regex_dict['white_mates'], game):
+            no_mate_str = re.sub(regex_dict['strip_white_mate'], '', game)
+            no_mates.append(no_mate_str)
+
+    if len(no_mates):
+        return no_mates
+    return
+
 
 if __name__ == '__main__':
     # games = []
