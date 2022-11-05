@@ -1,7 +1,10 @@
+"""The file pgn_parser.py has been deprecated
+See pgn_parsers.py and test_parsers.py file
+"""
 import unittest
 from src.pgn_parser import get_only_games
 from src.pgn_parser import no_long_games
-from src.pgn_parser import get_winner
+# from src.pgn_parser import get_winner
 
 # TODO: Test check_path_format
 # TODO: Test check_path_filename
