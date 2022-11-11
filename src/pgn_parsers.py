@@ -134,7 +134,7 @@ def strip_black_mates(chess_games, no_mates):
 
 if __name__ == '__main__':
     # games = []
-    with open('/home/bumper/chess/regex_test.pgn', 'r') as fo:
+    with open('/home/bumper/chess/real_pgns_test.pgn', 'r') as fo:
         games = fo.readlines()
 
     strip_games = []
