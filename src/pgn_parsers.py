@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """pgn_parsers.py"""
 import re
+from random import choice
 
 regex_dict = {
     'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
@@ -130,6 +131,10 @@ def strip_black_mates(chess_games, no_mates):
         if re.search(regex_dict['black_mates'], a_game):
             no_mate_str = re.sub(regex_dict['strip_black_mate'], '', a_game)
             no_mates.append(no_mate_str)
+
+
+def pick_one_game(chess_games):
+    return choice(chess_games)
 
 
 if __name__ == '__main__':
