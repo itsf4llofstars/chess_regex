@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """pgn_parsers.py"""
 import re
+from random import choice
 
 regex_dict = {
     'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
@@ -132,9 +133,23 @@ def strip_black_mates(chess_games, no_mates):
             no_mates.append(no_mate_str)
 
 
+def pick_one_game(chess_games):
+    """Returns a list of individual moves and move
+    numbers form a randomlly choosen game from chess_games
+
+    Args:
+        chess_games: List of chess games
+
+    Returns:
+        List of individual strings for each move
+        and move number
+    """
+    return ''.join(choice(chess_games)).split(' ')
+
+
 if __name__ == '__main__':
     # games = []
-    with open('/home/bumper/chess/regex_test.pgn', 'r') as fo:
+    with open('/home/bumper/chess/real_pgns_test.pgn', 'r') as fo:
         games = fo.readlines()
 
     strip_games = []
@@ -161,15 +176,18 @@ if __name__ == '__main__':
     # get_black_mates(short_games, black_mates)
 
     # No White Mates
-    no_white_mates = []
-    strip_white_mates(short_games, no_white_mates)
-    [print(game) for game in short_games]
-    [print(wins) for wins in no_white_mates]
+    # no_white_mates = []
+    # strip_white_mates(short_games, no_white_mates)
+    # [print(game) for game in short_games]
+    # [print(wins) for wins in no_white_mates]
 
-    no_black_mates = []
-    strip_black_mates(short_games, no_black_mates)
-    [print(game) for game in short_games]
-    [print(wins) for wins in no_black_mates]
+    # no_black_mates = []
+    # strip_black_mates(short_games, no_black_mates)
+    # [print(game) for game in short_games]
+    # [print(wins) for wins in no_black_mates]
+
+    audio_game = pick_one_game(short_games)
+    print(audio_game)
 
     # print(white_won[-1])
     # print(black_won[-1])
