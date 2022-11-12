@@ -4,6 +4,11 @@ import subprocess
 from time import sleep
 
 
+def get_each_move(chess_game):
+    each_move = chess_game.split(' ')
+    return each_move
+
+
 def play(mp3: str, secs: float = 0.5) -> None:
     """Adds together the relative audio path with
     the mp3 file and appends the extensio .mp3.
