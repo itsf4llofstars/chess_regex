@@ -37,6 +37,9 @@ raw_chess_games = fh.read_pgn_file(pgn_path_file)
 only_games = parser.get_only_games(raw_chess_games)
 del raw_chess_games
 
+"""Parse out only those games what match the length the
+user requested. As of now it is set to games no greater
+than 39 moves."""
 short_games = parser.no_long_games(only_games)
 del only_games
 
