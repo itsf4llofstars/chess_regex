@@ -5,6 +5,8 @@ import file_helper as fh
 import pgn_parsers as parser
 from sys import exit
 
+# Call the menu.py dispaly options function to get
+# the users game return choice.
 users_choice = menu.display_options()
 
 pgn_path = menu.get_pgn_dir()
@@ -34,5 +36,3 @@ elif users_choice == 5:
     parser.get_black_mates(short_games, games_list)
 elif users_choice == 6:
     exit()
-
-[print(game) for game in games_list]
