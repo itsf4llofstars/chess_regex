@@ -30,8 +30,10 @@ pgn_parsers.py file. These max moves are not currently
 in use."""
 # maximum_moves = menu.set_max_move(maximum_moves)
 
+"""Get the pgn files raw data"""
 raw_chess_games = fh.read_pgn_file(pgn_path_file)
 
+"""Parse out only the chess games"""
 only_games = parser.get_only_games(raw_chess_games)
 del raw_chess_games
 
