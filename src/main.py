@@ -12,6 +12,10 @@ users_choice = menu.display_options()
 # Call menu.py get_pgn_dir function the get the users
 # director[y|ies] where the pgn files are
 pgn_path = menu.get_pgn_dir()
+
+# Call menu.py get_pgn_file, passing the path variable
+# to get the users pgn filename and join it with the
+# path to the pgn file
 pgn_path_file = menu.get_pgn_file(pgn_path)
 
 maximum_moves = menu.max_moves()
