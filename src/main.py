@@ -58,3 +58,10 @@ elif users_choice == 5:
     parser.get_black_mates(short_games, games_list)
 elif users_choice == 6:
     exit()
+
+print(games_list)
+input('Continue... ')
+
+study_game = parser.pick_one_game(games_list)
+del games_list
+print(study_game)
