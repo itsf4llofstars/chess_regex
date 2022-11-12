@@ -9,6 +9,8 @@ from sys import exit
 # the users game return choice.
 users_choice = menu.display_options()
 
+# Call menu.py get_pgn_dir function the get the users
+# director[y|ies] where the pgn files are
 pgn_path = menu.get_pgn_dir()
 pgn_path_file = menu.get_pgn_file(pgn_path)
 
