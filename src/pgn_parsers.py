@@ -144,7 +144,8 @@ def pick_one_game(chess_games):
         List of individual strings for each move
         and move number
     """
-    return ''.join(choice(chess_games)).split(' ')
+    random_chess_game = choice(chess_games)
+    return random_chess_game.split(' ')
 
 
 if __name__ == '__main__':
