@@ -1,3 +1,8 @@
+"""
+NOTE: In order to run your own tests you will need to change
+the self.assertEqual(test_directory, 'CHANGE_THIS_PATH')
+line to a valid directory on your computer
+"""
 import unittest
 from src.menu import check_dir
 from src.menu import check_file_exists
