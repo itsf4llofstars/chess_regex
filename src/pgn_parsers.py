@@ -59,6 +59,40 @@ def no_long_games(chess_list):
     return
 
 
+def ommit_kibitz_games(chess_list):
+    clean_games = []
+    for a_game in chess_list:
+        if re.search(regex_dict['kibitz'], a_game):
+            continue
+        clean_games.append(a_game)
+
+    if len(clean_games):
+        return clean_games
+    return
+
+
+def replace_tags(tagged_games):
+    """The order of the replace function must remain.
+    !! and ?? are replaced on the ! and ? calls but best
+    to leave them in
+    """
+    not_tagged = []
+    new_game = ''
+    for a_game in tagged_games:
+        a_game = a_game.replace('!', '')
+        a_game = a_game.replace('!!', '')
+        a_game = a_game.replace('?', '')
+        a_game = a_game.replace('??', '')
+        a_game = a_game.replace('!?', '')
+        a_game = a_game.replace('?!', '')
+        a_game = a_game.replace('-+', '')
+        a_game = a_game.replace('+-', '')
+        a_game = a_game.replace('+', '')
+        not_tagged.append(a_game)
+        new_game = ''
+    return not_tagged
+
+
 def get_white_wins(chess_games, winner):
     """Accepts a list of chess games and searches for the
     white_wins regex. Appends the game if the regex white_wins
@@ -157,8 +191,19 @@ if __name__ == '__main__':
     for game in games:
         strip_games.append(game.strip())
 
-    raw_games = get_only_games(strip_games)
-    short_games = no_long_games(raw_games)
+    tagged_games_list = [
+        "1. c4 d5! 2. Nf3!! d6? 12. d4?? d4?! 12. d4!? d4+- 12. d4-+ d4+ 1-0"
+    ]
+
+    foo = replace_tags(tagged_games_list)
+    print(foo)
+
+    # raw_games = get_only_games(strip_games)
+    # short_games = no_long_games(raw_games)
+    # no_kibitz = ommit_kibitz_games(short_games)
+    # tags_games = replace_tags(no_kibitz)
+    # audio_game = pick_one_game(tags_games)
+    # print(audio_game)
 
     # # White wins function
     # white_won = []
@@ -186,9 +231,6 @@ if __name__ == '__main__':
     # strip_black_mates(short_games, no_black_mates)
     # [print(game) for game in short_games]
     # [print(wins) for wins in no_black_mates]
-
-    audio_game = pick_one_game(short_games)
-    print(audio_game)
 
     # print(white_won[-1])
     # print(black_won[-1])
