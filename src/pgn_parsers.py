@@ -71,6 +71,22 @@ def ommit_kibitz_games(chess_list):
     return
 
 
+def replace_tags(tagged_games):
+    not_tagged = []
+    for a_game in tagged_games:
+        a_game = a_game.replace('!', '')
+        a_game = a_game.replace('!!', '')
+        a_game = a_game.replace('?', '')
+        a_game = a_game.replace('??', '')
+        a_game = a_game.replace('!?', '')
+        a_game = a_game.replace('?!', '')
+        a_game = a_game.replace('+', '')
+        a_game = a_game.replace('+-', '')
+        a_game = a_game.replace('-+', '')
+        a_game.append(not_tagged)
+    return not_tagged
+
+
 def get_white_wins(chess_games, winner):
     """Accepts a list of chess games and searches for the
     white_wins regex. Appends the game if the regex white_wins
@@ -171,6 +187,7 @@ if __name__ == '__main__':
 
     raw_games = get_only_games(strip_games)
     short_games = no_long_games(raw_games)
+    no_kibitz = ommit_kibitz_games(short_games)
 
     # # White wins function
     # white_won = []
@@ -199,7 +216,7 @@ if __name__ == '__main__':
     # [print(game) for game in short_games]
     # [print(wins) for wins in no_black_mates]
 
-    audio_game = pick_one_game(short_games)
+    audio_game = pick_one_game(no_kibitz)
     print(audio_game)
 
     # print(white_won[-1])
