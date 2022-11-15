@@ -6,8 +6,8 @@ from time import sleep
 
 def play(mp3: str, secs: float = 0.5) -> None:
     """Adds together the relative audio path with
-    the mp3 file and appends the extensio .mp3.
-    Calls the supprocess command to play the single
+    the mp3 file and appends the extension .mp3.
+    Calls the subprocess command to play the single
     audio mp3 file. Requires the audio player call.
     This call is cvlc, vlc, or celluloid at this time.
     The sleep time is the time between audio calls, as
@@ -66,4 +66,3 @@ if __name__ == '__main__':
         print(audio_dict[test_str[index]])
         # play(audio_dict[test_str[index]])
         index += 1
-

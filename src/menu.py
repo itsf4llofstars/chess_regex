@@ -57,7 +57,7 @@ def get_pgn_dir():
 
 def check_dir(directory: str):
     """Deprecated: 2022-11-04
-    check_dir is still activly being tested under
+    check_dir is still actively being tested under
     tests
     """
     return os.path.expanduser(os.path.join('~', directory))

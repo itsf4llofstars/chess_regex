@@ -5,7 +5,7 @@ import file_helper as fh
 import pgn_parsers as parser
 from sys import exit
 
-"""Call the menu.py dispaly options function to get
+"""Call the menu.py display options function to get
 the users game return choice."""
 users_choice = menu.display_options()
 
