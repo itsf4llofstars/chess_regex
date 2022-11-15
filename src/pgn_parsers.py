@@ -59,6 +59,18 @@ def no_long_games(chess_list):
     return
 
 
+def ommit_kibitz_games(chess_list):
+    clean_games = []
+    for a_game in chess_list:
+        if re.search(regex_dict['kibitz'], a_game):
+            continue
+        clean_games.append(a_game)
+
+    if len(clean_games):
+        return clean_games
+    return
+
+
 def get_white_wins(chess_games, winner):
     """Accepts a list of chess games and searches for the
     white_wins regex. Appends the game if the regex white_wins
