@@ -63,8 +63,7 @@ kibitz_games_list = [
 ]
 
 tagged_games_list = [
-    "1. c4 d5! 2. Nf3!! d6? 12. d4?? d4?! 12. d4!? d4+- 12. d4-+ d4+ 1-0",
-    "1. c4 d5 2. Nf3 d6 12. d4 d4 12. d4 d4 12. d4 d4 1-0"
+    "1. c4 d5! 2. Nf3!! d6? 12. d4?? d4?! 12. d4!? d4+- 12. d4-+ d4+ 1-0"
 ]
 
 
@@ -145,7 +144,6 @@ class TestGamesList(unittest.TestCase):
         test_no_tagged = replace_tags(tagged_games_list)
         self.assertEqual(test_no_tagged,
                          [
-                             "1. c4 d5 2. Nf3 d6 12. d4 d4 12. d4 d4 12. d4 d4 1-0",
                              "1. c4 d5 2. Nf3 d6 12. d4 d4 12. d4 d4 12. d4 d4 1-0"
                          ])
 
