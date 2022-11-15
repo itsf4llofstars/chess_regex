@@ -205,35 +205,35 @@ if __name__ == '__main__':
     # audio_game = pick_one_game(tags_games)
     # print(audio_game)
 
-# # White wins function
-# white_won = []
-# get_white_wins(short_games, white_won)
+    # # White wins function
+    # white_won = []
+    # get_white_wins(short_games, white_won)
 
-# # Black wins function
-# black_won = []
-# get_black_wins(short_games, black_won)
+    # # Black wins function
+    # black_won = []
+    # get_black_wins(short_games, black_won)
 
-# # White mates function
-# white_mates = []
-# get_white_mates(short_games, white_mates)
+    # # White mates function
+    # white_mates = []
+    # get_white_mates(short_games, white_mates)
 
-# # Black mates function
-# black_mates = []
-# get_black_mates(short_games, black_mates)
+    # # Black mates function
+    # black_mates = []
+    # get_black_mates(short_games, black_mates)
 
-# No White Mates
-# no_white_mates = []
-# strip_white_mates(short_games, no_white_mates)
-# [print(game) for game in short_games]
-# [print(wins) for wins in no_white_mates]
+    # No White Mates
+    # no_white_mates = []
+    # strip_white_mates(short_games, no_white_mates)
+    # [print(game) for game in short_games]
+    # [print(wins) for wins in no_white_mates]
 
-# no_black_mates = []
-# strip_black_mates(short_games, no_black_mates)
-# [print(game) for game in short_games]
-# [print(wins) for wins in no_black_mates]
+    # no_black_mates = []
+    # strip_black_mates(short_games, no_black_mates)
+    # [print(game) for game in short_games]
+    # [print(wins) for wins in no_black_mates]
 
-# print(white_won[-1])
-# print(black_won[-1])
-# print(white_mates[-1])
-# print(black_mates[-1])
-# [print(game) for game in black_mates]
+    # print(white_won[-1])
+    # print(black_won[-1])
+    # print(white_mates[-1])
+    # print(black_mates[-1])
+    # [print(game) for game in black_mates]
