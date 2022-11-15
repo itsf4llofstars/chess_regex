@@ -59,7 +59,7 @@ def no_long_games(chess_list):
     return
 
 
-def ommit_kibitz_games(chess_list):
+def omit_kibitz_games(chess_list):
     clean_games = []
     for a_game in chess_list:
         if re.search(regex_dict['kibitz'], a_game):
@@ -77,7 +77,6 @@ def replace_tags(tagged_games):
     to leave them in
     """
     not_tagged = []
-    new_game = ''
     for a_game in tagged_games:
         a_game = a_game.replace('!', '')
         a_game = a_game.replace('!!', '')
@@ -89,7 +88,6 @@ def replace_tags(tagged_games):
         a_game = a_game.replace('+-', '')
         a_game = a_game.replace('+', '')
         not_tagged.append(a_game)
-        new_game = ''
     return not_tagged
 
 
@@ -169,7 +167,7 @@ def strip_black_mates(chess_games, no_mates):
 
 def pick_one_game(chess_games):
     """Returns a list of individual moves and move
-    numbers form a randomlly choosen game from chess_games
+    numbers form a randomly chosen game from chess_games
 
     Args:
         chess_games: List of chess games
@@ -198,42 +196,42 @@ if __name__ == '__main__':
     foo = replace_tags(tagged_games_list)
     print(foo)
 
-    # raw_games = get_only_games(strip_games)
-    # short_games = no_long_games(raw_games)
-    # no_kibitz = ommit_kibitz_games(short_games)
-    # tags_games = replace_tags(no_kibitz)
-    # audio_game = pick_one_game(tags_games)
-    # print(audio_game)
+    raw_games = get_only_games(strip_games)
+    short_games = no_long_games(raw_games)
+    no_kibitz = omit_kibitz_games(short_games)
+    tags_games = replace_tags(no_kibitz)
+    audio_game = pick_one_game(tags_games)
+    print(audio_game)
 
-    # # White wins function
-    # white_won = []
-    # get_white_wins(short_games, white_won)
+    # White wins function
+    white_won = []
+    get_white_wins(short_games, white_won)
 
-    # # Black wins function
-    # black_won = []
-    # get_black_wins(short_games, black_won)
+    # Black wins function
+    black_won = []
+    get_black_wins(short_games, black_won)
 
-    # # White mates function
-    # white_mates = []
-    # get_white_mates(short_games, white_mates)
+    # White mates function
+    white_mates = []
+    get_white_mates(short_games, white_mates)
 
-    # # Black mates function
-    # black_mates = []
-    # get_black_mates(short_games, black_mates)
+    # Black mates function
+    black_mates = []
+    get_black_mates(short_games, black_mates)
 
     # No White Mates
-    # no_white_mates = []
-    # strip_white_mates(short_games, no_white_mates)
-    # [print(game) for game in short_games]
-    # [print(wins) for wins in no_white_mates]
+    no_white_mates = []
+    strip_white_mates(short_games, no_white_mates)
+    [print(game) for game in short_games]
+    [print(wins) for wins in no_white_mates]
 
-    # no_black_mates = []
-    # strip_black_mates(short_games, no_black_mates)
-    # [print(game) for game in short_games]
-    # [print(wins) for wins in no_black_mates]
+    no_black_mates = []
+    strip_black_mates(short_games, no_black_mates)
+    [print(game) for game in short_games]
+    [print(wins) for wins in no_black_mates]
 
-    # print(white_won[-1])
-    # print(black_won[-1])
-    # print(white_mates[-1])
-    # print(black_mates[-1])
-    # [print(game) for game in black_mates]
+    print(white_won[-1])
+    print(black_won[-1])
+    print(white_mates[-1])
+    print(black_mates[-1])
+    [print(game) for game in black_mates]

@@ -6,7 +6,7 @@ from src.pgn_parsers import get_only_games
 from src.pgn_parsers import get_white_mates
 from src.pgn_parsers import get_white_wins
 from src.pgn_parsers import no_long_games
-from src.pgn_parsers import ommit_kibitz_games
+from src.pgn_parsers import omit_kibitz_games
 from src.pgn_parsers import replace_tags
 from src.pgn_parsers import strip_black_mates
 from src.pgn_parsers import strip_white_mates
@@ -133,7 +133,7 @@ class TestGamesList(unittest.TestCase):
                          ])
 
     def test_ommit_kibitz_games(self):
-        test_ommit_kibitz = ommit_kibitz_games(kibitz_games_list)
+        test_ommit_kibitz = omit_kibitz_games(kibitz_games_list)
         self.assertEqual(test_ommit_kibitz,
                          [
                              "1. c4 e5 2. Nf3 d6 12. d4 1-0",
