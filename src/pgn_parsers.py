@@ -83,7 +83,7 @@ def replace_tags(tagged_games):
         a_game = a_game.replace('+', '')
         a_game = a_game.replace('+-', '')
         a_game = a_game.replace('-+', '')
-        a_game.append(not_tagged)
+        not_tagged.append(a_game)
     return not_tagged
 
 
@@ -188,6 +188,9 @@ if __name__ == '__main__':
     raw_games = get_only_games(strip_games)
     short_games = no_long_games(raw_games)
     no_kibitz = ommit_kibitz_games(short_games)
+    tags_games = replace_tags(no_kibitz)
+    audio_game = pick_one_game(tags_games)
+    print(audio_game)
 
     # # White wins function
     # white_won = []
@@ -215,9 +218,6 @@ if __name__ == '__main__':
     # strip_black_mates(short_games, no_black_mates)
     # [print(game) for game in short_games]
     # [print(wins) for wins in no_black_mates]
-
-    audio_game = pick_one_game(no_kibitz)
-    print(audio_game)
 
     # print(white_won[-1])
     # print(black_won[-1])
