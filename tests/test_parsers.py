@@ -132,9 +132,9 @@ class TestGamesList(unittest.TestCase):
                              "1. e4 e5 2. Nf3 d6 32. d4",
                          ])
 
-    def test_ommit_kibitz_games(self):
-        test_ommit_kibitz = omit_kibitz_games(kibitz_games_list)
-        self.assertEqual(test_ommit_kibitz,
+    def test_omit_kibitz_games(self):
+        test_omit_kibitz = omit_kibitz_games(kibitz_games_list)
+        self.assertEqual(test_omit_kibitz,
                          [
                              "1. c4 e5 2. Nf3 d6 12. d4 1-0",
                              "1. c4 d5 2. Nf3 d6 12. d4 1-0"
