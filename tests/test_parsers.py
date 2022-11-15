@@ -60,6 +60,11 @@ kibitz_games_list = [
     "1. e4 e5 2. Nf3 ( 2. Nc3 g6 ) 2... d6 2. d4 0-1"
 ]
 
+tagged_games_list = [
+    "1. c4 d5! 2. Nf3!! d6? 12. d4?? d4?! 12. d4!? d4+- 12. d4-+ d4+ 1-0",
+    "1. c4 d5 2. Nf3 d6 12. d4 d4 12. d4 d4 12. d4 d4 1-0"
+]
+
 # NOTE: These test are not exhaustive
 
 
