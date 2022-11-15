@@ -1,13 +1,15 @@
 import unittest
-from src.pgn_parsers import get_only_games
-from src.pgn_parsers import no_long_games
-from src.pgn_parsers import get_white_wins
-from src.pgn_parsers import get_white_mates
-from src.pgn_parsers import get_black_wins
+
 from src.pgn_parsers import get_black_mates
-from src.pgn_parsers import strip_white_mates
-from src.pgn_parsers import strip_black_mates
+from src.pgn_parsers import get_black_wins
+from src.pgn_parsers import get_only_games
+from src.pgn_parsers import get_white_mates
+from src.pgn_parsers import get_white_wins
+from src.pgn_parsers import no_long_games
 from src.pgn_parsers import ommit_kibitz_games
+from src.pgn_parsers import replace_tags
+from src.pgn_parsers import strip_black_mates
+from src.pgn_parsers import strip_white_mates
 
 only_games_test_list = [
     "['Opera House Test']",
@@ -64,6 +66,7 @@ tagged_games_list = [
     "1. c4 d5! 2. Nf3!! d6? 12. d4?? d4?! 12. d4!? d4+- 12. d4-+ d4+ 1-0",
     "1. c4 d5 2. Nf3 d6 12. d4 d4 12. d4 d4 12. d4 d4 1-0"
 ]
+
 
 # NOTE: These test are not exhaustive
 
@@ -132,7 +135,19 @@ class TestGamesList(unittest.TestCase):
 
     def test_ommit_kibitz_games(self):
         test_ommit_kibitz = ommit_kibitz_games(kibitz_games_list)
-        self.assertEqual(test_ommit_kibitz, ["1. c4 e5 2. Nf3 d6 12. d4 1-0", "1. c4 d5 2. Nf3 d6 12. d4 1-0"])
+        self.assertEqual(test_ommit_kibitz,
+                         [
+                             "1. c4 e5 2. Nf3 d6 12. d4 1-0",
+                             "1. c4 d5 2. Nf3 d6 12. d4 1-0"
+                         ])
+
+    def test_replace_tags(self):
+        test_no_tagged = replace_tags(tagged_games_list)
+        self.assertEqual(test_no_tagged,
+                         [
+                             "1. c4 d5 2. Nf3 d6 12. d4 d4 12. d4 d4 12. d4 d4 1-0",
+                             "1. c4 d5 2. Nf3 d6 12. d4 d4 12. d4 d4 12. d4 d4 1-0"
+                         ])
 
 
 if __name__ == '__main__':
