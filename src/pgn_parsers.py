@@ -3,11 +3,12 @@
 import re
 from random import choice
 
-max_moves = 0
+max_moves = 6
 
 regex_dict = {
     'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
     'max_move': re.compile(r'\s[4-9]\d\.\s'),
+    'max_moves': re.compile(r'\s[' + str(max_moves) + r'-9]\d\.\s'),
     'no_hundred': re.compile(r'\s\d{3}\.\s'),
     'white_wins': re.compile(r'(\s1-0)$'),
     'black_wins': re.compile(r'(\s0-1)$'),
@@ -242,6 +243,6 @@ if __name__ == '__main__':
     [print(game) for game in black_mates]
     """
 
-    for k, v in regex_dict.items():
-        print(k, v)
+    for v in regex_dict.values():
+        print(v)
 
