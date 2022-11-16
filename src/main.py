@@ -22,13 +22,13 @@ pgn_path_file = menu.get_pgn_file(pgn_path)
 number of moves the user wants for the their game
 These max moves are not currently
 in use."""
-# maximum_moves = menu.max_moves()
+maximum_moves = menu.max_moves()
 
 """Set the maximum_moves variable for numeric validity
 and return it as a string for use in the regex dict in
 pgn_parsers.py file. These max moves are not currently
 in use."""
-# maximum_moves = menu.set_max_move(maximum_moves)
+maximum_moves = menu.set_max_move(maximum_moves)
 
 """Get the pgn files raw data"""
 raw_chess_games = fh.read_pgn_file(pgn_path_file)
