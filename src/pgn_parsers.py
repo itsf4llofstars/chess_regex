@@ -5,7 +5,7 @@ from random import choice
 
 regex_dict = {
     'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
-    'no_forty': re.compile(r'\s[4-9]\d\.\s'),
+    'max_move': re.compile(r'\s[4-9]\d\.\s'),
     'no_hundred': re.compile(r'\s\d{3}\.\s'),
     'white_wins': re.compile(r'(\s1-0)$'),
     'black_wins': re.compile(r'(\s0-1)$'),
@@ -50,7 +50,7 @@ def no_long_games(chess_list):
     """
     shorts = []
     for a_game in chess_list:
-        if not re.search(regex_dict['no_forty'], a_game) and not re.search(regex_dict['no_hundred'], a_game):
+        if not re.search(regex_dict['max_move'], a_game) and not re.search(regex_dict['no_hundred'], a_game):
             shorts.append(a_game)
 
     if len(shorts):
