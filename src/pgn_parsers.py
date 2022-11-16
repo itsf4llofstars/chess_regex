@@ -3,6 +3,8 @@
 import re
 from random import choice
 
+max_moves = 0
+
 regex_dict = {
     'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
     'max_move': re.compile(r'\s[4-9]\d\.\s'),

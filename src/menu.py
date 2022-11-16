@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.9
 """menu.py file for selecting pgn file actions"""
 import os
+import pgn_parsers as pgnp
 from sys import exit
 
 OPTIONS = (
@@ -102,12 +103,9 @@ def max_moves():
 
 
 def set_max_move(number):
-    while number < 2 or number > 9:
-        print('\nYour max number of moves is to low or high\n'
-              'Enter a number between 2 and 9 that represents\n'
-              'the tens of moves.')
-        number = int(input('\nWhat is the maximum amount of moves you would like for your games: '))
-    return str(number)
+    """Doc
+    """
+    pgnp.max_moves = number
 
 
 if __name__ == '__main__':
