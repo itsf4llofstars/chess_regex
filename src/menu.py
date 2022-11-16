@@ -89,12 +89,16 @@ def check_file_exists(directory: str, file_name: str):
 
 def max_moves():
     os.system('clear')
-    print(
-        "\nEnter the maximum number of game moves in ten's [4 returns games with 49-moves and less]\n",
-        "\bYou can enter move numbers up to 9, which would return games of 99-moves and less.\n",
-        "\bThe minimum number is 1, 19-moves and less.\n"
-    )
-    return int(input('\nWhat is the maximum amount of moves you would like for your games: '))
+    max_moves = 0
+    while max_moves < 1 or max_moves > 9:
+        print(
+            "\nEnter the maximum number of game moves in ten's [4 returns games with 49-moves and less]\n",
+            "\bYou can enter move numbers up to 9, which would return games of 99-moves and less.\n",
+            "\bThe minimum number is 1, 19-moves and less.\n"
+        )
+        max_moves = int(input('\nWhat is the maximum amount of moves you would like for your games: '))
+
+    return max_moves
 
 
 def set_max_move(number):
