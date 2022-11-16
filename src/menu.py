@@ -19,6 +19,8 @@ OPTIONS = (
 
 
 def display_options():
+    """Doc
+    """
     while True:
         os.system('clear')
         print(OPTIONS)
@@ -40,6 +42,8 @@ def display_options():
 
 
 def get_pgn_dir():
+    """Doc
+    """
     while True:
         print('\tEnter the directory of your chess pgn file:')
         print("\tIf your directory is '/home/$USER/chess/pgn_files', Enter: chess/pgn_files\n")
@@ -65,6 +69,8 @@ def check_dir(directory: str):
 
 
 def get_pgn_file(directory: str) -> str:
+    """Doc
+    """
     while True:
         print('\tEnter the name of the chess pgn file. .pgn is optional:')
         print('\tExample: chess-games[.pgn]\n')
@@ -85,10 +91,14 @@ def get_pgn_file(directory: str) -> str:
 
 
 def check_file_exists(directory: str, file_name: str):
+    """Doc
+    """
     return os.path.join(directory, file_name)
 
 
 def max_moves():
+    """Doc
+    """
     os.system('clear')
     max_moves = 0
     while max_moves < 1 or max_moves > 9:

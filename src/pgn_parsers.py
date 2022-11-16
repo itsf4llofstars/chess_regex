@@ -62,6 +62,8 @@ def no_long_games(chess_list):
 
 
 def omit_kibitz_games(chess_list):
+    """Doc
+    """
     clean_games = []
     for a_game in chess_list:
         if re.search(regex_dict['kibitz'], a_game):
