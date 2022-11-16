@@ -181,6 +181,7 @@ def pick_one_game(chess_games):
 
 
 if __name__ == '__main__':
+    """
     # games = []
     with open('/home/bumper/chess/real_pgns_test.pgn', 'r') as fo:
         games = fo.readlines()
@@ -235,3 +236,8 @@ if __name__ == '__main__':
     print(white_mates[-1])
     print(black_mates[-1])
     [print(game) for game in black_mates]
+    """
+
+    for k, v in regex_dict.items():
+        print(k, v)
+
