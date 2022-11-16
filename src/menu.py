@@ -91,7 +91,7 @@ def max_moves():
     os.system('clear')
     print("\nEnter the maximum number of game moves in ten's [4 returns games with 49-moves and less]\n",
       "You can enter move numbers up to 9, which would return games of 99-moves and less.\n",
-      "The minimum number is 2, 29-moves and less.\n"
+      "The minimum number is 1, 19-moves and less.\n"
     )
     return int(input('\nWhat is the maximum amount of moves you would like for your games: '))
 
