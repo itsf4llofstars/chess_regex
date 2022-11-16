@@ -23,11 +23,12 @@ pgn_path_file = '/home/bumper/chess/opera.pgn'
 
 """Call the menu.py max_moves function to get the maximum
 number of moves the user wants for the their game
+A 1 is added since return a 3 will give games 29 and less,
+adding a 1 will give games 39 moves and less
 These max moves are not currently
 in use."""
-maximum_moves = menu.max_moves()
+maximum_moves = menu.max_moves() + 1
 print(f'{maximum_moves = }')
-exit()
 
 """Set the maximum_moves variable for numeric validity
 and return it as a string for use in the regex dict in
