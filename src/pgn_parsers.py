@@ -3,9 +3,12 @@
 import re
 from random import choice
 
+# max_moves = 6
+
 regex_dict = {
     'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
-    'no_forty': re.compile(r'\s[4-9]\d\.\s'),
+    'max_move': re.compile(r'\s[4-9]\d\.\s'),
+    'max_moves': '',
     'no_hundred': re.compile(r'\s\d{3}\.\s'),
     'white_wins': re.compile(r'(\s1-0)$'),
     'black_wins': re.compile(r'(\s0-1)$'),
@@ -50,7 +53,7 @@ def no_long_games(chess_list):
     """
     shorts = []
     for a_game in chess_list:
-        if not re.search(regex_dict['no_forty'], a_game) and not re.search(regex_dict['no_hundred'], a_game):
+        if not re.search(regex_dict['max_move'], a_game) and not re.search(regex_dict['no_hundred'], a_game):
             shorts.append(a_game)
 
     if len(shorts):
@@ -60,6 +63,8 @@ def no_long_games(chess_list):
 
 
 def omit_kibitz_games(chess_list):
+    """Doc
+    """
     clean_games = []
     for a_game in chess_list:
         if re.search(regex_dict['kibitz'], a_game):
@@ -181,6 +186,7 @@ def pick_one_game(chess_games):
 
 
 if __name__ == '__main__':
+    """
     # games = []
     with open('/home/bumper/chess/real_pgns_test.pgn', 'r') as fo:
         games = fo.readlines()
@@ -235,3 +241,7 @@ if __name__ == '__main__':
     print(white_mates[-1])
     print(black_mates[-1])
     [print(game) for game in black_mates]
+    """
+
+    for v in regex_dict.values():
+        print(v)

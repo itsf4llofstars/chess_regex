@@ -3,6 +3,8 @@ import re
 
 
 def read_pgn_file(path_file):
+    """Doc
+    """
     pgn_games = []
     try:
         with open(path_file, 'r') as fo:

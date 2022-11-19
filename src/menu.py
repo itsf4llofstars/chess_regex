@@ -1,6 +1,8 @@
 #!/usr/bin/env python3.9
 """menu.py file for selecting pgn file actions"""
 import os
+import re
+import pgn_parsers as pgnp
 from sys import exit
 
 OPTIONS = (
@@ -18,6 +20,8 @@ OPTIONS = (
 
 
 def display_options():
+    """Doc
+    """
     while True:
         os.system('clear')
         print(OPTIONS)
@@ -39,6 +43,8 @@ def display_options():
 
 
 def get_pgn_dir():
+    """Doc
+    """
     while True:
         print('\tEnter the directory of your chess pgn file:')
         print("\tIf your directory is '/home/$USER/chess/pgn_files', Enter: chess/pgn_files\n")
@@ -64,6 +70,8 @@ def check_dir(directory: str):
 
 
 def get_pgn_file(directory: str) -> str:
+    """Doc
+    """
     while True:
         print('\tEnter the name of the chess pgn file. .pgn is optional:')
         print('\tExample: chess-games[.pgn]\n')
@@ -84,22 +92,31 @@ def get_pgn_file(directory: str) -> str:
 
 
 def check_file_exists(directory: str, file_name: str):
+    """Doc
+    """
     return os.path.join(directory, file_name)
 
 
 def max_moves():
+    """Doc
+    """
     os.system('clear')
-    print("Enter the maximum number of game moves in ten's [4 returns games with 39-moves and less]\n")
-    return int(input('What is the maximum amount of moves you would like for your games: '))
+    max_moves = 0
+    while max_moves < 1 or max_moves > 9:
+        print(
+            "\nEnter the maximum number of game moves in ten's [4 returns games with 49-moves and less]\n",
+            "\bYou can enter move numbers up to 9, which would return games of 99-moves and less.\n",
+            "\bThe minimum number is 1, 19-moves and less.\n"
+        )
+        max_moves = int(input('\nWhat is the maximum amount of moves you would like for your games: '))
+
+    return max_moves
 
 
 def set_max_move(number):
-    while number < 2 or number > 9:
-        print('\nYour max number of moves is to low or high\n'
-              'Enter a number between 2 and 9 that represents\n'
-              'the tens of moves.')
-        number = int(input('\nWhat is the maximum amount of moves you would like for your games: '))
-    return str(number)
+    """Doc
+    """
+    pgnp.regex_dict['max_moves'] = re.compile(r'\s[' + str(number) + r'\-9]\d\.\s')
 
 
 if __name__ == '__main__':
