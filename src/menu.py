@@ -115,7 +115,7 @@ def max_moves():
 def set_max_move(number):
     """Doc
     """
-    pgnp.max_moves = number
+    pgnp.regex_dict['max_moves'] = r'\s[' + str(number) + r'\-9]\d\.\s'
 
 
 if __name__ == '__main__':
