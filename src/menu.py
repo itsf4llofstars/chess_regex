@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.9
 """menu.py file for selecting pgn file actions"""
 import os
+import re
 import pgn_parsers as pgnp
 from sys import exit
 
@@ -115,7 +116,7 @@ def max_moves():
 def set_max_move(number):
     """Doc
     """
-    pgnp.regex_dict['max_moves'] = r'\s[' + str(number) + r'\-9]\d\.\s'
+    pgnp.regex_dict['max_moves'] = re.compile(r'\s[' + str(number) + r'\-9]\d\.\s')
 
 
 if __name__ == '__main__':
