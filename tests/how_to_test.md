@@ -9,6 +9,8 @@ Testing in the test_pgn_parsers file are failing with the error importing
 pgn_parser as pgnp dealing with the set max moves variable in the regex_dict['max_move']
 key value pair.<br>
 
+Check testing with VsCode and PyCharm.<br>
+
 ## Ways to Run Tests
 
 ```
