@@ -10,6 +10,7 @@ from src.pgn_parsers import omit_kibitz_games
 from src.pgn_parsers import replace_tags
 from src.pgn_parsers import strip_black_mates
 from src.pgn_parsers import strip_white_mates
+from src.pgn_parsers import set_max_move
 
 only_games_test_list = [
     "['Opera House Test']",
@@ -146,6 +147,9 @@ class TestGamesList(unittest.TestCase):
                          [
                              "1. c4 d5 2. Nf3 d6 12. d4 d4 12. d4 d4 12. d4 d4 1-0"
                          ])
+
+    def test_set_max_move(self):
+        pass
 
 
 if __name__ == '__main__':
