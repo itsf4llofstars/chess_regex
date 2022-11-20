@@ -22,11 +22,22 @@ only_games_test_list = [
     "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 0-1"
 ]
 
+# We can change the last move number and change the
+# set_max_moves argument in the test_no_long_games
+# test method. To return the 42. moves game set_max_moves
+# argument should be 5, the previou games should have
+# moves greater than 49. You will also have to change
+# the assertEqual pass string
 long_games_test_list = [
-    "1. Nc3 e5, 2. Nf3 d6 141. d4",
-    "1. e4 e5 2. Nf3 d6 252. d4",
-    "1. e4 Nf6, 123. Nf3 d6 25. d4",
-    "1. e4 e5 2. Nf3 d6 52. d4"
+    "1. e4 e5 2. Nf3 d6 52. d4",
+    "1. e4 e5 2. Nf3 d6 62. d4",
+    "1. e4 e5 2. Nf3 d6 72. d4",
+    "1. e4 e5 2. Nf3 d6 42. d4",
+    "1. e4 e5 2. Nf3 d6 52. d4",
+    "1. e4 e5 2. Nf3 d6 62. d4",
+    "1. e4 e5 2. Nf3 d6 72. d4",
+    "1. e4 e5 2. Nf3 d6 82. d4",
+    "1. e4 e5 2. Nf3 d6 92. d4"
 ]
 
 winner_test_list = [
@@ -84,9 +95,9 @@ class TestGamesList(unittest.TestCase):
 
     def test_no_long_games(self):
         """Test to ensure no games over 39 moves"""
-        set_max_move(6)
+        set_max_move(5)
         test_no_long_games = no_long_games(long_games_test_list)
-        self.assertEqual(test_no_long_games, ["1. e4 e5 2. Nf3 d6 52. d4"])
+        self.assertEqual(test_no_long_games, ["1. e4 e5 2. Nf3 d6 42. d4"])
 
     def test_get_white_wins(self):
         test_white_wins = []
