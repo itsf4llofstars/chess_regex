@@ -188,8 +188,7 @@ def pick_one_game(chess_games):
 def set_max_move(number):
     """Doc
     """
-    # regex_dict['max_moves'] = re.compile(r'\s[' + str(number) + r'\-9]\d\.\s')
-    regex_dict['max_moves'] = re.compile(r'\s[5-9]\d\.\s')
+    regex_dict['max_moves'] = re.compile(r'\s[' + str(number) + r'-9]\d\.\s')
 
 
 if __name__ == '__main__':
