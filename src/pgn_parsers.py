@@ -53,7 +53,7 @@ def no_long_games(chess_list):
     """
     shorts = []
     for a_game in chess_list:
-        if not re.search(regex_dict['max_move'], a_game) and not re.search(regex_dict['no_hundred'], a_game):
+        if not re.search(regex_dict['max_moves'], a_game) and not re.search(regex_dict['no_hundred'], a_game):
             shorts.append(a_game)
 
     if len(shorts):
@@ -188,7 +188,7 @@ def pick_one_game(chess_games):
 def set_max_move(number):
     """Doc
     """
-    regex_dict['max_moves'] = re.compile(r'\s[' + str(number) + r'\-9]\d\.\s')
+    regex_dict['max_moves'] = re.compile(r'\s[' + str(number) + r'-9]\d\.\s')
 
 
 if __name__ == '__main__':
