@@ -84,7 +84,7 @@ class TestGamesList(unittest.TestCase):
 
     def test_no_long_games(self):
         """Test to ensure no games over 39 moves"""
-        set_max_move(5)
+        set_max_move(6)
         test_no_long_games = no_long_games(long_games_test_list)
         self.assertEqual(test_no_long_games, ["1. e4 e5 2. Nf3 d6 52. d4"])
 
