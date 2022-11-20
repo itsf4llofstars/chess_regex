@@ -6,7 +6,6 @@ line to a valid directory on your computer
 import unittest
 from src.menu import check_dir
 from src.menu import check_file_exists
-from src.menu import set_max_move
 
 
 class TestMenu(unittest.TestCase):
@@ -17,7 +16,3 @@ class TestMenu(unittest.TestCase):
     def test_check_file_exists(self):
         test_file = check_file_exists('/home/bumper/python/chess_regex', 'README.md')
         self.assertEqual(test_file, '/home/bumper/python/chess_regex/README.md')
-
-    def test_set_max_move(self):
-        test_max_move = set_max_move(5)
-        self.assertEqual(test_max_move, '5')
