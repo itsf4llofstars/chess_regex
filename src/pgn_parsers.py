@@ -185,6 +185,12 @@ def pick_one_game(chess_games):
     return random_chess_game.split(' ')
 
 
+def set_max_move(number):
+    """Doc
+    """
+    regex_dict['max_moves'] = re.compile(r'\s[' + str(number) + r'\-9]\d\.\s')
+
+
 if __name__ == '__main__':
     """
     # games = []
