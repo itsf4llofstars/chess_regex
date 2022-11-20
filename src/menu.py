@@ -101,16 +101,16 @@ def max_moves():
     """Doc
     """
     os.system('clear')
-    max_moves = 0
-    while max_moves < 1 or max_moves > 9:
+    max_move = 0
+    while max_move < 1 or max_move > 9:
         print(
             "\nEnter the maximum number of game moves in ten's [4 returns games with 49-moves and less]\n",
             "\bYou can enter move numbers up to 9, which would return games of 99-moves and less.\n",
             "\bThe minimum number is 1, 19-moves and less.\n"
         )
-        max_moves = int(input('\nWhat is the maximum amount of moves you would like for your games: '))
+        max_move = int(input('\nWhat is the maximum amount of moves you would like for your games: '))
 
-    return max_moves
+    return max_move
 
 
 def set_max_move(number):
@@ -123,8 +123,8 @@ if __name__ == '__main__':
     user_choice = display_options()
     print(user_choice)
 
-    max_move = max_moves()
-    print(max_move)
+    user_max_move = max_moves()
+    print(user_max_move)
 
     pgn_directory = get_pgn_dir()
     print(pgn_directory)
