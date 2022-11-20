@@ -7,19 +7,15 @@ from sys import exit
 
 """Call the menu.py display options function to get
 the users game return choice."""
-# users_choice = menu.display_options()
-users_choice = 2
+users_choice = menu.display_options()
 
 """Call menu.py get_pgn_dir function the get the users
 director[y|ies] where the pgn files are"""
-# pgn_path = menu.get_pgn_dir()
-pgn_path = 'chess'
+pgn_path = menu.get_pgn_dir()
 
 """Call menu.py get_pgn_file, passing the path variable
 to get the users pgn filename and join it with the"""
-# path to the pgn file
-# pgn_path_file = menu.get_pgn_file(pgn_path)
-pgn_path_file = '/home/bumper/chess/opera.pgn'
+pgn_path_file = menu.get_pgn_file(pgn_path)
 
 """Call the menu.py max_moves function to get the maximum
 number of moves the user wants for the their game
@@ -33,7 +29,7 @@ maximum_moves = menu.max_moves() + 1
 and return it as a string for use in the regex dict in
 pgn_parsers.py file. These max moves are not currently
 in use."""
-menu.set_max_move(maximum_moves)
+parser.set_max_move(maximum_moves)
 
 """Get the pgn files raw data"""
 raw_chess_games = fh.read_pgn_file(pgn_path_file)
