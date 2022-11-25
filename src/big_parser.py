@@ -3,6 +3,7 @@ Initial write of big_parser.py the file that parses
 all user selects in one function
 """
 import re
+import sys
 
 regex_dict = {
     'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
@@ -20,6 +21,9 @@ regex_dict = {
 
 
 def parse_chess(path_file, game_endings, max_move):
+    if game_endings == 8:
+        sys.exit()
+
     regex_dict['max_moves'] = re.compile(r'\s[' + str(max_move) + r'-9]\d\.\s')
 
     games = []
