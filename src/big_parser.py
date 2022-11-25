@@ -35,28 +35,22 @@ def parse_chess(path_file, game_endings, max_move):
                     if re.search(regex_dict[''], line):
                         games.append(line)
                 if game_endings == 2:
-                    if re.search(regex_dict[''], line):
+                    if re.search(regex_dict['white_wins'], line):
                         games.append(line)
                 if game_endings == 3:
-                    if re.search(regex_dict[''], line):
+                    if re.search(regex_dict['black_wins'], line):
                         games.append(line)
                 if game_endings == 4:
-                    if re.search(regex_dict[''], line):
+                    if re.search(regex_dict['white_mates'], line):
                         games.append(line)
                 if game_endings == 5:
-                    if re.search(regex_dict[''], line):
+                    if re.search(regex_dict['black_mates'], line):
                         games.append(line)
                 if game_endings == 6:
-                    if re.search(regex_dict[''], line):
+                    if re.search(regex_dict['strip_white_mates'], line):
                         games.append(line)
                 if game_endings == 7:
-                    if re.search(regex_dict[''], line):
-                        games.append(line)
-                if game_endings == 8:
-                    if re.search(regex_dict[''], line):
-                        games.append(line)
-                if game_endings == 9:
-                    if re.search(regex_dict[''], line):
+                    if re.search(regex_dict['strip_black_mates'], line):
                         games.append(line)
     finally:
         pass
