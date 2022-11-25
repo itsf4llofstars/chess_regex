@@ -19,6 +19,17 @@ regex_dict = {
 }
 
 
+def parse_chess(path_file, game_endings, max_move):
+    try:
+        pass
+    except:
+        pass
+    else:
+        pass
+    finally:
+        pass
+
+
 def main():
     pass
 
