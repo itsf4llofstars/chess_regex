@@ -36,8 +36,9 @@ def parse_chess(path_file, game_endings, max_move):
         for line in lines:
             if re.search(regex_dict['legal_start'], line) and no re.search(regex_dict['max_moves'], line):
                 if game_endings == 1:
-                    if re.search(regex_dict[''], line):
-                        games.append(line)
+                    # if re.search(regex_dict[''], line):
+                    #     games.append(line)
+                    pass
                 if game_endings == 2:
                     if re.search(regex_dict['white_wins'], line):
                         games.append(line)
