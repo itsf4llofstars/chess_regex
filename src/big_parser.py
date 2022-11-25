@@ -29,7 +29,26 @@ def parse_chess(path_file, game_endings, max_move):
     except FileNotFoundError as fnfe:
         print(f'Err: {fnfe}')  #! Logging
     else:
-        pass
+        for line in lines:
+            if re.search(regex_dict['legal_start'], line) and no re.search(regex_dict['max_moves'], line):
+                if game_endings == 1:
+                    pass
+                if game_endings == 2:
+                    pass
+                if game_endings == 3:
+                    pass
+                if game_endings == 4:
+                    pass
+                if game_endings == 5:
+                    pass
+                if game_endings == 6:
+                    pass
+                if game_endings == 7:
+                    pass
+                if game_endings == 8:
+                    pass
+                if game_endings == 9:
+                    pass
     finally:
         pass
 
