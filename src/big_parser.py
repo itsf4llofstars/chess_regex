@@ -22,10 +22,12 @@ regex_dict = {
 def parse_chess(path_file, game_endings, max_move):
     regex_dict['max_moves'] = re.compile(r'\s[' + str(max_move) + r'-9]\d\.\s')
 
+    games = []
     try:
-        pass
-    except:
-        pass
+        with open(path_file, 'r') as fo:
+            lines = fo.readlines()
+    except FileNotFoundError as fnfe:
+        print(f'Err: {fnfe}')  #! Logging
     else:
         pass
     finally:
