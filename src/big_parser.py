@@ -21,6 +21,12 @@ regex_dict = {
 
 
 def parse_chess(path_file, game_endings, max_move):
+    """This function parses all games at once since games
+    file may be large. This is to mitigate memory issues.
+    Research on parsing each single line in the with open
+    section is needed, see python3 tips and tricks book.
+    This as not been tried or tested
+    """
     if game_endings == 8:
         sys.exit()
 
@@ -29,7 +35,7 @@ def parse_chess(path_file, game_endings, max_move):
     games = []
     try:
         with open(path_file, 'r') as fo:
-            lines = fo.readlines()
+            lines = fo.readlines()  #! Parse each single line
     except FileNotFoundError as fnfe:
         print(f'Err: {fnfe}')  #! Logging
     else:
