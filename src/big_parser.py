@@ -20,7 +20,7 @@ regex_dict = {
 
 
 def parse_chess(path_file, game_endings, max_move):
-    regex_dict['max_moves'] = max_move
+    regex_dict['max_moves'] = re.compile(r'\s[' + str(max_move) + r'-9]\d\.\s')
 
     try:
         pass
