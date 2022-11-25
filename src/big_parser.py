@@ -56,6 +56,8 @@ def parse_chess(path_file, game_endings, max_move):
                 if game_endings == 7:
                     if re.search(regex_dict['strip_black_mates'], line):
                         games.append(line)
+            else:
+                continue
     finally:
         if len(games):
             return games
