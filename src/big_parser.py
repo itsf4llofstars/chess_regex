@@ -29,6 +29,8 @@ def parse_chess(path_file, game_endings, max_move):
     """
     if game_endings == 8:
         sys.exit()
+    elif game_endings == 2:
+        regex = regex_dict['white_wins']
 
     regex_dict['max_moves'] = re.compile(r'\s[' + str(max_move) + r'-9]\d\.\s')
 
@@ -36,8 +38,11 @@ def parse_chess(path_file, game_endings, max_move):
     try:
         with open(path_file, 'r') as pgn_file:
             for game in pgn_file:
-                if re.search(regex_dict['legal_start'], game):
-                    print(game)
+                if re.search(regex_dict['legal_start'], game) \
+                        and not re.search(regex_dict['max_moves'], game) \
+                        and not re.search(regex_dict['kibitz'], game):
+                    if re.search(regex, game):
+                        print(game)
     except FileNotFoundError as fnfe:
         print(f'Err: {fnfe}')  #! Logging
     return
