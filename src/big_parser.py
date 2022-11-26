@@ -50,6 +50,14 @@ def parse_chess(path_file, game_endings, max_move):
         games = []
         with open(path_file, 'r') as pgn_file:
             for game in pgn_file:
+                game = game.replace('!', '')
+                game = game.replace('!!', '')
+                game = game.replace('?', '')
+                game = game.replace('??', '')
+                game = game.replace('!?', '')
+                game = game.replace('?!', '')
+                game = game.replace('+', '')
+
                 if re.search(regex_dict['legal_start'], game) \
                         and not re.search(regex_dict['max_moves'], game) \
                         and not re.search(regex_dict['kibitz'], game):
@@ -66,7 +74,7 @@ def parse_chess(path_file, game_endings, max_move):
 
 
 def main():
-    chess_games = parse_chess('/home/bumper/chess/real_pgns_test.pgn', 2, 3)
+    chess_games = parse_chess('/home/bumper/python/chess_regex/src/bg-parse-test.pgn', 2, 3)
     [print(game) for game in chess_games]
 
 
