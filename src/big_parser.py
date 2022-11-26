@@ -57,6 +57,8 @@ def parse_chess(path_file, game_endings, max_move):
                         games.append(game.strip())
     except FileNotFoundError as fnfe:
         print(f'Err: {fnfe}')  #! Logging
+    except Exception as unk:
+        print(f'Err: {unk}')  #! Logging
     finally:
         if len(games):
             return games
