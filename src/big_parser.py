@@ -27,6 +27,7 @@ def parse_chess(path_file, game_endings, max_move):
     section is needed, see python3 tips and tricks book.
     This as not been tried or tested
     """
+    regex = ''
     if game_endings == 1:
         regex = regex_dict['draws']
     elif game_endings == 2:
@@ -44,10 +45,10 @@ def parse_chess(path_file, game_endings, max_move):
     elif game_endings == 8:
         sys.exit()
 
-    regex_dict['max_moves'] = re.compile(r'\s[' + str(max_move) + r'-9]\d\.\s')
+    regex_dict['max_moves'] = re.compile(r'\s[' + str(max_move) + r'\-9]\d\.\s')
 
+    games = []
     try:
-        games = []
         with open(path_file, 'r') as pgn_file:
             for game in pgn_file:
                 game = game.replace('!', '')
@@ -64,9 +65,9 @@ def parse_chess(path_file, game_endings, max_move):
                     if re.search(regex, game):
                         games.append(game.strip())
     except FileNotFoundError as fnfe:
-        print(f'Err: {fnfe}')  #! Logging
+        print(f'Err: {fnfe}')  # ! Logging
     except Exception as unk:
-        print(f'Err: {unk}')  #! Logging
+        print(f'Err: {unk}')  # ! Logging
     finally:
         if len(games):
             return games
@@ -80,4 +81,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
