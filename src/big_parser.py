@@ -63,8 +63,8 @@ def parse_chess(path_file, game_endings, max_move):
                         and not re.search(regex_dict['max_moves'], game) \
                         and not re.search(regex_dict['kibitz'], game):
                     if re.search(regex, game):
-                        game = game.strip()
-                        games.append(game[:-4])
+                        game = game.strip()[:-4]
+                        games.append(game)
     except FileNotFoundError as fnfe:
         print(f'Err: {fnfe}')  # ! Logging
     except Exception as unk:
@@ -76,7 +76,7 @@ def parse_chess(path_file, game_endings, max_move):
 
 
 def main():
-    choice = 2
+    choice = 6
     chess_games = parse_chess('/home/bumper/python/chess_regex/src/bg-parse-test.pgn', choice, 3)
     [print(game) for game in chess_games]
 
