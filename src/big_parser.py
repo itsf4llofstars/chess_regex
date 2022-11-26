@@ -54,14 +54,19 @@ def parse_chess(path_file, game_endings, max_move):
                         and not re.search(regex_dict['max_moves'], game) \
                         and not re.search(regex_dict['kibitz'], game):
                     if re.search(regex, game):
+                        games.append(game.strip())
                         print(game)
     except FileNotFoundError as fnfe:
         print(f'Err: {fnfe}')  #! Logging
+    finally:
+        if len(games):
+            return games
     return
 
 
 def main():
-    parse_chess('/home/bumper/chess/real_pgns_test.pgn', 2, 3)
+    chess_games = parse_chess('/home/bumper/chess/real_pgns_test.pgn', 2, 3)
+    [print(game) for game in chess_games]
 
 
 if __name__ == '__main__':
