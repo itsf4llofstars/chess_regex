@@ -27,9 +27,7 @@ def parse_chess(path_file, game_endings, max_move):
     section is needed, see python3 tips and tricks book.
     This as not been tried or tested
     """
-    if game_endings == 8:
-        sys.exit()
-    elif game_endings == 1:
+    if game_endings == 1:
         regex = regex_dict['draws']
     elif game_endings == 2:
         regex = regex_dict['white_wins']
@@ -43,6 +41,8 @@ def parse_chess(path_file, game_endings, max_move):
         regex = regex_dict['strip_white_mate']
     elif game_endings == 7:
         regex = regex_dict['strip_black_mate']
+    elif game_endings == 8:
+        sys.exit()
 
     regex_dict['max_moves'] = re.compile(r'\s[' + str(max_move) + r'-9]\d\.\s')
 
@@ -55,7 +55,6 @@ def parse_chess(path_file, game_endings, max_move):
                         and not re.search(regex_dict['kibitz'], game):
                     if re.search(regex, game):
                         games.append(game.strip())
-                        print(game)
     except FileNotFoundError as fnfe:
         print(f'Err: {fnfe}')  #! Logging
     finally:
