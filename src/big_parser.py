@@ -34,47 +34,17 @@ def parse_chess(path_file, game_endings, max_move):
 
     games = []
     try:
-        with open(path_file, 'r') as fo:
-            lines = fo.readlines()  #! Parse each single line
+        with open(path_file, 'r') as pgn_file:
+            for game in pgn_file:
+                if re.search(regex_dict['legal_start'], game):
+                    print(game)
     except FileNotFoundError as fnfe:
         print(f'Err: {fnfe}')  #! Logging
-    else:
-        for line in lines:
-            if re.search(regex_dict['legal_start'], line) \
-                    and not re.search(regex_dict['max_moves'], line) \
-                    and not re.search(regex_dict['kibitz'], line:
-                if game_endings == 1:
-                    # if re.search(regex_dict[''], line):
-                    #     games.append(line)
-                    pass
-                if game_endings == 2:
-                    if re.search(regex_dict['white_wins'], line):
-                        games.append(line)
-                if game_endings == 3:
-                    if re.search(regex_dict['black_wins'], line):
-                        games.append(line)
-                if game_endings == 4:
-                    if re.search(regex_dict['white_mates'], line):
-                        games.append(line)
-                if game_endings == 5:
-                    if re.search(regex_dict['black_mates'], line):
-                        games.append(line)
-                if game_endings == 6:
-                    if re.search(regex_dict['strip_white_mates'], line):
-                        games.append(line)
-                if game_endings == 7:
-                    if re.search(regex_dict['strip_black_mates'], line):
-                        games.append(line)
-            else:
-                continue
-    finally:
-        if len(games):
-            return games
     return
 
 
 def main():
-    pass
+    parse_chess('/home/bumper/chess/real_pgns_test.pgn', 2, 3)
 
 
 if __name__ == '__main__':
