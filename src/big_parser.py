@@ -46,8 +46,8 @@ def parse_chess(path_file, game_endings, max_move):
 
     regex_dict['max_moves'] = re.compile(r'\s[' + str(max_move) + r'-9]\d\.\s')
 
-    games = []
     try:
+        games = []
         with open(path_file, 'r') as pgn_file:
             for game in pgn_file:
                 if re.search(regex_dict['legal_start'], game) \
