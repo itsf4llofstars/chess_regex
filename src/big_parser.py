@@ -17,7 +17,7 @@ regex_dict = {
     'kibitz': re.compile(r'\s[(|{]'),
     'strip_white_mate': re.compile(r'\s\d{1,2}\.\s\w+=?[B-R]?#\s1-0'),
     'strip_black_mate': re.compile(r'\s\w+=?[B-R]?#\s0-1'),
-    'annotates': re.compile(r'[!|!!|?|??|?!|!?|+]'),
+    'annotates': re.compile(r'[!|!!|?|??|?!|!?]'),
 }
 
 
