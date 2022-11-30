@@ -53,7 +53,8 @@ def parse_chess(path_file, game_endings, max_move):
             for game in pgn_file:
                 if re.search(regex_dict['legal_start'], game) \
                         and not re.search(regex_dict['max_moves'], game) \
-                        and not re.search(regex_dict['kibitz'], game):
+                        and not re.search(regex_dict['kibitz'], game) \
+                        and not re.search(regex_dict['annotates'], game):
                     if re.search(regex, game):
                         games.append(game.strip())
     except FileNotFoundError as fnfe:
@@ -67,7 +68,7 @@ def parse_chess(path_file, game_endings, max_move):
 
 
 def main():
-    chess_games = parse_chess('/home/bumper/chess/bumper.pgn', 7, 3)
+    chess_games = parse_chess('/home/bumper/python/chess_regex/src/test.pgn', 2, 3)
     [print(game) for game in chess_games]
 
 
