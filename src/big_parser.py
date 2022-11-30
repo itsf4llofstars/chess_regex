@@ -66,7 +66,7 @@ def parse_chess(path_file, game_endings, max_move):
 
 
 def main():
-    chess_games = parse_chess('/home/bumper/chess/real_pgns_test.pgn', 2, 3)
+    chess_games = parse_chess('/home/bumper/chess/bumper.pgn', 7, 3)
     [print(game) for game in chess_games]
 
 
