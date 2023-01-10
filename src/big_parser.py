@@ -4,6 +4,7 @@ all user selects in one function
 """
 import re
 import sys
+from random import choice
 
 regex_dict = {
     'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
@@ -17,10 +18,11 @@ regex_dict = {
     'kibitz': re.compile(r'\s[(|{]'),
     'strip_white_mate': re.compile(r'\s\d{1,2}\.\s\w+=?[B-R]?#\s1-0'),
     'strip_black_mate': re.compile(r'\s\w+=?[B-R]?#\s0-1'),
+    'annotates': re.compile(r'[!|!!|?|??|?!|!?]'),
 }
 
 
-def parse_chess(path_file, game_endings, max_move):
+def parse_chess(path_file, game_endings, max_move, random_choice):
     """This function parses all games at once since games
     file may be large. This is to mitigate memory issues.
     Research on parsing each single line in the with open
@@ -61,7 +63,8 @@ def parse_chess(path_file, game_endings, max_move):
 
                 if re.search(regex_dict['legal_start'], game) \
                         and not re.search(regex_dict['max_moves'], game) \
-                        and not re.search(regex_dict['kibitz'], game):
+                        and not re.search(regex_dict['kibitz'], game) \
+                        and not re.search(regex_dict['annotates'], game):
                     if re.search(regex, game):
                         game = game.strip()[:-4]
                         games.append(game)
@@ -71,14 +74,19 @@ def parse_chess(path_file, game_endings, max_move):
         print(f'Err: {unk}')  # ! Logging
     finally:
         if len(games):
+            if random_choice:
+                return choice(games)
             return games
     return
 
 
 def main():
-    choice = 6
-    chess_games = parse_chess('/home/bumper/python/chess_regex/src/bg-parse-test.pgn', choice, 3)
-    [print(game) for game in chess_games]
+    random_game = True
+    chess_games = parse_chess('/home/bumper/python/chess_regex/src/test.pgn', 2, 3, random_game)
+    if random_game:
+        print(chess_games)
+    else:
+        [print(game) for game in chess_games]
 
 
 if __name__ == '__main__':
