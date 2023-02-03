@@ -82,7 +82,7 @@ def parse_chess(path_file, game_endings, max_move, random_choice):
 
 def main():
     random_game = True
-    chess_games = parse_chess('/home/bumper/python/chess_regex/src/test.pgn', 2, 3, random_game)
+    chess_games = parse_chess('/home/bumper/python/chess_regex/docs/opera_test.pgn', 3, 3, random_game)
     if random_game:
         print(chess_games)
     else:
