@@ -11,32 +11,34 @@ key value pair.<br>
 
 Check testing with VsCode and PyCharm.<br>
 
+## ALL TESTS MUST BE RUN FROM THE ~/python/chess_regex DIRECTORY!
+
 ## Ways to Run Tests
 
 ```
-$ python3 -m unittest
+~/python/chess_regex/ python3 -m unittest
 ```
 
 or<br>
 
 ```
-$ python3 -m unittest discover -v
+~/python/chess_regex/ python3 -m unittest discover -v
 ```
 
 or<br>
 
 ```
-$ python3 -m unittest tests.test_parser -v
+~/python/chess_regex/ python3 -m unittest tests.test_parser -v
 ```
 
 or<br>
 
 ```
-$ python3 -m unittest tests.test_parser.TestGamesLists -v
+~/python/chess_regex/ python3 -m unittest tests.test_parser.TestGamesLists -v
 ```
 
 or<br>
 
 ```
-$ python3 -m unittest tests.test_parser.TestGamesLists.test_get_only_games -v
+~/python/chess_regex/ python3 -m unittest tests.test_parser.TestGamesLists.test_get_only_games -v
 ```
