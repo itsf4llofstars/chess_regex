@@ -11,6 +11,11 @@ key value pair.<br>
 
 Check testing with VsCode and PyCharm.<br>
 
+## Test To Write
+
+- [] Remove parenthesis
+- [] Revove curyly braces
+
 ## ALL TESTS MUST BE RUN FROM THE ~/python/chess_regex DIRECTORY!
 
 ## Ways to Run Tests
