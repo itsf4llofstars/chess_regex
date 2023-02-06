@@ -30,8 +30,8 @@ only_games_test_list = [
 
 # We can change the last move number and change the
 # set_max_moves argument in the test_no_long_games
-# test method. To return the 42. moves game set_max_moves
-# argument should be 5, the previou games should have
+# test method. To return the 49. moves game set_max_moves
+# argument should be 5, the previous games should have
 # moves greater than 49. You will also have to change
 # the assertEqual pass string
 long_games_test_list = [
