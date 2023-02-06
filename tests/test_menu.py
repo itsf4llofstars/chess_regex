@@ -11,6 +11,7 @@ from src.menu import check_file_exists
 
 class TestMenu(unittest.TestCase):
     def test_check_dir(self):
+        test_directory = os.path.expanduser('~')
         test_directory = check_dir('chess_games_dir')
         self.assertEqual(test_directory, '/home/bumper/chess_games_dir')
 
