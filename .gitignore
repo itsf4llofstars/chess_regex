@@ -9,6 +9,7 @@ vscode/
 .idea/
 ./src/reg-test.py
 db_main.py
+.flake8
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
