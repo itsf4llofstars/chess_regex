@@ -19,34 +19,40 @@ only_games_test_list = [
     "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 1-0",
     "['Opera House Test']",
     "['Paul Morphy']",
-    "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 0-1"
+    "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 0-1",
+    "['Opera House Test']",
+    "['Paul Morphy']",
+    "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3# 1-0",
+    "['Opera House Test']",
+    "['Paul Morphy']",
+    "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3# 0-1"
 ]
 
 # We can change the last move number and change the
 # set_max_moves argument in the test_no_long_games
-# test method. To return the 42. moves game set_max_moves
-# argument should be 5, the previou games should have
+# test method. To return the 49. moves game set_max_moves
+# argument should be 5, the previous games should have
 # moves greater than 49. You will also have to change
 # the assertEqual pass string
 long_games_test_list = [
     "1. e4 e5 2. Nf3 d6 52. d4",
     "1. e4 e5 2. Nf3 d6 62. d4",
     "1. e4 e5 2. Nf3 d6 72. d4",
-    "1. e4 e5 2. Nf3 d6 42. d4",
+    "1. e4 e5 2. Nf3 d6 49. d4",
     "1. e4 e5 2. Nf3 d6 52. d4",
     "1. e4 e5 2. Nf3 d6 62. d4",
     "1. e4 e5 2. Nf3 d6 72. d4",
-    "1. e4 e5 2. Nf3 d6 82. d4",
+    "1. e4 e5 2. Nf3 d6 50. d4",
     "1. e4 e5 2. Nf3 d6 92. d4"
 ]
 
 winner_test_list = [
     "1. e4 e5 2. Nf3 d6 12. d4 1-0",
     "1. e4 e5 2. Nf3 d6 12. d4 Bg4 1-0",
-    "1. e4 e5 2. Nf3 d6 12. d4# 1-0",
-    "1. e4 e5 2. Nf3 d6 12. d4 0-1",
     "1. e4 e5 2. Nf3 d6 12. d4 Bg4 0-1",
     "1. e4 e5 2. Nf3 d6 12. d4 Bg4# 0-1",
+    "1. e4 e5 2. Nf3 d6 12. d4# 1-0",
+    "1. e4 e5 2. Nf3 d6 12. d4 0-1",
     "1. e4 e5, 2. Nf3 d6 2. d4",
     "1. e4 e5, 2. Nf3 d6 31. d4# 1/2-1/2"
 ]
@@ -90,14 +96,16 @@ class TestGamesList(unittest.TestCase):
         test_only_games = get_only_games(only_games_test_list)
         self.assertEqual(test_only_games, [
             "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 1-0",
-            "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 0-1"
+            "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 0-1",
+            "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3# 1-0",
+            "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3# 0-1"
         ])
 
     def test_no_long_games(self):
         """Test to ensure no games over 39 moves"""
         set_max_move(5)
         test_no_long_games = no_long_games(long_games_test_list)
-        self.assertEqual(test_no_long_games, ["1. e4 e5 2. Nf3 d6 42. d4"])
+        self.assertEqual(test_no_long_games, ["1. e4 e5 2. Nf3 d6 49. d4"])
 
     def test_get_white_wins(self):
         test_white_wins = []
@@ -117,9 +125,9 @@ class TestGamesList(unittest.TestCase):
         test_black_wins = []
         get_black_wins(winner_test_list, test_black_wins)
         self.assertEqual(test_black_wins, [
-            "1. e4 e5 2. Nf3 d6 12. d4 0-1",
             "1. e4 e5 2. Nf3 d6 12. d4 Bg4 0-1",
-            "1. e4 e5 2. Nf3 d6 12. d4 Bg4# 0-1"
+            "1. e4 e5 2. Nf3 d6 12. d4 Bg4# 0-1",
+            "1. e4 e5 2. Nf3 d6 12. d4 0-1"
         ])
 
     def test_get_black_mates(self):
