@@ -49,10 +49,10 @@ long_games_test_list = [
 winner_test_list = [
     "1. e4 e5 2. Nf3 d6 12. d4 1-0",
     "1. e4 e5 2. Nf3 d6 12. d4 Bg4 1-0",
-    "1. e4 e5 2. Nf3 d6 12. d4# 1-0",
-    "1. e4 e5 2. Nf3 d6 12. d4 0-1",
     "1. e4 e5 2. Nf3 d6 12. d4 Bg4 0-1",
     "1. e4 e5 2. Nf3 d6 12. d4 Bg4# 0-1",
+    "1. e4 e5 2. Nf3 d6 12. d4# 1-0",
+    "1. e4 e5 2. Nf3 d6 12. d4 0-1",
     "1. e4 e5, 2. Nf3 d6 2. d4",
     "1. e4 e5, 2. Nf3 d6 31. d4# 1/2-1/2"
 ]
