@@ -60,7 +60,8 @@ elif users_choice == 5:
 elif users_choice == 6:
     exit()
 
-print(games_list)
+# print(games_list)
+[print(game) for game in games_list]
 input('Continue... ')
 
 study_game = parser.pick_one_game(games_list)
