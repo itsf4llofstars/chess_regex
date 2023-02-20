@@ -53,21 +53,12 @@ def parse_chess(path_file, game_endings, max_move, random_choice):
     try:
         with open(path_file, 'r') as pgn_file:
             for game in pgn_file:
-                game = game.replace('!', '')
-                game = game.replace('!!', '')
-                game = game.replace('?', '')
-                game = game.replace('??', '')
-                game = game.replace('!?', '')
-                game = game.replace('?!', '')
-                game = game.replace('+', '')
-
-                if re.search(regex_dict['legal_start'], game) \
-                        and not re.search(regex_dict['max_moves'], game) \
-                        and not re.search(regex_dict['kibitz'], game) \
-                        and not re.search(regex_dict['annotates'], game):
-                    if re.search(regex, game):
-                        game = game.strip()[:-4]
-                        games.append(game)
+                if not re.search(regex_dict['legal_start']) \
+                        and (not game.endswith(' 1-0') or not game.endswith(' 0-1')) \
+                        or re.search(regex_dict['kibitz'], game) \
+                        or re.search(regex_dict['max_moves'], game)\
+                        or re.search(regex_dict['no_hundred'], game):
+                    continue
     except FileNotFoundError as fnfe:
         print(f'Err: {fnfe}')  # ! Logging
     except Exception as unk:
