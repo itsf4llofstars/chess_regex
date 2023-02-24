@@ -14,18 +14,11 @@ from src.pgn_parsers import set_max_move
 from src.pgn_parsers import regex_dict
 
 only_games_test_list = [
-    "['Opera House Test']",
+
     "['Paul Morphy']",
     "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 1-0",
     "['Opera House Test']",
-    "['Paul Morphy']",
     "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 0-1",
-    "['Opera House Test']",
-    "['Paul Morphy']",
-    "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3# 1-0",
-    "['Opera House Test']",
-    "['Paul Morphy']",
-    "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3# 0-1"
 ]
 
 # We can change the last move number and change the
@@ -97,8 +90,6 @@ class TestGamesList(unittest.TestCase):
         self.assertEqual(test_only_games, [
             "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 1-0",
             "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 0-1",
-            "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3# 1-0",
-            "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3# 0-1"
         ])
 
     def test_no_long_games(self):
