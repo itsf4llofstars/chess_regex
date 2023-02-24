@@ -14,18 +14,13 @@ from src.pgn_parsers import set_max_move
 from src.pgn_parsers import regex_dict
 
 only_games_test_list = [
-    "['Opera House Test']",
     "['Paul Morphy']",
     "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 1-0",
     "['Opera House Test']",
-    "['Paul Morphy']",
     "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 0-1",
-    "['Opera House Test']",
-    "['Paul Morphy']",
-    "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3# 1-0",
-    "['Opera House Test']",
-    "['Paul Morphy']",
-    "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3# 0-1"
+    "1. Nc3 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 0-1",
+    "1. e4 Nh6 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 0-1",
+    "1. e4 Bc5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 0-1"
 ]
 
 # We can change the last move number and change the
@@ -38,7 +33,7 @@ long_games_test_list = [
     "1. e4 e5 2. Nf3 d6 52. d4",
     "1. e4 e5 2. Nf3 d6 62. d4",
     "1. e4 e5 2. Nf3 d6 72. d4",
-    "1. e4 e5 2. Nf3 d6 49. d4",
+    "1. e4 e5 2. Nf3 d6 39. d4",
     "1. e4 e5 2. Nf3 d6 52. d4",
     "1. e4 e5 2. Nf3 d6 62. d4",
     "1. e4 e5 2. Nf3 d6 72. d4",
@@ -97,15 +92,15 @@ class TestGamesList(unittest.TestCase):
         self.assertEqual(test_only_games, [
             "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 1-0",
             "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 0-1",
-            "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3# 1-0",
-            "1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3# 0-1"
+            "1. Nc3 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 0-1",
+            "1. e4 Nh6 2. Nf3 d6 3. d4 Bf4 4. dxe5 Bxf3 0-1"
         ])
 
     def test_no_long_games(self):
         """Test to ensure no games over 39 moves"""
         set_max_move(5)
         test_no_long_games = no_long_games(long_games_test_list)
-        self.assertEqual(test_no_long_games, ["1. e4 e5 2. Nf3 d6 49. d4"])
+        self.assertEqual(test_no_long_games, ["1. e4 e5 2. Nf3 d6 39. d4"])
 
     def test_get_white_wins(self):
         test_white_wins = []
