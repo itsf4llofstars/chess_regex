@@ -1,6 +1,7 @@
 # Initial write of big_parser.py the file that parses
 # all user selects in one function
 import os
+import random
 import re
 
 file_name = os.path.expanduser(os.path.join('~', 'chess', 'bumper.pgn'))
@@ -10,7 +11,7 @@ white = False
 mate = True
 
 # Second white move not tested
-legal_start = re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?\s2\.\s[a-hBNKQR][1-5a-h])')
+legal_start = re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?\s2\.\s[a-hBNKQR][1-6a-h])')
 
 games = []
 
@@ -51,4 +52,8 @@ with open(file_name, 'r') as fo:
                 games.append(line)
 
 [print(game) for game in games]
+chess_game = random.choice(games)
+print()
+print(chess_game)
+print()
 print(len(games))
