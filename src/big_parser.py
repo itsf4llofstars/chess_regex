@@ -16,7 +16,7 @@ games = []
 
 with open(file_name, 'r') as fo:
     for line in fo:
-        line = line.strip()
+        line = line.rstrip()
         if (
                 not line.startswith('1. ')
                 or not line[-2] == '-'
@@ -25,6 +25,8 @@ with open(file_name, 'r') as fo:
                      or ')' in line
                 or '{' in line
                      or '}' in line
+                or '[' in line
+                     or ']' in line
                 or max_move in line
                 ):
             continue
