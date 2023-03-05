@@ -29,23 +29,6 @@ def parse_chess(path_file, game_endings, max_move, random_choice):
     section is needed, see python3 tips and tricks book.
     This as not been tried or tested
     """
-    regex = ''
-    if game_endings == 1:
-        regex = regex_dict['draws']
-    elif game_endings == 2:
-        regex = regex_dict['white_wins']
-    elif game_endings == 3:
-        regex = regex_dict['black_wins']
-    elif game_endings == 4:
-        regex = regex_dict['white_mates']
-    elif game_endings == 5:
-        regex = regex_dict['black_mates']
-    elif game_endings == 6:
-        regex = regex_dict['strip_white_mate']
-    elif game_endings == 7:
-        regex = regex_dict['strip_black_mate']
-    elif game_endings == 8:
-        sys.exit()
 
     regex_dict['max_moves'] = re.compile(r'\s[' + str(max_move) + r'\-9]\d\.\s')
 
