@@ -51,9 +51,8 @@ with open(file_name, 'r') as fo:
             elif not mate and '#' not in line:
                 games.append(line)
 
-[print(game) for game in games]
+os.system('clear')
 chess_game = random.choice(games)
-print()
 print(chess_game)
 print()
-print(len(games))
+print(f'{len(games)} games.')
