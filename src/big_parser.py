@@ -50,25 +50,10 @@ def parse_chess(path_file, game_endings, max_move, random_choice):
     regex_dict['max_moves'] = re.compile(r'\s[' + str(max_move) + r'\-9]\d\.\s')
 
     games = []
-    try:
-        with open(path_file, 'r') as pgn_file:
-            for game in pgn_file:
-                if not re.search(regex_dict['legal_start']) \
-                        and (not game.endswith(' 1-0') or not game.endswith(' 0-1')) \
-                        or re.search(regex_dict['kibitz'], game) \
-                        or re.search(regex_dict['max_moves'], game)\
-                        or re.search(regex_dict['no_hundred'], game):
-                    continue
-    except FileNotFoundError as fnfe:
-        print(f'Err: {fnfe}')  # ! Logging
-    except Exception as unk:
-        print(f'Err: {unk}')  # ! Logging
-    finally:
-        if len(games):
-            if random_choice:
-                return choice(games)
-            return games
-    return
+    with open(path_file, 'r') as pgn_file:
+        for game in pgn_file:
+                         if not game.startswith('1. ') or '(' in game or ')' in game or '{' in game or '}' in game:
+                continue
 
 
 def main():
