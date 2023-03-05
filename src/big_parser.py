@@ -6,6 +6,8 @@ import re
 file_name = os.path.expanduser(os.path.join('~', 'chess', 'bumper.pgn'))
 min_move = ' 10. '
 max_move = ' 40. '
+white = False
+mate = True
 
 # Second white move not tested
 legal_start = re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?\s2\.\s[a-hBNKQR][1-5a-h])')
@@ -35,7 +37,16 @@ with open(file_name, 'r') as fo:
         line = line.replace('?!', '')
         line = line.replace('!?', '')
         line = line.replace('+', '')
-        games.append(line)
+        if white and line.endswith(' 1-0'):
+            if mate and '#' in line:
+                games.append(line)
+            elif not mate and '#' not in line:
+                games.append(line)
+        elif not white and line.endswith(' 0-1'):
+            if mate and '#' in line:
+                games.append(line)
+            elif not mate and '#' not in line:
+                games.append(line)
 
 [print(game) for game in games]
 print(len(games))
