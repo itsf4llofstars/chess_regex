@@ -35,7 +35,7 @@ def parse_chess(path_file, game_endings, max_move, random_choice):
     games = []
     with open(path_file, 'r') as pgn_file:
         for game in pgn_file:
-                         if not game.startswith('1. ') or '(' in game or ')' in game or '{' in game or '}' in game:
+            if not game.startswith('1. ') or '(' in game or ')' in game or '{' in game or '}' in game:
                 continue
 
 
