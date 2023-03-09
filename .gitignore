@@ -4,6 +4,8 @@
 *.pgn
 !docs/test-chess.pgn
 !docs/regex_test.pgn
+!src/bg-parse-test.pgn
+!tests/bg-parse-test.pgn
 .vscode/
 vscode/
 .idea/
