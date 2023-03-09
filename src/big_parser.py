@@ -22,7 +22,6 @@ with open(file_name, 'r') as fo:
                 or max_move in line
                 or min_move not in line
                 or not line[-3] == '-'
-                or not min_move in line
                 or '(' in line or ')' in line
                 or '{' in line or '}' in line
                 or '[' in line or ']' in line
@@ -34,9 +33,13 @@ with open(file_name, 'r') as fo:
             line = line.replace('?', '')
             line = line.replace('+', '')
             line = line.rstrip()
+            games.append(games)
 
 os.system('clear')
-chess_game = random.choice(games)
+
+while True:
+    chess_game = random.choice(games)
+
 print(chess_game)
 print()
 print(f'{len(games)} games.')
