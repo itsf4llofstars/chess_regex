@@ -1,83 +1,67 @@
-"""
-Initial write of big_parser.py the file that parses
-all user selects in one function
-"""
+# Initial write of big_parser.py the file that parses
+# all user selects in one function
+import os
+import random
 import re
-import sys
-from random import choice
-
-regex_dict = {
-    'legal_start': re.compile(r'^(1\.\s[a-hN].+[a-hN].+\.\s)'),
-    'max_move': re.compile(r'\s[4-9]\d\.\s'),
-    'max_moves': '',
-    'no_hundred': re.compile(r'\s\d{3}\.\s'),
-    'white_wins': re.compile(r'(\s1-0)$'),
-    'black_wins': re.compile(r'(\s0-1)$'),
-    'white_mates': re.compile(r'(#\s1-0)$'),
-    'black_mates': re.compile(r'(#\s0-1)$'),
-    'kibitz': re.compile(r'\s[(|{]'),
-    'strip_white_mate': re.compile(r'\s\d{1,2}\.\s\w+=?[B-R]?#\s1-0'),
-    'strip_black_mate': re.compile(r'\s\w+=?[B-R]?#\s0-1'),
-    'annotates': re.compile(r'[!|!!|?|??|?!|!?]'),
-}
 
 
-def parse_chess(path_file, game_endings, max_move, random_choice):
-    """This function parses all games at once since games
-    file may be large. This is to mitigate memory issues.
-    Research on parsing each single line in the with open
-    section is needed, see python3 tips and tricks book.
-    This as not been tried or tested
-    """
-    regex = ''
-    if game_endings == 1:
-        regex = regex_dict['draws']
-    elif game_endings == 2:
-        regex = regex_dict['white_wins']
-    elif game_endings == 3:
-        regex = regex_dict['black_wins']
-    elif game_endings == 4:
-        regex = regex_dict['white_mates']
-    elif game_endings == 5:
-        regex = regex_dict['black_mates']
-    elif game_endings == 6:
-        regex = regex_dict['strip_white_mate']
-    elif game_endings == 7:
-        regex = regex_dict['strip_black_mate']
-    elif game_endings == 8:
-        sys.exit()
-
-    regex_dict['max_moves'] = re.compile(r'\s[' + str(max_move) + r'\-9]\d\.\s')
-
+def parse_games(file_name, max_move, min_move, white, mate):
     games = []
-    try:
-        with open(path_file, 'r') as pgn_file:
-            for game in pgn_file:
-                if not re.search(regex_dict['legal_start']) \
-                        and (not game.endswith(' 1-0') or not game.endswith(' 0-1')) \
-                        or re.search(regex_dict['kibitz'], game) \
-                        or re.search(regex_dict['max_moves'], game)\
-                        or re.search(regex_dict['no_hundred'], game):
-                    continue
-    except FileNotFoundError as fnfe:
-        print(f'Err: {fnfe}')  # ! Logging
-    except Exception as unk:
-        print(f'Err: {unk}')  # ! Logging
-    finally:
-        if len(games):
-            if random_choice:
-                return choice(games)
-            return games
-    return
+    random_game = ''
+    with open(file_name, 'r') as fo:
+        for line in fo:
+            if (
+                    not line.startswith('1. ')
+                    or max_move in line
+                    or min_move not in line
+                    or not line[-3] == '-'
+                    or '(' in line or ')' in line
+                    or '{' in line or '}' in line
+                    or '[' in line or ']' in line
+                    or '<' in line or '>' in line
+                    ):
+                continue
+            else:
+                line = line.replace('!', '')
+                line = line.replace('?', '')
+                line = line.replace('+', '')
+                line = line.rstrip()
+
+                if white and mate:
+                    if line.endswith(' 1-0') and '#' in line:
+                        games.append(line)
+                elif white and not mate:
+                    if line.endswith(' 1-0') and '#' not in line:
+                        games.append(line)
+                elif not white and mate:
+                    if line.endswith(' 0-1') and '#' in line:
+                        games.append(line)
+                elif not white and not mate:
+                    if line.endswith(' 0-1') and '#' not in line:
+                        games.append(line)
+
+
+    # Second white move not tested
+    legal_start = re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?\s2\.\s[a-hBNKQR][1-6a-h])')
+    while True:
+        random_game = random.choice(games)
+
+        if re.search(legal_start, random_game):
+            break
+
+    del games
+    return random_game
 
 
 def main():
-    random_game = True
-    chess_games = parse_chess('/home/bumper/python/chess_regex/docs/opera_test.pgn', 3, 3, random_game)
-    if random_game:
-        print(chess_games)
-    else:
-        [print(game) for game in chess_games]
+    file_name = os.path.expanduser(os.path.join('~', 'chess', 'bumper.pgn'))
+    min_move = ' 10. '
+    max_move = ' 40. '
+    white = False
+    mate = False
+
+    study_game = parse_games(file_name, max_move, min_move, white, mate)
+    print(study_game)
 
 
 if __name__ == '__main__':
