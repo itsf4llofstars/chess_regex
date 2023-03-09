@@ -9,3 +9,10 @@ class TestBigParser(unittest.TestCase):
         self.assertEqual(test_white_won,
                          '1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5 1-0'
         )
+    
+    def test_parse_games_wm(self):
+        """Test if the game returned is a mate by white"""
+        test_white_won = parse_games('./tests/big_parser_test.pgn', ' 30. ', ' 3. ', True, True)
+        self.assertEqual(test_white_won,
+                         '1. e4 e5 2. Nf3 d6 3. d4 Bf4 4. dxe5# 1-0'
+        )
