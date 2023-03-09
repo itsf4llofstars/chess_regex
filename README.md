@@ -1,6 +1,6 @@
 # Chess Regex Functions
 
-Note: Most of this text is self notes to the author and or colaborators. It is not meant
+Note: Most of this text are notes to the author and or colaborators. It is not meant
 to be readable by a user.
 
 **Please Note:** Although not much is going on with this project it is currently for use<br>
@@ -11,11 +11,14 @@ platform for Windows or Mac. I do apologize.
 
 This repository is for the Python3 files used to parse chess *.pgn files. It is a set<br>
 of functions that can be used to extract single, leagal games from a *.pgn chess file.<br>
+I have since grown the project into a chess audio study, this repo will most likely be<br>
+deleted in lue of the audio project.<br>
 
 The Functions will be able to parse chess games based on certain criteria.<br>
 
-- Only gmaes. Those that start with 1. [a-h][3-4] or N[acfh]3
+- Only gmaes. Those that start with "1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?\s2\.\s"
 - Games with no more than n-moves user selects n
+- Games with at least 10 moves
 - Games with no more than 99 moves
 - Games that end in a draw
 - Games that White or Black win
@@ -61,7 +64,7 @@ line and the move numbers are a single space from the piece move nomenclature.<b
 
 ## Project Updates
 
-A seperate non-pushed, non-merged branch has been finallized to the extent of the code<br>
-being able to parse pgn files. Work now back on the project proped is to continue with<br>
-parsing the pgn file and extracting the requested games.<br>
-
+Individuale functions for parsing have been written and tested. Along with these a<br>
+single functions file big_parser.py has been written that does all the parsing in one<br>
+function. A one function file is usefull for memory pruposes when parsing large (100 million)<br>
+chess games pgn files.
