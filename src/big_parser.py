@@ -23,24 +23,17 @@ with open(file_name, 'r') as fo:
                 or min_move not in line
                 or not line[-3] == '-'
                 or not min_move in line
-                or '(' in line
-                     or ')' in line
-                or '{' in line
-                     or '}' in line
-                or '[' in line
-                     or ']' in line
+                or '(' in line or ')' in line
+                or '{' in line or '}' in line
+                or '[' in line or ']' in line
+                or '<' in line or '>' in line
                 ):
             continue
-        elif not re.search(legal_start, line):
-            continue
-        line = line.replace('!', '')
-        line = line.replace('!!', '')
-        line = line.replace('?', '')
-        line = line.replace('??', '')
-        line = line.replace('?!', '')
-        line = line.replace('!?', '')
-        line = line.replace('+', '')
-        line = line.rstrip()
+        else:
+            line = line.replace('!', '')
+            line = line.replace('?', '')
+            line = line.replace('+', '')
+            line = line.rstrip()
 
 os.system('clear')
 chess_game = random.choice(games)
