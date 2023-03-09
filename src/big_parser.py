@@ -17,10 +17,11 @@ games = []
 
 with open(file_name, 'r') as fo:
     for line in fo:
-        line = line.rstrip()
         if (
                 not line.startswith('1. ')
-                or not line[-2] == '-'
+                or max_move in line
+                or min_move not in line
+                or not line[-3] == '-'
                 or not min_move in line
                 or '(' in line
                      or ')' in line
@@ -28,7 +29,6 @@ with open(file_name, 'r') as fo:
                      or '}' in line
                 or '[' in line
                      or ']' in line
-                or max_move in line
                 ):
             continue
         elif not re.search(legal_start, line):
@@ -40,16 +40,7 @@ with open(file_name, 'r') as fo:
         line = line.replace('?!', '')
         line = line.replace('!?', '')
         line = line.replace('+', '')
-        if white and line.endswith(' 1-0'):
-            if mate and '#' in line:
-                games.append(line)
-            elif not mate and '#' not in line:
-                games.append(line)
-        elif not white and line.endswith(' 0-1'):
-            if mate and '#' in line:
-                games.append(line)
-            elif not mate and '#' not in line:
-                games.append(line)
+        line = line.rstrip()
 
 os.system('clear')
 chess_game = random.choice(games)
