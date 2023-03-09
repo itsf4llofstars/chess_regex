@@ -2,6 +2,7 @@
 *.json
 *.txt
 *.pgn
+!big_parser_test.pgn
 !docs/test-chess.pgn
 !docs/regex_test.pgn
 !src/bg-parse-test.pgn
