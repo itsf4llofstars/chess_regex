@@ -10,7 +10,11 @@ class PgnParser:
         self.max_move = max_move
         self.white = white
         self.mate = mate
-        self.pgn_games = []
+        self.pgn_games = list()
+        self.white_wins = list()
+        self.white_mates = list()
+        self.black_wins = list()
+        self.black_mates = list()
 
         checker = {
             "paren_o": "(",
@@ -58,3 +62,17 @@ class PgnParser:
             finally:
                 if not self.pgn_games:
                     sys.exit()
+
+        def get_white_wins(self):
+            if self.white:
+                if self.mate:
+                    pass
+                elif not self.mate:
+                    pass
+
+        def get_black_wins(self):
+            if not self.white:
+                if self.mate:
+                    pass
+                elif not self.mate:
+                    pass
