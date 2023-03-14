@@ -63,24 +63,25 @@ class PgnParser:
                 if not self.pgn_games:
                     sys.exit()
 
+        #! Can we use getters and setters on the bools to
+        #! return values to call method?
+
         def get_white_wins(self):
-            if self.white:
-                if self.mate:
-                    for game in self.pgn_games:
-                        if game.endswith('# 1-0'):
-                            self.white_mates.append(game)
-                elif not self.mate:
-                    for game in self.pgn_games:
-                        if game.endswith(' 1-0') and '#' not in game:
-                            self.white_wins.append(game)
+            if self.white and self.mate:
+                for game in self.pgn_games:
+                    if game.endswith('# 1-0'):
+                        self.white_mates.append(game)
+            elif self.white and not self.mate:
+                for game in self.pgn_games:
+                    if game.endswith(' 1-0') and '#' not in game:
+                        self.white_wins.append(game)
 
         def get_black_wins(self):
-            if not self.white:
-                if self.mate:
-                    for game in self.pgn_games:
-                        if game.endswith('# 0-1'):
-                            self.black_mates.append(game)
-                elif not self.mate:
-                    for game in self.pgn_games:
-                        if game.endswith(' 0-1') and '#' not in game:
-                            self.black_wins.append(game)
+            if not self.white and self.mate:
+                for game in self.pgn_games:
+                    if game.endswith('# 0-1'):
+                        self.black_mates.append(game)
+            elif not self.white and not self.mate:
+                for game in self.pgn_games:
+                    if game.endswith(' 0-1') and '#' not in game:
+                        self.black_wins.append(game)
