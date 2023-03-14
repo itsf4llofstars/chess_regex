@@ -1,6 +1,7 @@
 """
 chesser.py pgn chess parser class file
 """
+import sys
 
 
 class PgnParser:
@@ -54,3 +55,6 @@ class PgnParser:
                         continue
                     else:
                         self.pgn_games.append(line)
+            finally:
+                if not self.pgn_games:
+                    sys.exit()
