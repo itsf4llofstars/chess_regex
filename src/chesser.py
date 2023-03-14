@@ -77,6 +77,10 @@ class PgnParser:
         def get_black_wins(self):
             if not self.white:
                 if self.mate:
-                    pass
+                    for game in self.pgn_games:
+                        if game.endswith('# 0-1'):
+                            self.black_mates.append(game)
                 elif not self.mate:
-                    pass
+                    for game in self.pgn_games:
+                        if game.endswith(' 0-1') and '#' not in game:
+                            self.black_wins.append(game)
