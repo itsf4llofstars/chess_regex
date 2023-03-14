@@ -18,7 +18,7 @@ class PgnParser:
                 'tag_o': '<', 'tag_c': '>',
                 'white_win': ' 0-1', 'black_win': ' 0-1',
                 'min_move': ' 10. ', 'mate': '#',
-                'start': '1. ',
+                'start': '1. ', 'dash': '-', 'max_move': self.max_move,
                 }
 
         def parse_file(self):
@@ -29,6 +29,19 @@ class PgnParser:
                 print(f"{fnfe}")
             else:
                 for line in pgn_lines:
-                    if line.startswith(checker['start']):
+                    if (
+                        line.startswith(checker['start'])
+                        and line[-3] == checker['dash']
+                        and checker['paren_o'] not in line
+                        and checker['paren_c'] not in line
+                        and checker['brace_o'] not in line
+                        and checker['brace_c'] not in line
+                        and checker['bracket_o'] not in line
+                        and checker['bracket_c'] not in line
+                        and checker['tag_o'] not in line
+                        and checker['tag_c'] not in line
+                        and checker['min_move'] in line
+                        and checker['max_move'] not in line
+                    ):
                         self.pgn_games.append(line)
                         # continue making it smaller
