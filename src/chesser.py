@@ -12,36 +12,45 @@ class PgnParser:
         self.pgn_games = []
 
         checker = {
-                'paren_o': '(', 'paren_c': ')',
-                'brace_o': '{', 'brace_c': '}',
-                'bracket_o': '[', 'bracket_c': ']',
-                'tag_o': '<', 'tag_c': '>',
-                'white_win': ' 0-1', 'black_win': ' 0-1',
-                'min_move': ' 10. ', 'mate': '#',
-                'start': '1. ', 'dash': '-', 'max_move': self.max_move,
-                }
+            "paren_o": "(",
+            "paren_c": ")",
+            "brace_o": "{",
+            "brace_c": "}",
+            "bracket_o": "[",
+            "bracket_c": "]",
+            "tag_o": "<",
+            "tag_c": ">",
+            "white_win": " 0-1",
+            "black_win": " 0-1",
+            "min_move": " 10. ",
+            "mate": "#",
+            "start": "1. ",
+            "dash": "-",
+            "max_move": self.max_move,
+        }
 
         def parse_file(self):
             try:
-                with open(self.pgn_file, 'r') as fo:
+                with open(self.pgn_file, "r") as fo:
                     pgn_lines = fo.readlines()
             except FileNotFoundError as fnfe:
                 print(f"{fnfe}")
             else:
                 for line in pgn_lines:
                     if (
-                        line.startswith(checker['start'])
-                        and line[-3] == checker['dash']
-                        and checker['paren_o'] not in line
-                        and checker['paren_c'] not in line
-                        and checker['brace_o'] not in line
-                        and checker['brace_c'] not in line
-                        and checker['bracket_o'] not in line
-                        and checker['bracket_c'] not in line
-                        and checker['tag_o'] not in line
-                        and checker['tag_c'] not in line
-                        and checker['min_move'] in line
-                        and checker['max_move'] not in line
+                        not line.startswith(checker["start"])
+                        or not line[-3] == checker["dash"]
+                        or checker["paren_o"] in line
+                        or checker["paren_c"] in line
+                        or checker["brace_o"] in line
+                        or checker["brace_c"] in line
+                        or checker["bracket_o"] in line
+                        or checker["bracket_c"] in line
+                        or checker["tag_o"] in line
+                        or checker["tag_c"] in line
+                        or checker["min_move"] not in line
+                        or checker["max_move"] in line
                     ):
+                        continue
+                    else:
                         self.pgn_games.append(line)
-                        # continue making it smaller
