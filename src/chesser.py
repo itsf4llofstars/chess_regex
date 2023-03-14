@@ -3,6 +3,8 @@ chesser.py pgn chess parser class file
 """
 import sys
 
+# TODO: Check red notes below
+
 
 class PgnParser:
     def __init__(self, pgn_file: str, max_move: str, white: bool, mate: bool):
@@ -69,19 +71,27 @@ class PgnParser:
         def get_white_wins(self):
             if self.white and self.mate:
                 for game in self.pgn_games:
-                    if game.endswith('# 1-0'):
+                    if game.endswith("# 1-0"):
                         self.white_mates.append(game)
             elif self.white and not self.mate:
                 for game in self.pgn_games:
-                    if game.endswith(' 1-0') and '#' not in game:
+                    if game.endswith(" 1-0") and "#" not in game:
                         self.white_wins.append(game)
 
         def get_black_wins(self):
             if not self.white and self.mate:
                 for game in self.pgn_games:
-                    if game.endswith('# 0-1'):
+                    if game.endswith("# 0-1"):
                         self.black_mates.append(game)
             elif not self.white and not self.mate:
                 for game in self.pgn_games:
-                    if game.endswith(' 0-1') and '#' not in game:
+                    if game.endswith(" 0-1") and "#" not in game:
                         self.black_wins.append(game)
+
+
+def main():
+    pass
+
+
+if __name__ == "__main__":
+    main()
