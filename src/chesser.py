@@ -18,7 +18,7 @@ class PgnParser:
         self.black_wins = list()
         self.black_mates = list()
 
-        checker = {
+        self.checker = {
             "paren_o": "(",
             "paren_c": ")",
             "brace_o": "{",
@@ -45,18 +45,18 @@ class PgnParser:
             else:
                 for line in pgn_lines:
                     if (
-                        not line.startswith(checker["start"])
-                        or not line[-3] == checker["dash"]
-                        or checker["paren_o"] in line
-                        or checker["paren_c"] in line
-                        or checker["brace_o"] in line
-                        or checker["brace_c"] in line
-                        or checker["bracket_o"] in line
-                        or checker["bracket_c"] in line
-                        or checker["tag_o"] in line
-                        or checker["tag_c"] in line
-                        or checker["min_move"] not in line
-                        or checker["max_move"] in line
+                        not line.startswith(self.checker["start"])
+                        or not line[-3] == self.checker["dash"]
+                        or self.checker["paren_o"] in line
+                        or self.checker["paren_c"] in line
+                        or self.checker["brace_o"] in line
+                        or self.checker["brace_c"] in line
+                        or self.checker["bracket_o"] in line
+                        or self.checker["bracket_c"] in line
+                        or self.checker["tag_o"] in line
+                        or self.checker["tag_c"] in line
+                        or self.checker["min_move"] not in line
+                        or self.checker["max_move"] in line
                     ):
                         continue
                     else:
