@@ -1,6 +1,7 @@
 """
 chesser.py pgn chess parser class file
 """
+import re
 import sys
 
 # TODO: Check red notes below
@@ -35,6 +36,8 @@ class PgnParser:
             "dash": "-",
             "max_move": self.max_move,
         }
+
+        self.first_move = re.compile("1\.\s[a-hN][1-8acfh]3?\s[a-hN][5-6acfh]6?\s2\.\s")
 
         def parse_file(self):
             try:
@@ -87,6 +90,16 @@ class PgnParser:
                 for game in self.pgn_games:
                     if game.endswith(" 0-1") and "#" not in game:
                         self.black_wins.append(game)
+
+        def check_first_move(self):
+            if self.white and self.mate:
+                return re.search(self.first_move, self.white_mates)
+            elif self.white and not self.mate:
+                return re.search(self.first_move, self.white_wins)
+            elif self.black and self.mate:
+                return re.search(self.first_move, self.black_mates)
+            elif self.black and not self.mate:
+                return re.search(self.first_move, self.black_wins)
 
 
 def main():
