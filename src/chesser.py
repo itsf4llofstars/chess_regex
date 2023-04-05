@@ -90,9 +90,20 @@ class PgnParser:
                     if re.search(self.first_move, game):
                         self.black_wins.append(game)
 
+    def show_games(self):
+        if self.white and self.mate:
+            [print(game) for game in self.white_mates]
+        elif self.white and not self.mate:
+            [print(game) for game in self.white_wins]
+
 
 def main():
-    pass
+    parser = PgnParser("~/chess/bumper.pgn", "40", True, False)
+    parser.parse_file()
+    parser.get_white_wins()
+    parser.get_black_wins()
+    parser.show_games()
+
 
 if __name__ == "__main__":
     main()
