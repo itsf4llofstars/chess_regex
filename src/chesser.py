@@ -1,6 +1,7 @@
 """
 chesser.py pgn chess parser class file
 """
+import os
 import re
 import sys
 
@@ -74,6 +75,7 @@ class PgnParser:
                         self.white_mates.append(game)
         elif self.white and not self.mate:
             for game in self.pgn_games:
+                print(game)
                 if game.endswith(" 1-0") and "#" not in game:
                     if re.search(self.first_move, game):
                         self.white_wins.append(game)
@@ -98,10 +100,11 @@ class PgnParser:
 
 
 def main():
-    parser = PgnParser("~/chess/bumper.pgn", "40", True, False)
+    pgn_file = os.path.expanduser(os.path.join("~", "chess", "bumper.pgn"))
+    parser = PgnParser(pgn_file, "40", True, False)
     parser.parse_file()
     parser.get_white_wins()
-    parser.get_black_wins()
+    # parser.get_black_wins()
     parser.show_games()
 
 
