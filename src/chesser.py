@@ -4,8 +4,6 @@ chesser.py pgn chess parser class file
 import re
 import sys
 
-# TODO: Check red notes below
-
 
 class PgnParser:
     def __init__(self, pgn_file: str, max_move: str, white: bool, mate: bool):
@@ -67,9 +65,6 @@ class PgnParser:
         finally:
             if not self.pgn_games:
                 sys.exit()
-
-    #! Can we use getters and setters on the bools to
-    #! return values to call method?
 
     def get_white_wins(self):
         if self.white and self.mate:
