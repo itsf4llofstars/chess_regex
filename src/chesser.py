@@ -95,16 +95,6 @@ class PgnParser:
                     if re.search(self.first_move, game):
                         self.black_wins.append(game)
 
-    # def check_first_move(self):
-    #     if self.white and self.mate:
-    #         return re.search(self.first_move, self.white_mates)
-    #     elif self.white and not self.mate:
-    #         return re.search(self.first_move, self.white_wins)
-    #     elif self.black and self.mate:
-    #         return re.search(self.first_move, self.black_mates)
-    #     elif self.black and not self.mate:
-    #         return re.search(self.first_move, self.black_wins)
-
 
 def main():
     pass
