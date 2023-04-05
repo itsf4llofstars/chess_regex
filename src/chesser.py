@@ -87,11 +87,13 @@ class PgnParser:
         if not self.white and self.mate:
             for game in self.pgn_games:
                 if game.endswith("# 0-1"):
-                    self.black_mates.append(game)
+                    if re.search(self.first_move, game):
+                        self.black_mates.append(game)
         elif not self.white and not self.mate:
             for game in self.pgn_games:
                 if game.endswith(" 0-1") and "#" not in game:
-                    self.black_wins.append(game)
+                    if re.search(self.first_move, game):
+                        self.black_wins.append(game)
 
     # def check_first_move(self):
     #     if self.white and self.mate:
