@@ -39,72 +39,71 @@ class PgnParser:
 
         self.first_move = re.compile("1\.\s[a-hN][1-8acfh]3?\s[a-hN][5-6acfh]6?\s2\.\s")
 
-        def parse_file(self):
-            try:
-                with open(self.pgn_file, "r") as fo:
-                    pgn_lines = fo.readlines()
-            except FileNotFoundError as fnfe:
-                print(f"{fnfe}")
-            else:
-                for line in pgn_lines:
-                    if (
-                        not line.startswith(self.checker["start"])
-                        or not line[-3] == self.checker["dash"]
-                        or self.checker["paren_o"] in line
-                        or self.checker["paren_c"] in line
-                        or self.checker["brace_o"] in line
-                        or self.checker["brace_c"] in line
-                        or self.checker["bracket_o"] in line
-                        or self.checker["bracket_c"] in line
-                        or self.checker["tag_o"] in line
-                        or self.checker["tag_c"] in line
-                        or self.checker["min_move"] not in line
-                        or self.checker["max_move"] in line
-                    ):
-                        continue
-                    else:
-                        self.pgn_games.append(line)
-            finally:
-                if not self.pgn_games:
-                    sys.exit()
+    def parse_file(self):
+        try:
+            with open(self.pgn_file, "r") as fo:
+                pgn_lines = fo.readlines()
+        except FileNotFoundError as fnfe:
+            print(f"{fnfe}")
+        else:
+            for line in pgn_lines:
+                if (
+                    not line.startswith(self.checker["start"])
+                    or not line[-3] == self.checker["dash"]
+                    or self.checker["paren_o"] in line
+                    or self.checker["paren_c"] in line
+                    or self.checker["brace_o"] in line
+                    or self.checker["brace_c"] in line
+                    or self.checker["bracket_o"] in line
+                    or self.checker["bracket_c"] in line
+                    or self.checker["tag_o"] in line
+                    or self.checker["tag_c"] in line
+                    or self.checker["min_move"] not in line
+                    or self.checker["max_move"] in line
+                ):
+                    continue
+                else:
+                    self.pgn_games.append(line)
+        finally:
+            if not self.pgn_games:
+                sys.exit()
 
-        #! Can we use getters and setters on the bools to
-        #! return values to call method?
+    #! Can we use getters and setters on the bools to
+    #! return values to call method?
 
-        def get_white_wins(self):
-            if self.white and self.mate:
-                for game in self.pgn_games:
-                    if game.endswith("# 1-0"):
-                        self.white_mates.append(game)
-            elif self.white and not self.mate:
-                for game in self.pgn_games:
-                    if game.endswith(" 1-0") and "#" not in game:
-                        self.white_wins.append(game)
+    def get_white_wins(self):
+        if self.white and self.mate:
+            for game in self.pgn_games:
+                if game.endswith("# 1-0"):
+                    self.white_mates.append(game)
+        elif self.white and not self.mate:
+            for game in self.pgn_games:
+                if game.endswith(" 1-0") and "#" not in game:
+                    self.white_wins.append(game)
 
-        def get_black_wins(self):
-            if not self.white and self.mate:
-                for game in self.pgn_games:
-                    if game.endswith("# 0-1"):
-                        self.black_mates.append(game)
-            elif not self.white and not self.mate:
-                for game in self.pgn_games:
-                    if game.endswith(" 0-1") and "#" not in game:
-                        self.black_wins.append(game)
+    def get_black_wins(self):
+        if not self.white and self.mate:
+            for game in self.pgn_games:
+                if game.endswith("# 0-1"):
+                    self.black_mates.append(game)
+        elif not self.white and not self.mate:
+            for game in self.pgn_games:
+                if game.endswith(" 0-1") and "#" not in game:
+                    self.black_wins.append(game)
 
-        def check_first_move(self):
-            if self.white and self.mate:
-                return re.search(self.first_move, self.white_mates)
-            elif self.white and not self.mate:
-                return re.search(self.first_move, self.white_wins)
-            elif self.black and self.mate:
-                return re.search(self.first_move, self.black_mates)
-            elif self.black and not self.mate:
-                return re.search(self.first_move, self.black_wins)
+    def check_first_move(self):
+        if self.white and self.mate:
+            return re.search(self.first_move, self.white_mates)
+        elif self.white and not self.mate:
+            return re.search(self.first_move, self.white_wins)
+        elif self.black and self.mate:
+            return re.search(self.first_move, self.black_mates)
+        elif self.black and not self.mate:
+            return re.search(self.first_move, self.black_wins)
 
 
 def main():
     pass
-
 
 if __name__ == "__main__":
     main()
