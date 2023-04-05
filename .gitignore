@@ -10,6 +10,7 @@
 .vscode/
 vscode/
 .idea/
+idea/
 ./src/reg-test.py
 db_main.py
 .flake8
