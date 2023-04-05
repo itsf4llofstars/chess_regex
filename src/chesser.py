@@ -75,11 +75,13 @@ class PgnParser:
         if self.white and self.mate:
             for game in self.pgn_games:
                 if game.endswith("# 1-0"):
-                    self.white_mates.append(game)
+                    if re.search(self.first_move, game):
+                        self.white_mates.append(game)
         elif self.white and not self.mate:
             for game in self.pgn_games:
                 if game.endswith(" 1-0") and "#" not in game:
-                    self.white_wins.append(game)
+                    if re.search(self.first_move, game):
+                        self.white_wins.append(game)
 
     def get_black_wins(self):
         if not self.white and self.mate:
@@ -91,15 +93,15 @@ class PgnParser:
                 if game.endswith(" 0-1") and "#" not in game:
                     self.black_wins.append(game)
 
-    def check_first_move(self):
-        if self.white and self.mate:
-            return re.search(self.first_move, self.white_mates)
-        elif self.white and not self.mate:
-            return re.search(self.first_move, self.white_wins)
-        elif self.black and self.mate:
-            return re.search(self.first_move, self.black_mates)
-        elif self.black and not self.mate:
-            return re.search(self.first_move, self.black_wins)
+    # def check_first_move(self):
+    #     if self.white and self.mate:
+    #         return re.search(self.first_move, self.white_mates)
+    #     elif self.white and not self.mate:
+    #         return re.search(self.first_move, self.white_wins)
+    #     elif self.black and self.mate:
+    #         return re.search(self.first_move, self.black_mates)
+    #     elif self.black and not self.mate:
+    #         return re.search(self.first_move, self.black_wins)
 
 
 def main():
