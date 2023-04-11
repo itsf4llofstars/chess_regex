@@ -37,6 +37,7 @@ class PgnParser:
         }
 
         self.first_move = re.compile("1\.\s[a-hN][1-8acfh]3?\s[a-hN][5-6acfh]6?\s2\.\s")
+        # self.first_move = re.compile("1\.\s[a-hN]")
 
     def parse_file(self):
         try:
