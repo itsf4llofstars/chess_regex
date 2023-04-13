@@ -3,17 +3,16 @@ import re
 
 
 def read_pgn_file(path_file):
-    """Doc
-    """
+    """Doc"""
     pgn_games = []
     try:
-        with open(path_file, 'r') as fo:
+        with open(path_file, "r") as fo:
             pgn_lines = fo.readlines()
     except FileNotFoundError as fnfe:
         # TODO: Setup logging
-        print(f'{fnfe}')
+        print(f"{fnfe}")
     else:
-        start = re.compile(r'1\.\s')
+        start = re.compile(r"1\.\s")
         for line in pgn_lines:
             if re.search(start, line):
                 pgn_games.append(line.strip())
@@ -24,7 +23,7 @@ def read_pgn_file(path_file):
 
 
 def write_file(path_file, chess_games_write):
-    with open(path_file, 'w') as fo:
+    with open(path_file, "w") as fo:
         for line in chess_games_write:
-            fo.write(line + '\n')
+            fo.write(line + "\n")
             # fo.write('\n')
