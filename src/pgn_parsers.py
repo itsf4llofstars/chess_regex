@@ -191,62 +191,12 @@ def set_max_move(number):
 
 
 if __name__ == "__main__":
-    """
-    # games = []
-    with open('/home/bumper/chess/real_pgns_test.pgn', 'r') as fo:
-        games = fo.readlines()
-
-    strip_games = []
-    for game in games:
-        strip_games.append(game.strip())
-
-    tagged_games_list = [
-        "1. c4 d5! 2. Nf3!! d6? 12. d4?? d4?! 12. d4!? d4+- 12. d4-+ d4+ 1-0"
+    long_games = [
+        "1.e4 e5 1.e4 e5 1.e4 e5 1.e4 e5 1.e4 e5 1.e4 e5",
+        "2.e4 e5 1.e4 e5 1.e4 e5 39.e4 e5 1.e4 e5 1.e4 e5",
+        "3.e4 e5 1.e4 e5 1.e4 e5 40.e4 e5 1.e4 e5 1.e4 e5",
+        "4.e4 e5 1.e4 e5 40.e4 e5 56.e4 e5 1.e4 e5 1.e4 e5",
     ]
 
-    foo = replace_tags(tagged_games_list)
-    print(foo)
-
-    raw_games = get_only_games(strip_games)
-    short_games = no_long_games(raw_games)
-    no_kibitz = omit_kibitz_games(short_games)
-    tags_games = replace_tags(no_kibitz)
-    audio_game = pick_one_game(tags_games)
-    print(audio_game)
-
-    # White wins function
-    white_won = []
-    get_white_wins(short_games, white_won)
-
-    # Black wins function
-    black_won = []
-    get_black_wins(short_games, black_won)
-
-    # White mates function
-    white_mates = []
-    get_white_mates(short_games, white_mates)
-
-    # Black mates function
-    black_mates = []
-    get_black_mates(short_games, black_mates)
-
-    # No White Mates
-    no_white_mates = []
-    strip_white_mates(short_games, no_white_mates)
+    short_games = no_long_games(long_games)
     [print(game) for game in short_games]
-    [print(wins) for wins in no_white_mates]
-
-    no_black_mates = []
-    strip_black_mates(short_games, no_black_mates)
-    [print(game) for game in short_games]
-    [print(wins) for wins in no_black_mates]
-
-    print(white_won[-1])
-    print(black_won[-1])
-    print(white_mates[-1])
-    print(black_mates[-1])
-    [print(game) for game in black_mates]
-    """
-
-    for v in regex_dict.values():
-        print(v)
