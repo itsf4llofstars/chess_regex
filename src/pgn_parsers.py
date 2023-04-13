@@ -7,17 +7,17 @@ from random import choice
 
 regex_dict = {
     # 'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
-    'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?\s2\.\s)'),
-    'max_move': re.compile(r'\s[4-9]\d\.\s'),
-    'max_moves': '',
-    'no_hundred': re.compile(r'\s\d{3}\.\s'),
-    'white_wins': re.compile(r'(\s1-0)$'),
-    'black_wins': re.compile(r'(\s0-1)$'),
-    'white_mates': re.compile(r'(#\s1-0)$'),
-    'black_mates': re.compile(r'(#\s0-1)$'),
-    'kibitz': re.compile(r'\s[(|{]'),
-    'strip_white_mate': re.compile(r'\s\d{1,2}\.\s\w+=?[B-R]?#\s1-0'),
-    'strip_black_mate': re.compile(r'\s\w+=?[B-R]?#\s0-1'),
+    "legal_start": re.compile(r"^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?\s2\.\s)"),
+    "max_move": re.compile(r"\s[4-9]\d\.\s"),
+    "max_moves": "",
+    "no_hundred": re.compile(r"\s\d{3}\.\s"),
+    "white_wins": re.compile(r"(\s1-0)$"),
+    "black_wins": re.compile(r"(\s0-1)$"),
+    "white_mates": re.compile(r"(#\s1-0)$"),
+    "black_mates": re.compile(r"(#\s0-1)$"),
+    "kibitz": re.compile(r"\s[(|{]"),
+    "strip_white_mate": re.compile(r"\s\d{1,2}\.\s\w+=?[B-R]?#\s1-0"),
+    "strip_black_mate": re.compile(r"\s\w+=?[B-R]?#\s0-1"),
 }
 
 
@@ -33,7 +33,7 @@ def get_only_games(chess_list):
     """
     only_games = []
     for line in chess_list:
-        if re.search(regex_dict['legal_start'], line):
+        if re.search(regex_dict["legal_start"], line):
             only_games.append(line)
 
     if len(only_games):
@@ -54,7 +54,9 @@ def no_long_games(chess_list):
     """
     shorts = []
     for a_game in chess_list:
-        if not re.search(regex_dict['max_moves'], a_game) and not re.search(regex_dict['no_hundred'], a_game):
+        if not re.search(regex_dict["max_moves"], a_game) and not re.search(
+            regex_dict["no_hundred"], a_game
+        ):
             shorts.append(a_game)
 
     if len(shorts):
@@ -64,11 +66,10 @@ def no_long_games(chess_list):
 
 
 def omit_kibitz_games(chess_list):
-    """Doc
-    """
+    """Doc"""
     clean_games = []
     for a_game in chess_list:
-        if re.search(regex_dict['kibitz'], a_game):
+        if re.search(regex_dict["kibitz"], a_game):
             continue
         clean_games.append(a_game)
 
@@ -84,15 +85,15 @@ def replace_tags(tagged_games):
     """
     not_tagged = []
     for a_game in tagged_games:
-        a_game = a_game.replace('!', '')
-        a_game = a_game.replace('!!', '')
-        a_game = a_game.replace('?', '')
-        a_game = a_game.replace('??', '')
-        a_game = a_game.replace('!?', '')
-        a_game = a_game.replace('?!', '')
-        a_game = a_game.replace('-+', '')
-        a_game = a_game.replace('+-', '')
-        a_game = a_game.replace('+', '')
+        a_game = a_game.replace("!", "")
+        a_game = a_game.replace("!!", "")
+        a_game = a_game.replace("?", "")
+        a_game = a_game.replace("??", "")
+        a_game = a_game.replace("!?", "")
+        a_game = a_game.replace("?!", "")
+        a_game = a_game.replace("-+", "")
+        a_game = a_game.replace("+-", "")
+        a_game = a_game.replace("+", "")
         not_tagged.append(a_game)
     return not_tagged
 
@@ -107,7 +108,7 @@ def get_white_wins(chess_games, winner):
         winner: list[str]: List to be populated with white's wins
     """
     for a_game in chess_games:
-        if re.search(regex_dict['white_wins'], a_game):
+        if re.search(regex_dict["white_wins"], a_game):
             winner.append(a_game)
 
 
@@ -121,7 +122,7 @@ def get_white_mates(chess_games, winner):
         winner: list[str]: List to be populated with white's wins
     """
     for a_game in chess_games:
-        if re.search(regex_dict['white_mates'], a_game):
+        if re.search(regex_dict["white_mates"], a_game):
             winner.append(a_game)
 
 
@@ -135,7 +136,7 @@ def get_black_wins(chess_games, winner):
         winner: list[str]: List to be populated with black's wins
     """
     for a_game in chess_games:
-        if re.search(regex_dict['black_wins'], a_game):
+        if re.search(regex_dict["black_wins"], a_game):
             winner.append(a_game)
 
 
@@ -149,25 +150,23 @@ def get_black_mates(chess_games, winner):
         winner: list[str]: List to be populated with black's wins
     """
     for a_game in chess_games:
-        if re.search(regex_dict['black_mates'], a_game):
+        if re.search(regex_dict["black_mates"], a_game):
             winner.append(a_game)
 
 
 def strip_white_mates(chess_games, no_mates):
-    """DOC
-    """
+    """DOC"""
     for a_game in chess_games:
-        if re.search(regex_dict['white_mates'], a_game):
-            no_mate_str = re.sub(regex_dict['strip_white_mate'], '', a_game)
+        if re.search(regex_dict["white_mates"], a_game):
+            no_mate_str = re.sub(regex_dict["strip_white_mate"], "", a_game)
             no_mates.append(no_mate_str)
 
 
 def strip_black_mates(chess_games, no_mates):
-    """DOC
-    """
+    """DOC"""
     for a_game in chess_games:
-        if re.search(regex_dict['black_mates'], a_game):
-            no_mate_str = re.sub(regex_dict['strip_black_mate'], '', a_game)
+        if re.search(regex_dict["black_mates"], a_game):
+            no_mate_str = re.sub(regex_dict["strip_black_mate"], "", a_game)
             no_mates.append(no_mate_str)
 
 
@@ -183,16 +182,15 @@ def pick_one_game(chess_games):
         and move number
     """
     random_chess_game = choice(chess_games)
-    return random_chess_game.split(' ')
+    return random_chess_game.split(" ")
 
 
 def set_max_move(number):
-    """Doc
-    """
-    regex_dict['max_moves'] = re.compile(r'\s[' + str(number) + r'\-9]\d\.\s')
+    """Doc"""
+    regex_dict["max_moves"] = re.compile(r"\s[" + str(number) + r"\-9]\d\.\s")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """
     # games = []
     with open('/home/bumper/chess/real_pgns_test.pgn', 'r') as fo:
