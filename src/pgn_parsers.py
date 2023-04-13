@@ -8,7 +8,7 @@ from random import choice
 regex_dict = {
     "legal_start": re.compile(r"^(1\.\s[a-hN])"),
     "max_move": re.compile(r"\s[4-9]\d\.\s"),
-    "max_moves": "",
+    "max_moves": re.compile(r"\s40\.\s"),
     "no_hundred": re.compile(r"\s\d{3}\.\s"),
     "white_wins": re.compile(r"(\s1-0)$"),
     "black_wins": re.compile(r"(\s0-1)$"),
@@ -191,10 +191,10 @@ def set_max_move(number):
 
 if __name__ == "__main__":
     long_games = [
-        "1.e4 e5 1.e4 e5 1.e4 e5 1.e4 e5 1.e4 e5 1.e4 e5",
-        "2.e4 e5 1.e4 e5 1.e4 e5 39.e4 e5 1.e4 e5 1.e4 e5",
-        "3.e4 e5 1.e4 e5 1.e4 e5 40.e4 e5 1.e4 e5 1.e4 e5",
-        "4.e4 e5 1.e4 e5 40.e4 e5 56.e4 e5 1.e4 e5 1.e4 e5",
+        "1. e4 e5 1. e4 e5 1. e4 e5 1. e4 e5 1. e4 e5 1. e4 e5",
+        "2. e4 e5 1. e4 e5 1. e4 e5 39. e4 e5 1. e4 e5 1. e4 e5",
+        "3. e4 e5 1. e4 e5 1. e4 e5 40. e4 e5 1. e4 e5 1. e4 e5",
+        "4. e4 e5 1. e4 e5 40. e4 e5 56. e4 e5 1. e4 e5 1. e4 e5",
     ]
 
     short_games = no_long_games(long_games)
