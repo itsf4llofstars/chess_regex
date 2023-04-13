@@ -4,17 +4,16 @@ replaced by the pgn_parsers.p file.
 """
 import os
 import re
-import sys
 
 regex_dict = {
-    'legal_start': re.compile(r'^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)'),
-    'no_forty': re.compile(r'\s[4-9]\d\.\s'),
-    'no_hundred': re.compile(r'\s\d{3}\.\s'),
-    'white_wins': re.compile(r'(\s1-0)$'),
-    'black_wins': re.compile(r'(\s0-1)$'),
-    'white_mates': re.compile(r'(#\s1-0)$'),
-    'black_mates': re.compile(r'(#\s0-1)$'),
-    'kibitz': re.compile(r'\s[(|{]'),
+    "legal_start": re.compile(r"^(1\.\s[a-hN][3-4acfh]3?\s[a-hN][5-6acfh]6?)"),
+    "no_forty": re.compile(r"\s[4-9]\d\.\s"),
+    "no_hundred": re.compile(r"\s\d{3}\.\s"),
+    "white_wins": re.compile(r"(\s1-0)$"),
+    "black_wins": re.compile(r"(\s0-1)$"),
+    "white_mates": re.compile(r"(#\s1-0)$"),
+    "black_mates": re.compile(r"(#\s0-1)$"),
+    "kibitz": re.compile(r"\s[(|{]"),
 }
 
 
@@ -31,8 +30,8 @@ def check_path_format(path):
     Returns:
         str: Path to the string
     """
-    if not path.startswith('/'):
-        path = '/' + path
+    if not path.startswith("/"):
+        path = "/" + path
     return path
 
 
@@ -49,7 +48,7 @@ def check_path_filename(path, filename):
     Returns:
         str: Full path joined to the filename
     """
-    path_filename: str = ''
+    path_filename: str = ""
 
     if os.path.isdir(path):
         path_filename = os.path.join(path, filename)
@@ -75,12 +74,12 @@ def read_pgn_file(full_path):
 
     # noinspection SpellCheckingInspection
     try:
-        with open(full_path, 'r') as fo:
+        with open(full_path, "r") as fo:
             pgn_file = fo.readlines()
     except FileNotFoundError as fnfe:
-        print(f'{fnfe}')
+        print(f"{fnfe}")
     except Exception as e:
-        print(f'{e}')
+        print(f"{e}")
     else:
         for line in pgn_file:
             lines_stripped.append(line.strip())
@@ -102,7 +101,7 @@ def get_only_games(chess_list):
     """
     only_games = []
     for line in chess_list:
-        if re.search(regex_dict['legal_start'], line):
+        if re.search(regex_dict["legal_start"], line):
             only_games.append(line)
 
     if len(only_games):
@@ -123,7 +122,9 @@ def no_long_games(chess_list):
     """
     short_games = []
     for game in chess_list:
-        if not re.search(regex_dict['no_forty'], game) and not re.search(regex_dict['no_hundred'], game):
+        if not re.search(regex_dict["no_forty"], game) and not re.search(
+            regex_dict["no_hundred"], game
+        ):
             short_games.append(game)
 
     if len(short_games):
@@ -148,11 +149,11 @@ def get_winner(chess_games_list, color):
     """
     winner = []
     for game in chess_games:
-        if color == 'white':
-            if re.search(regex_dict['white_wins'], game):
+        if color == "white":
+            if re.search(regex_dict["white_wins"], game):
                 winner.append(game)
-        elif color == 'black':
-            if re.search(regex_dict['black_wins'], game):
+        elif color == "black":
+            if re.search(regex_dict["black_wins"], game):
                 winner.append(game)
 
     if len(winner):
@@ -173,9 +174,9 @@ def color_wins(chess_games, color):
     """
     winner = []
     for game in chess_games:
-        if color == 'white' and re.search(regex_dict['white_wins'], game):
+        if color == "white" and re.search(regex_dict["white_wins"], game):
             winner.append(game)
-        elif color == 'black' and re.search(regex_dict['black_wins'], game):
+        elif color == "black" and re.search(regex_dict["black_wins"], game):
             winner.append(game)
 
     if len(winner):
@@ -197,9 +198,9 @@ def color_mates(chess_games, color):
     """
     winner = []
     for game in chess_games:
-        if color == 'white' and re.search(regex_dict['white_mates'], game):
+        if color == "white" and re.search(regex_dict["white_mates"], game):
             winner.append(game)
-        elif color == 'black' and re.search(regex_dict['black_mates'], game):
+        elif color == "black" and re.search(regex_dict["black_mates"], game):
             winner.append(game)
 
     if len(winner):
@@ -207,21 +208,20 @@ def color_mates(chess_games, color):
     return None
 
 
-if __name__ == '__main__':
-    os.system('clear')
+if __name__ == "__main__":
+    os.system("clear")
 
-    pgn_path = 'home/bumper/chess'
+    pgn_path = "home/bumper/chess"
     pgn_path = check_path_format(pgn_path)
-    file_path = check_path_filename(pgn_path, 'pgn-one.pgn')
+    file_path = check_path_filename(pgn_path, "pgn-one.pgn")
     pgn_file_text = read_pgn_file(file_path)
     chess_games = get_only_games(pgn_file_text)
     short_games = no_long_games(chess_games)
-    white_wins = color_wins(short_games, 'white')
-    black_wins = color_wins(short_games, 'black')
+    white_wins = color_wins(short_games, "white")
+    black_wins = color_wins(short_games, "black")
 
-    white_mates = color_mates(short_games, 'white')
-    black_mates = color_mates(short_games, 'black')
+    white_mates = color_mates(short_games, "white")
+    black_mates = color_mates(short_games, "black")
 
     [print(game) for game in white_mates]
     [print(game) for game in black_mates]
-
