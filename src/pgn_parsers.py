@@ -6,7 +6,7 @@ from random import choice
 # max_moves = 6
 
 regex_dict = {
-    "legal_start": re.compile(r"^(1\.\s[a-hN])")
+    "legal_start": re.compile(r"^(1\.\s[a-hN])"),
     "max_move": re.compile(r"\s[4-9]\d\.\s"),
     "max_moves": "",
     "no_hundred": re.compile(r"\s\d{3}\.\s"),
@@ -187,6 +187,7 @@ def pick_one_game(chess_games):
 def set_max_move(number):
     """Doc"""
     regex_dict["max_moves"] = re.compile(r"\s[" + str(number) + r"\-9]\d\.\s")
+    # r"\s[4-9]\d\.\s"
 
 
 if __name__ == "__main__":
