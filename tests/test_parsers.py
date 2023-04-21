@@ -176,7 +176,7 @@ class TestGamesList(unittest.TestCase):
     def test_pick_one_game(self):
         test_one_game = pick_one_game(one_game_list)
         self.assertEqual(
-            test_one_game, ["1.", "c4", "e5", "2.", "Nf3", "d6", "12.", "d4", "1-0"]
+            test_one_game, ["1.", "e4", "e5", "2.", "Nf3", "d6", "12.", "d4", "1-0"]
         )
 
     def test_set_max_move(self):
