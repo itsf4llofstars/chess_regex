@@ -6,18 +6,18 @@ from random import choice
 # max_moves = 6
 
 regex_dict = {
-        "legal_start": re.compile(r"^(1\.\s[a-hN])"),
-        "max_move": re.compile(r"\s[4-9]\d\.\s"),
-        "max_moves": "",
-        "no_hundred": re.compile(r"\s\d{3}\.\s"),
-        "white_wins": re.compile(r"(\s1-0)$"),
-        "black_wins": re.compile(r"(\s0-1)$"),
-        "white_mates": re.compile(r"(#\s1-0)$"),
-        "black_mates": re.compile(r"(#\s0-1)$"),
-        "kibitz": re.compile(r"\s[(|{]"),
-        "strip_white_mate": re.compile(r"\s\d{1,2}\.\s\w+=?[B-R]?#\s1-0"),
-        "strip_black_mate": re.compile(r"\s\w+=?[B-R]?#\s0-1"),
-        }
+    "legal_start": re.compile(r"^(1\.\s[a-hN])"),
+    "max_move": re.compile(r"\s[4-9]\d\.\s"),
+    "max_moves": "",
+    "no_hundred": re.compile(r"\s\d{3}\.\s"),
+    "white_wins": re.compile(r"(\s1-0)$"),
+    "black_wins": re.compile(r"(\s0-1)$"),
+    "white_mates": re.compile(r"(#\s1-0)$"),
+    "black_mates": re.compile(r"(#\s0-1)$"),
+    "kibitz": re.compile(r"\s[(|{]"),
+    "strip_white_mate": re.compile(r"\s\d{1,2}\.\s\w+=?[B-R]?#\s1-0"),
+    "strip_black_mate": re.compile(r"\s\w+=?[B-R]?#\s0-1"),
+}
 
 
 def get_only_games(chess_list):
@@ -54,8 +54,8 @@ def no_long_games(chess_list):
     shorts = []
     for a_game in chess_list:
         if not re.search(regex_dict["max_moves"], a_game) and not re.search(
-                regex_dict["no_hundred"], a_game
-                ):
+            regex_dict["no_hundred"], a_game
+        ):
             shorts.append(a_game)
 
     if len(shorts):
@@ -191,11 +191,11 @@ def set_max_move(number):
 
 if __name__ == "__main__":
     long_games = [
-            "1.e4 e5 1.e4 e5 1.e4 e5 1.e4 e5 1.e4 e5 1.e4 e5",
-            "2.e4 e5 1.e4 e5 1.e4 e5 39.e4 e5 1.e4 e5 1.e4 e5",
-            "3.e4 e5 1.e4 e5 1.e4 e5 40.e4 e5 1.e4 e5 1.e4 e5",
-            "4.e4 e5 1.e4 e5 40.e4 e5 56.e4 e5 1.e4 e5 1.e4 e5",
-            ]
+        "1.e4 e5 1.e4 e5 1.e4 e5 1.e4 e5 1.e4 e5 1.e4 e5",
+        "2.e4 e5 1.e4 e5 1.e4 e5 39.e4 e5 1.e4 e5 1.e4 e5",
+        "3.e4 e5 1.e4 e5 1.e4 e5 40.e4 e5 1.e4 e5 1.e4 e5",
+        "4.e4 e5 1.e4 e5 40.e4 e5 56.e4 e5 1.e4 e5 1.e4 e5",
+    ]
 
     short_games = no_long_games(long_games)
     [print(game) for game in short_games]
