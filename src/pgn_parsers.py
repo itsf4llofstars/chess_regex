@@ -85,13 +85,7 @@ def replace_tags(tagged_games):
     not_tagged = []
     for a_game in tagged_games:
         a_game = a_game.replace("!", "")
-        a_game = a_game.replace("!!", "")
         a_game = a_game.replace("?", "")
-        a_game = a_game.replace("??", "")
-        a_game = a_game.replace("!?", "")
-        a_game = a_game.replace("?!", "")
-        a_game = a_game.replace("-+", "")
-        a_game = a_game.replace("+-", "")
         a_game = a_game.replace("+", "")
         not_tagged.append(a_game)
     return not_tagged
