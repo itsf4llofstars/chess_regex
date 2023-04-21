@@ -78,20 +78,19 @@ def omit_kibitz_games(chess_list):
 
 
 def replace_tags(tagged_games):
-    """The order of the replace function must remain.
-    !! and ?? are replaced on the ! and ? calls but best
-    to leave them in
+    """Removes the move annotaion tags and check tag
+    !, !!, ?, ??, !?, ?! and + from the end of moves
+
+    Args:
+        tagged_games [list(str)]: The list of chess games
+
+    Returns:
+        not_tagged [list(str)]: List of chess games sans tags
     """
     not_tagged = []
     for a_game in tagged_games:
         a_game = a_game.replace("!", "")
-        a_game = a_game.replace("!!", "")
         a_game = a_game.replace("?", "")
-        a_game = a_game.replace("??", "")
-        a_game = a_game.replace("!?", "")
-        a_game = a_game.replace("?!", "")
-        a_game = a_game.replace("-+", "")
-        a_game = a_game.replace("+-", "")
         a_game = a_game.replace("+", "")
         not_tagged.append(a_game)
     return not_tagged

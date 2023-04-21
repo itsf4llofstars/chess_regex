@@ -44,19 +44,22 @@ than 39 moves."""
 short_games = parser.no_long_games(only_games)
 del only_games
 
+"""Remove tags, !, !!, ?, ??, !?, ?!, + from games"""
+no_tags = parser.replace_tags(short_games)
+
 """Parse out only those games that meet the users choice
 of winning criteria"""
 games_list = []
 if users_choice == 1:
     pass
 elif users_choice == 2:
-    parser.get_white_wins(short_games, games_list)
+    parser.get_white_wins(no_tags, games_list)
 elif users_choice == 3:
-    parser.get_black_wins(short_games, games_list)
+    parser.get_black_wins(no_tags, games_list)
 elif users_choice == 4:
-    parser.get_white_mates(short_games, games_list)
+    parser.get_white_mates(no_tags, games_list)
 elif users_choice == 5:
-    parser.get_black_mates(short_games, games_list)
+    parser.get_black_mates(no_tags, games_list)
 elif users_choice == 6:
     exit()
 
