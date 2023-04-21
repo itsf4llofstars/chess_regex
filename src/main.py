@@ -53,13 +53,13 @@ games_list = []
 if users_choice == 1:
     pass
 elif users_choice == 2:
-    parser.get_white_wins(short_games, games_list)
+    parser.get_white_wins(no_tags, games_list)
 elif users_choice == 3:
-    parser.get_black_wins(short_games, games_list)
+    parser.get_black_wins(no_tags, games_list)
 elif users_choice == 4:
-    parser.get_white_mates(short_games, games_list)
+    parser.get_white_mates(no_tags, games_list)
 elif users_choice == 5:
-    parser.get_black_mates(short_games, games_list)
+    parser.get_black_mates(no_tags, games_list)
 elif users_choice == 6:
     exit()
 
