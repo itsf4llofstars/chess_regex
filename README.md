@@ -65,7 +65,6 @@ nomenclature.
 
 ## Project Updates
 
-Individuale functions for parsing have been written and tested. Along with these a
+Individal functions for parsing have been written and tested. Along with these a
 single functions file big_parser.py has been written that does all the parsing in one
-function. A one function file is usefull for memory pruposes when parsing large (100 million)
-chess games pgn files.
+function. A one function file is usefull for memory purposes when parsing large pgn files.
