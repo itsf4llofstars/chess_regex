@@ -17,14 +17,14 @@ deleted in lue of the audio project.
 The Functions will be able to parse chess games based on certain criteria.
 
 - Only gmaes. Those that start with legal chess moves
-- Games with no more than n-moves user selects n
+- Games with no more than n-moves, user selects n
 - Games with at least 10 moves
 - Games with no more than 99 moves
 - Games that end in a draw
 - Games that White or Black win
 - Games that White or Black win by checkmate
-- Games that have no side-lines "(14. Nxf6 Bb2+)"
-- Games that have no annotation "{ kibitzing move }"
+- Games that have no side-lines ie. "( 14. Nxf6 Bb2+ )" in games
+- Games that have no annotation ie. "{ kibitzing move }" in games
 
 ## PGN File Structure
 
