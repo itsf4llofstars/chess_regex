@@ -44,6 +44,9 @@ than 39 moves."""
 short_games = parser.no_long_games(only_games)
 del only_games
 
+"""Remove tags, !, !!, ?, ??, !?, ?!, + from games"""
+no_tags = parser.replace_tags(short_games)
+
 """Parse out only those games that meet the users choice
 of winning criteria"""
 games_list = []
