@@ -10,7 +10,7 @@ platform for Windows or Mac. I do apologize.
 ## Synopsis
 
 This repository is for the Python3 files used to parse chess *.pgn files. It is a set
-of functions that can be used to extract single, legal games from a*.pgn chess file.
+of functions that can be used to extract single, legal games from a *.pgn chess file.
 I have since grown the project into a chess audio study, this repo will most likely be
 deleted in lue of the audio project.
 
