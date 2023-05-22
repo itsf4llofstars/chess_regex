@@ -10,6 +10,7 @@ pgn file size is 1GB, with approx 500,000+ chess games
 read form a 32GB micro-SD card.
 """
 import os
+import random
 
 file_name = "lichess_short.pgn"
 pgn_file = os.path.expanduser(
@@ -108,3 +109,6 @@ print(len(winner))
 print(f"{white = }")
 print(f"{mate = }")
 input("Cont FOUR...")
+
+random_game = random.choice(winner)
+print(random_game)
