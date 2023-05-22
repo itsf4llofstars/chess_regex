@@ -30,6 +30,10 @@ for line in pgn_lines:
         games.append(line.rstrip())
 
 del pgn_lines
+os.system("clear")
+[print(game) for game in games]
+print(len(games))
+input("Cont ONE...")
 
 # Get games with 20 - 40 move
 max_move = " 40. "
@@ -39,12 +43,38 @@ for game in games:
     if min_move in game and max_move not in game:
         move_games.append(game)
 
-[print(game) for game in games]
-print(len(games))
-input("Cont ONE...")
 del games
-
-
+os.system("clear")
 [print(game) for game in move_games]
 print(len(move_games))
 input("Cont TWO...")
+
+# Omit kibitz ( { [ <
+paren_o = "("
+paren_c = ")"
+brace_o = "{"
+brace_c = "}"
+bracket_o = "["
+bracket_c = "]"
+tag_o = "<"
+tag_c = ">"
+no_kibitz = []
+for game in move_games:
+    if (
+        paren_o in game
+        or paren_c in game
+        or brace_o in game
+        or brace_c in game
+        or bracket_o in game
+        or bracket_c in game
+        or tag_o in game
+        or tag_c in game
+    ):
+        continue
+    no_kibitz.append(game)
+
+del move_games
+os.system("clear")
+[print(game) for game in no_kibitz]
+print(len(no_kibitz))
+input("Cont THREE...")
