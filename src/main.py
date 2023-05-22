@@ -13,7 +13,8 @@ import os
 
 file_name = "lichess_short.pgn"
 pgn_file = os.path.expanduser(
-    os.path.join("/media", "bumper", "EDD2-E40F", "raspi32", file_name)
+    # os.path.join("/media", "bumper", "EDD2-E40F", "raspi32", file_name)
+    os.path.join("~", "python", "chess_regex", "docs", "regex_test.pgn")
 )
 
 # Read in the file
@@ -23,10 +24,27 @@ with open(pgn_file) as read:
 
 # Get only those games starting with 1._
 games = []
+start_str = "1. "
 for line in pgn_lines:
-    if line.startswith("1. "):
+    if line.startswith(start_str):
         games.append(line.rstrip())
 
 del pgn_lines
 
+# Get games with 20 - 40 move
+max_move = " 40. "
+min_move = " 20. "
+move_games = []
+for game in games:
+    if min_move in game and max_move not in game:
+        move_games.append(game)
+
 [print(game) for game in games]
+print(len(games))
+input("Cont ONE...")
+del games
+
+
+[print(game) for game in move_games]
+print(len(move_games))
+input("Cont TWO...")
