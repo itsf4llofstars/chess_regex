@@ -31,10 +31,6 @@ for line in pgn_lines:
         games.append(line.rstrip())
 
 del pgn_lines
-os.system("clear")
-[print(game) for game in games]
-print(len(games))
-input("Cont ONE...")
 
 # Get games with 20 - 40 move
 max_move = " 40. "
@@ -45,10 +41,6 @@ for game in games:
         move_games.append(game)
 
 del games
-os.system("clear")
-[print(game) for game in move_games]
-print(len(move_games))
-input("Cont TWO...")
 
 # Omit kibitz ( { [ <
 paren_o = "("
@@ -75,10 +67,6 @@ for game in move_games:
     no_kibitz.append(game)
 
 del move_games
-os.system("clear")
-[print(game) for game in no_kibitz]
-print(len(no_kibitz))
-input("Cont THREE...")
 
 # Git wins and mates
 white = True
@@ -103,12 +91,6 @@ for game in no_kibitz:
             winner.append(game)
 
 del no_kibitz
-os.system("clear")
-[print(game) for game in winner]
-print(len(winner))
-print(f"{white = }")
-print(f"{mate = }")
-input("Cont FOUR...")
 
 random_game = random.choice(winner)
 print(random_game)
