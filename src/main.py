@@ -3,16 +3,51 @@
 This file on the fastest git branch is
 explained in the fastest_branch.md file
 
-Straight through. Little regex as possible.
+Functions. Little regex as possible.
 Full File read into list, appending to a new
 list and deleting the old as we go.
 pgn file size is 1GB, with approx 500,000+ chess games
 read form a 32GB micro-SD card.
-
-100% CPU, 70MB RAM, 1:12
 """
 import os
 import random
+
+
+def read_file():
+    ...
+
+
+def game_start():
+    ...
+
+
+def min_max_move():
+    ...
+
+
+def omit_kibitz():
+    ...
+
+
+def white_wins():
+    ...
+
+
+def white_mates():
+    ...
+
+
+def black_wins():
+    ...
+
+
+def black_mates():
+    ...
+
+
+def random_game():
+    ...
+
 
 file_name = "lichess_201407.pgn"
 pgn_file = os.path.expanduser(
