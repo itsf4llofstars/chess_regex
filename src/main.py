@@ -78,3 +78,33 @@ os.system("clear")
 [print(game) for game in no_kibitz]
 print(len(no_kibitz))
 input("Cont THREE...")
+
+# Git wins and mates
+white = True
+mate = True
+white_win = " 1-0"
+black_win = " 0-1"
+mate_hash = "#"
+winner = []
+
+for game in no_kibitz:
+    if white and mate:
+        if game.endswith(white_win) and mate_hash in game:
+            winner.append(game)
+    elif white and not mate:
+        if game.endswith(white_win) and mate_hash not in game:
+            winner.append(game)
+    elif not white and mate:
+        if game.endswith(black_win) and mate_hash in game:
+            winner.append(game)
+    elif not white and not mate:
+        if game.endswith(black_win) and mate_hash not in game:
+            winner.append(game)
+
+del no_kibitz
+os.system("clear")
+[print(game) for game in winner]
+print(len(winner))
+print(f"{white = }")
+print(f"{mate = }")
+input("Cont FOUR...")
