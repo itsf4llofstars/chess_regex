@@ -8,14 +8,16 @@ Full File read into list, appending to a new
 list and deleting the old as we go.
 pgn file size is 1GB, with approx 500,000+ chess games
 read form a 32GB micro-SD card.
+
+100% CPU, 70MB RAM, 1:12
 """
 import os
 import random
 
-file_name = "lichess_short.pgn"
+file_name = "lichess_201407.pgn"
 pgn_file = os.path.expanduser(
-    # os.path.join("/media", "bumper", "EDD2-E40F", "raspi32", file_name)
-    os.path.join("~", "python", "chess_regex", "docs", "regex_test.pgn")
+    os.path.join("/media", "bumper", "EDD2-E40F", "raspi32", file_name)
+    # os.path.join("~", "python", "chess_regex", "docs", "regex_test.pgn")
 )
 
 # Read in the file
